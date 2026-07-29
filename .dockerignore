@@ -1,0 +1,34 @@
+# Never bake secrets into an image.
+.env
+.env.*
+**/.env
+**/.env.*
+
+# Installed and built artifacts are regenerated inside the image.
+node_modules
+**/node_modules
+**/dist
+**/.tsbuildinfo
+*.tsbuildinfo
+.cache
+
+# Not needed at build time.
+.git
+.gitignore
+.agents
+.vscode
+Dockerfile
+.dockerignore
+README.md
+
+# Replit-specific — irrelevant off-platform.
+.replit
+.replitignore
+.neon
+replit.md
+**/.replit-artifact
+
+# 230 MB of hero videos that no source file references (verified: nothing in
+# artifacts/alaa-agro/src imports or links any .mp4). Excluding them keeps the
+# image ~230 MB smaller. Delete this line if you start actually using a video.
+artifacts/alaa-agro/public/*.mp4

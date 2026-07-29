@@ -1,0 +1,27 @@
+kind = "web"
+previewPath = "/"
+title = "ALAA AGRO Website"
+version = "1.0.0"
+id = "artifacts/alaa-agro"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 25066
+
+[services.development]
+run = "pnpm --filter @workspace/alaa-agro run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/alaa-agro", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/alaa-agro/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "25066"
+BASE_PATH = "/"

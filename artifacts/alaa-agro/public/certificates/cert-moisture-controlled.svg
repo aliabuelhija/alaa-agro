@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="160" height="160">
+  <defs>
+    <radialGradient id="mbg" cx="50%" cy="38%" r="65%">
+      <stop offset="0%" stop-color="#1A2820"/><stop offset="100%" stop-color="#0D1F0B"/>
+    </radialGradient>
+  </defs>
+  <!-- Horizontal rounded rectangle (landscape badge) -->
+  <rect x="4" y="22" width="152" height="116" rx="16" fill="url(#mbg)" stroke="#C29A3D" stroke-width="2.2"/>
+  <rect x="13" y="30" width="134" height="100" rx="12" fill="none" stroke="#C29A3D" stroke-width="0.7" opacity="0.35"/>
+  <!-- Water droplet + percentage -->
+  <g transform="translate(56,70)" fill="none" stroke="#C29A3D" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Droplet -->
+    <path d="M0,-24 Q16,0 16,10 Q16,24 0,24 Q-16,24 -16,10 Q-16,0 0,-24 Z"/>
+    <!-- Inner shine -->
+    <path d="M-6,-6 Q-10,2 -8,10" stroke-width="1" opacity="0.4"/>
+    <!-- Water level line inside -->
+    <path d="M-14,8 Q-7,4 0,8 Q7,12 14,8" stroke-width="1" opacity="0.45"/>
+  </g>
+  <!-- Big % symbol to right -->
+  <text x="106" y="82" text-anchor="middle" font-family="Arial,sans-serif" font-size="36" font-weight="bold" fill="#C29A3D" opacity="0.25">%</text>
+  <text x="106" y="82" text-anchor="middle" font-family="Arial,sans-serif" font-size="36" font-weight="bold" fill="none" stroke="#C29A3D" stroke-width="0.8" opacity="0.6">%</text>
+  <!-- Vertical divider -->
+  <line x1="80" y1="40" x2="80" y2="110" stroke="#C29A3D" stroke-width="0.7" opacity="0.35"/>
+  <line x1="22" y1="106" x2="138" y2="106" stroke="#C29A3D" stroke-width="0.7" opacity="0.45"/>
+  <text x="80" y="118" text-anchor="middle" font-family="Georgia,serif" font-size="9" font-weight="bold" fill="#C29A3D" letter-spacing="0.5">MOISTURE CONTROLLED</text>
+  <text x="80" y="130" text-anchor="middle" font-family="Arial,sans-serif" font-size="6" fill="#8A7A5A" letter-spacing="2">ALAA AGRO</text>
+</svg>

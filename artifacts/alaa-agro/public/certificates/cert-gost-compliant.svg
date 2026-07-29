@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="160" height="160">
+  <defs>
+    <radialGradient id="gbg" cx="50%" cy="38%" r="65%">
+      <stop offset="0%" stop-color="#1E2C1A"/><stop offset="100%" stop-color="#0D1F0B"/>
+    </radialGradient>
+  </defs>
+  <!-- Hexagon -->
+  <polygon points="80,6 140,41 140,119 80,154 20,119 20,41"
+    fill="url(#gbg)" stroke="#C29A3D" stroke-width="2.2"/>
+  <polygon points="80,16 132,46 132,114 80,144 28,114 28,46"
+    fill="none" stroke="#C29A3D" stroke-width="0.7" opacity="0.35"/>
+  <!-- Ruler / measurement icon -->
+  <g transform="translate(80,62)" fill="none" stroke="#C29A3D" stroke-width="1.4" stroke-linecap="round">
+    <rect x="-22" y="-10" width="44" height="20" rx="3"/>
+    <!-- Tick marks -->
+    <line x1="-16" y1="-10" x2="-16" y2="-5"/><line x1="-8" y1="-10" x2="-8" y2="-6"/>
+    <line x1="0"   y1="-10" x2="0"   y2="-4"/><line x1="8"  y1="-10" x2="8"  y2="-6"/>
+    <line x1="16"  y1="-10" x2="16"  y2="-5"/>
+    <!-- Arrow showing measurement -->
+    <line x1="-12" y1="4" x2="12" y2="4"/>
+    <line x1="-12" y1="4" x2="-9" y2="1"/><line x1="-12" y1="4" x2="-9" y2="7"/>
+    <line x1="12"  y1="4" x2="9"  y2="1"/><line x1="12"  y1="4" x2="9"  y2="7"/>
+  </g>
+  <line x1="38" y1="96" x2="122" y2="96" stroke="#C29A3D" stroke-width="0.7" opacity="0.45"/>
+  <text x="80" y="109" text-anchor="middle" font-family="Georgia,serif" font-size="10" font-weight="bold" fill="#C29A3D" letter-spacing="1">GOST</text>
+  <text x="80" y="122" text-anchor="middle" font-family="Georgia,serif" font-size="10" font-weight="bold" fill="#C29A3D" letter-spacing="1">COMPLIANT</text>
+  <text x="80" y="135" text-anchor="middle" font-family="Arial,sans-serif" font-size="6" fill="#8A7A5A" letter-spacing="2">ALAA AGRO</text>
+</svg>

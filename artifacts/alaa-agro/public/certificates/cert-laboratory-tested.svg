@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="160" height="160">
+  <defs>
+    <radialGradient id="lbg" cx="50%" cy="38%" r="65%">
+      <stop offset="0%" stop-color="#1E2C1A"/><stop offset="100%" stop-color="#0D1F0B"/>
+    </radialGradient>
+  </defs>
+  <!-- Diamond / rhombus -->
+  <polygon points="80,4 156,80 80,156 4,80"
+    fill="url(#lbg)" stroke="#C29A3D" stroke-width="2.2"/>
+  <polygon points="80,14 146,80 80,146 14,80"
+    fill="none" stroke="#C29A3D" stroke-width="0.7" opacity="0.35"/>
+  <!-- Microscope icon -->
+  <g transform="translate(80,66)" fill="none" stroke="#C29A3D" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Eyepiece -->
+    <rect x="-4" y="-24" width="8" height="6" rx="1"/>
+    <!-- Body tube -->
+    <path d="M-4,-18 L-6,0 L6,0 L4,-18 Z"/>
+    <!-- Arm -->
+    <path d="M-6,0 Q-14,2 -14,6 L14,6 Q14,2 6,0"/>
+    <!-- Stage -->
+    <rect x="-18" y="6" width="36" height="4" rx="1"/>
+    <!-- Base -->
+    <path d="M-14,10 L-18,20 L18,20 L14,10 Z"/>
+    <!-- Lens circle -->
+    <circle cx="0" cy="-6" r="5" stroke-width="1"/>
+    <!-- Light beam dots -->
+    <circle cx="0" cy="28" r="1.5" fill="#C29A3D" opacity="0.4" stroke="none"/>
+    <circle cx="-4" cy="26" r="1" fill="#C29A3D" opacity="0.3" stroke="none"/>
+    <circle cx="4" cy="26" r="1" fill="#C29A3D" opacity="0.3" stroke="none"/>
+  </g>
+  <line x1="42" y1="106" x2="118" y2="106" stroke="#C29A3D" stroke-width="0.7" opacity="0.45"/>
+  <text x="80" y="117" text-anchor="middle" font-family="Georgia,serif" font-size="9.5" font-weight="bold" fill="#C29A3D" letter-spacing="0.5">LABORATORY</text>
+  <text x="80" y="129" text-anchor="middle" font-family="Georgia,serif" font-size="9.5" font-weight="bold" fill="#C29A3D" letter-spacing="1">TESTED</text>
+  <text x="80" y="142" text-anchor="middle" font-family="Arial,sans-serif" font-size="6" fill="#8A7A5A" letter-spacing="2">ALAA AGRO</text>
+</svg>

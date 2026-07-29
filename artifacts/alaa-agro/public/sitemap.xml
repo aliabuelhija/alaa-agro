@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <!-- EN Routes -->
+  <url>
+    <loc>https://alaa-agro.ru/en</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://alaa-agro.ru/ru" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://alaa-agro.ru/en" />
+  </url>
+  <url>
+    <loc>https://alaa-agro.ru/en/products</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://alaa-agro.ru/ru/products" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://alaa-agro.ru/en/products" />
+  </url>
+  <url>
+    <loc>https://alaa-agro.ru/en/about</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://alaa-agro.ru/ru/about" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://alaa-agro.ru/en/about" />
+  </url>
+  <url>
+    <loc>https://alaa-agro.ru/en/quality</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://alaa-agro.ru/ru/quality" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://alaa-agro.ru/en/quality" />
+  </url>
+  <url>
+    <loc>https://alaa-agro.ru/en/packaging</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://alaa-agro.ru/ru/packaging" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://alaa-agro.ru/en/packaging" />
+  </url>
+  <url>
+    <loc>https://alaa-agro.ru/en/trade</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://alaa-agro.ru/ru/trade" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://alaa-agro.ru/en/trade" />
+  </url>
+  <url>
+    <loc>https://alaa-agro.ru/en/quote</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://alaa-agro.ru/ru/quote" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://alaa-agro.ru/en/quote" />
+  </url>
+  <url>
+    <loc>https://alaa-agro.ru/en/contact</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://alaa-agro.ru/ru/contact" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://alaa-agro.ru/en/contact" />
+  </url>
+
+  <!-- RU Routes -->
+  <url>
+    <loc>https://alaa-agro.ru/ru</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alaa-agro.ru/en" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://alaa-agro.ru/ru" />
+  </url>
+  <url>
+    <loc>https://alaa-agro.ru/ru/products</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alaa-agro.ru/en/products" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://alaa-agro.ru/ru/products" />
+  </url>
+  <url>
+    <loc>https://alaa-agro.ru/ru/about</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alaa-agro.ru/en/about" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://alaa-agro.ru/ru/about" />
+  </url>
+  <url>
+    <loc>https://alaa-agro.ru/ru/quality</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alaa-agro.ru/en/quality" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://alaa-agro.ru/ru/quality" />
+  </url>
+  <url>
+    <loc>https://alaa-agro.ru/ru/packaging</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alaa-agro.ru/en/packaging" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://alaa-agro.ru/ru/packaging" />
+  </url>
+  <url>
+    <loc>https://alaa-agro.ru/ru/trade</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alaa-agro.ru/en/trade" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://alaa-agro.ru/ru/trade" />
+  </url>
+  <url>
+    <loc>https://alaa-agro.ru/ru/quote</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alaa-agro.ru/en/quote" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://alaa-agro.ru/ru/quote" />
+  </url>
+  <url>
+    <loc>https://alaa-agro.ru/ru/contact</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alaa-agro.ru/en/contact" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://alaa-agro.ru/ru/contact" />
+  </url>
+</urlset>

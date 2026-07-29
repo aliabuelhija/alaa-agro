@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://alaa-agro.ru/sitemap.xml

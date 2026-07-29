@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="160" height="160">
+  <defs>
+    <radialGradient id="obg" cx="50%" cy="38%" r="65%">
+      <stop offset="0%" stop-color="#1E2C1A"/><stop offset="100%" stop-color="#0D1F0B"/>
+    </radialGradient>
+  </defs>
+  <!-- Wide oval / landscape ellipse -->
+  <ellipse cx="80" cy="80" rx="76" ry="58" fill="url(#obg)" stroke="#C29A3D" stroke-width="2.2"/>
+  <ellipse cx="80" cy="80" rx="68" ry="50" fill="none" stroke="#C29A3D" stroke-width="0.7" opacity="0.35"/>
+  <!-- World map outline (simplified continents suggestion) -->
+  <g transform="translate(80,68)" fill="none" stroke="#C29A3D" stroke-width="1" opacity="0.6">
+    <ellipse cx="0" cy="0" rx="28" ry="20"/>
+    <!-- Rough Eurasia/Africa blob -->
+    <path d="M-4,-14 Q6,-18 12,-10 Q16,0 10,10 Q4,16 -4,14 Q-12,10 -14,0 Q-12,-10 -4,-14 Z"/>
+    <!-- Americas blob -->
+    <path d="M-20,-8 Q-16,-14 -10,-12 Q-8,-4 -12,6 Q-18,12 -22,4 Q-24,-4 -20,-8 Z"/>
+  </g>
+  <!-- Pin dot on Russia -->
+  <circle cx="94" cy="58" r="4" fill="#C29A3D" opacity="0.7" stroke="none"/>
+  <circle cx="94" cy="58" r="2" fill="#C29A3D" stroke="none"/>
+  <!-- Pulse rings -->
+  <circle cx="94" cy="58" r="7" fill="none" stroke="#C29A3D" stroke-width="0.8" opacity="0.4"/>
+  <circle cx="94" cy="58" r="11" fill="none" stroke="#C29A3D" stroke-width="0.5" opacity="0.2"/>
+  <line x1="24" y1="96" x2="136" y2="96" stroke="#C29A3D" stroke-width="0.7" opacity="0.45"/>
+  <text x="80" y="108" text-anchor="middle" font-family="Georgia,serif" font-size="9.5" font-weight="bold" fill="#C29A3D" letter-spacing="1">ORIGIN</text>
+  <text x="80" y="120" text-anchor="middle" font-family="Georgia,serif" font-size="9.5" font-weight="bold" fill="#C29A3D" letter-spacing="1">VERIFIED</text>
+  <text x="80" y="132" text-anchor="middle" font-family="Arial,sans-serif" font-size="6" fill="#8A7A5A" letter-spacing="2">ALAA AGRO</text>
+</svg>

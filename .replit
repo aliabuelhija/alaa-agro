@@ -1,0 +1,28 @@
+modules = ["nodejs-24", "python-base-3.13"]
+
+[deployment]
+router = "application"
+deploymentTarget = "autoscale"
+
+[deployment.postBuild]
+args = ["pnpm", "store", "prune"]
+env = { "CI" = "true" }
+
+[workflows]
+runButton = "Project"
+
+[agent]
+stack = "PNPM_WORKSPACE"
+expertMode = true
+
+[postMerge]
+path = "scripts/post-merge.sh"
+timeoutMs = 20000
+
+[userenv]
+
+[userenv.shared]
+QUOTE_RECIPIENT_EMAIL = "Alaa.agro_trade@mail.ru"
+SMTP_HOST = "smtp-relay.brevo.com"
+SMTP_PORT = "587"
+SMTP_USER = "b3b0b6001@smtp-brevo.com"

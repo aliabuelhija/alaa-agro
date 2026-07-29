@@ -1,0 +1,253 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Manrope:wght@300;400;500;600;700&display=swap');
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-card-border: hsl(var(--card-border));
+
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-popover-border: hsl(var(--popover-border));
+
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-primary-border: var(--primary-border);
+
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-secondary-border: var(--secondary-border);
+
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-muted-border: var(--muted-border);
+
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-accent-border: var(--accent-border);
+
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-destructive-border: var(--destructive-border);
+
+  --color-sidebar: hsl(var(--sidebar));
+  --color-sidebar-foreground: hsl(var(--sidebar-foreground));
+  --color-sidebar-border: hsl(var(--sidebar-border));
+  --color-sidebar-primary: hsl(var(--sidebar-primary));
+  --color-sidebar-primary-foreground: hsl(var(--sidebar-primary-foreground));
+  --color-sidebar-primary-border: var(--sidebar-primary-border);
+  --color-sidebar-accent: hsl(var(--sidebar-accent));
+  --color-sidebar-accent-foreground: hsl(var(--sidebar-accent-foreground));
+  --color-sidebar-accent-border: var(--sidebar-accent-border);
+  --color-sidebar-ring: hsl(var(--sidebar-ring));
+
+  --font-sans: var(--app-font-sans);
+  --font-serif: var(--app-font-serif);
+  --font-mono: var(--app-font-mono);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+:root {
+  /* ── ALAA AGRO brand palette ── */
+  --forest-dark: #0D241B;
+  --forest: #153C2E;
+  --gold-deep: #A87918;
+  --gold: #C9A33A;
+  --gold-light: #E2C878;
+  --ivory: #F7F2E8;
+  --cream: #EEE4D3;
+  --charcoal: #1E1D19;
+  --muted-text: #6F675C;
+
+  /* Round-7 light premium system (navbar + hero) */
+  --white: #FFFFFF;
+  --warm-white: #FBF8F2;
+  --ivory-2: #F6F0E5;
+  --cream: #EDE2D1;
+  --champagne: #E6D0A1;
+  --light-beige: #D8C5A9;
+  --sky-soft: #BFD5E2;
+  --earth-blue: #315F75;
+  --earth-green: #667A4E;
+  --wheat: #D1A54A;
+  --walnut: #5A3D29;
+  --wood-light: #8A6548;
+  --black: #0B0A08;
+  --black-soft: #17130F;
+  --charcoal: #2A231C;
+  --gold-deep-2: #966615;
+  --gold-2: #C9972D;
+  --gold-rich: #D8AD45;
+  --muted-dark: #6E6256;
+  --muted-light: #C9BFB2;
+
+  --background: 40 48% 94%;
+  --foreground: 40 8% 11%;
+  --primary: 44 55% 51%;
+  --primary-foreground: 157 47% 10%;
+  --accent: 44 55% 51%;
+  --accent-foreground: 157 47% 10%;
+  --card: 40 50% 97%;
+  --card-foreground: 40 8% 11%;
+  --card-border: 42 22% 84%;
+  --muted: 42 24% 88%;
+  --muted-foreground: 35 9% 40%;
+  --border: 42 22% 84%;
+  --input: 42 22% 84%;
+  --ring: 44 55% 51%;
+  --secondary: 157 47% 10%;
+  --secondary-foreground: 40 48% 94%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+  --popover: 43 40% 98%;
+  --popover-foreground: 0 0% 15%;
+  --popover-border: 43 18% 85%;
+  --sidebar: 43 36% 94%;
+  --sidebar-foreground: 0 0% 15%;
+  --sidebar-border: 43 18% 85%;
+  --sidebar-primary: 42 52% 50%;
+  --sidebar-primary-foreground: 30 40% 7%;
+  --sidebar-accent: 42 52% 50%;
+  --sidebar-accent-foreground: 30 40% 7%;
+  --sidebar-ring: 42 52% 50%;
+
+  --app-font-sans: 'Manrope', sans-serif;
+  --app-font-serif: 'Cormorant Garamond', serif;
+  --app-font-mono: Menlo, monospace;
+  --radius: 0.5rem;
+}
+
+.dark {
+  /* Using same values as light mode by default or slightly tweaked if user prefers,
+     but defaulting to light mode appearance given brand guidelines */
+  --background: 158 52% 10%;
+  --foreground: 38 40% 93%;
+  --primary: 38 55% 55%;
+  --primary-foreground: 158 52% 10%;
+  --accent: 38 55% 55%;
+  --accent-foreground: 158 52% 10%;
+  --muted: 158 52% 18%;
+  --muted-foreground: 38 20% 70%;
+  --card: 158 52% 15%;
+  --card-foreground: 38 40% 93%;
+  --card-border: 158 52% 22%;
+  --border: 158 52% 22%;
+  --input: 158 52% 22%;
+  --ring: 38 55% 55%;
+  --popover: 158 52% 15%;
+  --popover-foreground: 38 40% 93%;
+  --popover-border: 158 52% 22%;
+  --secondary: 158 52% 22%;
+  --secondary-foreground: 38 40% 93%;
+  --destructive: 0 62% 30%;
+  --destructive-foreground: 38 40% 93%;
+  --sidebar: 158 52% 10%;
+  --sidebar-foreground: 38 40% 93%;
+  --sidebar-border: 158 52% 22%;
+  --sidebar-primary: 38 55% 55%;
+  --sidebar-primary-foreground: 158 52% 10%;
+  --sidebar-accent: 38 55% 55%;
+  --sidebar-accent-foreground: 158 52% 10%;
+  --sidebar-ring: 38 55% 55%;
+}
+
+@keyframes kenburns {
+  0%   { transform: scale(0.91); }
+  100% { transform: scale(0.95); }
+}
+
+/* ── EXPORT ROUTES — each draws once, then remains visible at low opacity ── */
+@keyframes route-draw {
+  from { stroke-dashoffset: 1; opacity: 0.9; }
+  to   { stroke-dashoffset: 0; opacity: 0.65; }
+}
+.route-draw {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: route-draw 1.6s ease-out forwards;
+}
+
+/* ── MOSCOW ORIGIN — one soft pulse after the marker appears ── */
+/* Moscow label — fades in from 6px below, once per page load */
+.hero-label-fade {
+  opacity: 0;
+  animation: hero-label-fade 0.6s ease-out 1s forwards;
+}
+@keyframes hero-label-fade {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-label-fade { opacity: 1; animation: none; }
+}
+
+@keyframes origin-pulse {
+  0%   { r: 7;  opacity: 0.8; }
+  70%  { r: 18; opacity: 0; }
+  100% { r: 18; opacity: 0; }
+}
+.origin-pulse {
+  animation: origin-pulse 2.8s ease-out 1.4s 1 both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .route-draw, .origin-pulse { animation: none; }
+  .route-draw { stroke-dashoffset: 0; }
+}
+
+.hero-kenburns {
+  animation: kenburns 26s ease-in-out alternate infinite;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-kenburns { animation: none; }
+}
+
+/* ── Visible focus states (keyboard accessibility) ── */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ── HERO MOBILE OVERRIDES ── */
+@media (max-width: 767px) {
+  .hero-overlay-lr {
+    /* Replace the left→right gradient (irrelevant on stacked layout) with a
+       quiet warm dusk top→down grade that keeps ivory text readable */
+    background: linear-gradient(180deg,
+      rgba(28,17,7,0.62) 0%,
+      rgba(28,17,7,0.46) 34%,
+      rgba(30,19,8,0.24) 58%,
+      rgba(30,19,8,0.08) 76%,
+      rgba(24,15,6,0.42) 100%) !important;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply font-sans antialiased bg-background text-foreground selection:bg-accent selection:text-accent-foreground;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+}

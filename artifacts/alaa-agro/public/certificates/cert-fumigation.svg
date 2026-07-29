@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="160" height="160">
+  <defs>
+    <radialGradient id="fbg" cx="50%" cy="38%" r="65%">
+      <stop offset="0%" stop-color="#1E2C1A"/><stop offset="100%" stop-color="#0D1F0B"/>
+    </radialGradient>
+  </defs>
+  <!-- Octagon -->
+  <polygon points="112,8 152,48 152,112 112,152 48,152 8,112 8,48 48,8"
+    fill="url(#fbg)" stroke="#C29A3D" stroke-width="2.2"/>
+  <polygon points="108,17 143,52 143,108 108,143 52,143 17,108 17,52 52,17"
+    fill="none" stroke="#C29A3D" stroke-width="0.7" opacity="0.35"/>
+  <!-- Gas canister + nozzle spray -->
+  <g transform="translate(80,62)" fill="none" stroke="#C29A3D" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Canister body -->
+    <rect x="-12" y="-4" width="24" height="28" rx="4"/>
+    <!-- Canister top cap -->
+    <rect x="-8" y="-10" width="16" height="8" rx="3"/>
+    <!-- Valve knob -->
+    <rect x="-4" y="-16" width="8" height="6" rx="2"/>
+    <!-- Hose to right -->
+    <path d="M12,4 Q22,4 22,-4 Q22,-14 16,-14"/>
+    <!-- Nozzle head -->
+    <rect x="10" y="-18" width="10" height="8" rx="2"/>
+    <!-- Spray droplets -->
+    <circle cx="26" cy="-20" r="1.5" fill="#C29A3D" opacity="0.5" stroke="none"/>
+    <circle cx="30" cy="-14" r="2" fill="#C29A3D" opacity="0.4" stroke="none"/>
+    <circle cx="28" cy="-28" r="1.2" fill="#C29A3D" opacity="0.35" stroke="none"/>
+    <circle cx="34" cy="-22" r="1.5" fill="#C29A3D" opacity="0.3" stroke="none"/>
+    <circle cx="32" cy="-8" r="1" fill="#C29A3D" opacity="0.3" stroke="none"/>
+  </g>
+  <line x1="30" y1="98" x2="130" y2="98" stroke="#C29A3D" stroke-width="0.7" opacity="0.45"/>
+  <text x="80" y="111" text-anchor="middle" font-family="Georgia,serif" font-size="10" font-weight="bold" fill="#C29A3D" letter-spacing="0.5">FUMIGATION</text>
+  <text x="80" y="124" text-anchor="middle" font-family="Georgia,serif" font-size="10" font-weight="bold" fill="#C29A3D" letter-spacing="1">TREATED</text>
+  <text x="80" y="137" text-anchor="middle" font-family="Arial,sans-serif" font-size="6" fill="#8A7A5A" letter-spacing="2">ALAA AGRO</text>
+</svg>

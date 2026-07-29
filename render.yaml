@@ -1,0 +1,38 @@
+# Render Blueprint — https://render.com/docs/blueprint-spec
+#
+# One web service serves both the static site and /api from a single Node
+# process, so there is no routing layer to keep in sync.
+#
+# Deploy: push this repo to GitHub, then in Render choose
+#   New → Blueprint → pick the repo. Set the three secret values when prompted.
+
+services:
+  - type: web
+    name: alaa-agro
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+
+    # Frankfurt is the closest Render region to Russia and the CIS. Options:
+    # oregon | ohio | virginia | frankfurt | singapore.
+    region: frankfurt
+
+    # `free` spins the service down after ~15 min idle, which means a ~50s cold
+    # start for the next visitor — bad for a lead-generation site. `starter`
+    # stays warm. Change this one word if you want to trial it for free first.
+    plan: starter
+
+    healthCheckPath: /api/healthz
+
+    envVars:
+      # sync: false = set the value in the Render dashboard, never in this file.
+      - key: DATABASE_URL
+        sync: false
+      - key: BREVO_API_KEY
+        sync: false
+      - key: SMTP_USER
+        sync: false
+
+      - key: QUOTE_RECIPIENT_EMAIL
+        value: Alaa.agro_trade@mail.ru
+      - key: NODE_ENV
+        value: production

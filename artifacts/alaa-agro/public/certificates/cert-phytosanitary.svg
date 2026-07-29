@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="160" height="160">
+  <defs>
+    <radialGradient id="pbg" cx="50%" cy="38%" r="65%">
+      <stop offset="0%" stop-color="#1A2C1E"/><stop offset="100%" stop-color="#0B1A0F"/>
+    </radialGradient>
+  </defs>
+  <!-- Rounded square (squircle) -->
+  <rect x="8" y="8" width="144" height="144" rx="28" fill="url(#pbg)" stroke="#C29A3D" stroke-width="2.2"/>
+  <rect x="17" y="17" width="126" height="126" rx="22" fill="none" stroke="#C29A3D" stroke-width="0.7" opacity="0.35"/>
+  <!-- Seed sprout icon -->
+  <g transform="translate(80,62)" fill="none" stroke="#C29A3D" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Seed pod at ground -->
+    <ellipse cx="0" cy="18" rx="10" ry="6"/>
+    <!-- Main stem -->
+    <line x1="0" y1="12" x2="0" y2="-8"/>
+    <!-- Left leaf -->
+    <path d="M0,-2 Q-20,-8 -18,-22 Q-6,-16 0,-8"/>
+    <!-- Right leaf -->
+    <path d="M0,-6 Q20,-14 16,-26 Q6,-18 0,-8"/>
+    <!-- Soil line -->
+    <line x1="-22" y1="24" x2="22" y2="24" stroke-width="1" opacity="0.5"/>
+    <!-- Sun rays above -->
+    <line x1="0" y1="-22" x2="0" y2="-28"/>
+    <line x1="6" y1="-20" x2="10" y2="-24"/>
+    <line x1="-6" y1="-20" x2="-10" y2="-24"/>
+  </g>
+  <line x1="30" y1="98" x2="130" y2="98" stroke="#C29A3D" stroke-width="0.7" opacity="0.45"/>
+  <text x="80" y="111" text-anchor="middle" font-family="Georgia,serif" font-size="9" font-weight="bold" fill="#C29A3D" letter-spacing="0.5">PHYTOSANITARY</text>
+  <text x="80" y="124" text-anchor="middle" font-family="Georgia,serif" font-size="9.5" font-weight="bold" fill="#C29A3D" letter-spacing="1">CLEARED</text>
+  <text x="80" y="137" text-anchor="middle" font-family="Arial,sans-serif" font-size="6" fill="#8A7A5A" letter-spacing="2">ALAA AGRO</text>
+</svg>
