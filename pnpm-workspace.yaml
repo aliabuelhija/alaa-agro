@@ -67,7 +67,11 @@ onlyBuiltDependencies:
   - unrs-resolver
 
 overrides:
-  # replit uses linux-x64 only, we can exclude all other platforms
+  # Production deploys to linux-x64 (glibc) only, so every other platform binary
+  # is excluded to keep the install small. NOTE: this is why the root
+  # package.json declares the *-win32-x64* packages explicitly — they are
+  # stripped here, and Windows development needs them. It is also why the Docker
+  # image must be glibc, not musl: no musl binaries survive this list.
   "esbuild>@esbuild/darwin-arm64": "-"
   "esbuild>@esbuild/darwin-x64": "-"
   "esbuild>@esbuild/freebsd-arm64": "-"

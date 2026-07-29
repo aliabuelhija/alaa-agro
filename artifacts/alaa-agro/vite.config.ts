@@ -12,9 +12,10 @@ if (Number.isNaN(port) || port <= 0) {
 
 const basePath = process.env.BASE_PATH ?? "/";
 
-// In production the Replit router forwards /api to the api-server artifact.
-// Locally there is no such router, so proxy it ourselves — without this, Vite
-// answers /api/* with index.html (GET) or 404 (POST) and forms fail silently.
+// In production a single Express process serves both this site and /api, so no
+// proxy is involved. In development they are two processes, so proxy it here —
+// without this, Vite answers /api/* itself with index.html (GET) or 404 (POST)
+// and the quote forms fail.
 const apiTarget = process.env.API_TARGET ?? "http://localhost:8080";
 
 export default defineConfig({
