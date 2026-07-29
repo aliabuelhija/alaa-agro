@@ -71,6 +71,19 @@ if (fs.existsSync(staticDir)) {
       next();
       return;
     }
+    // A dot in the final path segment means the client asked for a file, not an
+    // app route. Those must 404 rather than get the shell: answering 200 with
+    // HTML turns every missing asset into a soft 404, which hides broken images
+    // and lets crawlers index the shell under junk URLs. App routes never carry
+    // an extension (/en/products/wheat).
+    if (path.extname(req.path)) {
+      next();
+      return;
+    }
+    if (!req.accepts("html")) {
+      next();
+      return;
+    }
     res.sendFile(indexHtml);
   });
 
