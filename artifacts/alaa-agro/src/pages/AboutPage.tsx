@@ -173,7 +173,7 @@ export function AboutPage() {
                 style={{ border: '1px solid rgba(194,154,61,0.3)' }}
               >
                 <img
-                  src="/packaging/warehouse-loading.jpg"
+                  src="/hero-real-warehouse.jpg"
                   alt={isEn ? 'ALAA AGRO warehouse — packaged goods ready for export' : 'Склад АЛАА АГРО — упакованные товары, готовые к экспорту'}
                   className="w-full h-72 md:h-96 object-cover"
                 />
