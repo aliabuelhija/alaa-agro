@@ -6,24 +6,59 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=1"
     />
-    <title>ALAA AGRO Website</title>
+    <!--
+      These tags are what crawlers and link-preview scrapers read, because they
+      do not run the JS that SEOHead uses to patch the document per route. They
+      must therefore stand on their own for the site root. SEOHead still
+      overrides them client-side for in-app navigation.
+      Keep in sync with the `seo` block in src/i18n/en.ts.
+    -->
+    <title>
+      ALAA AGRO TRADE LLC | Russian Agricultural Products for Global Trade
+    </title>
     <meta
       name="description"
-      content="ALAA AGRO Website — built on Replit. Update this description to reflect the app."
+      content="Reliable supply of grains, pulses, oilseeds, seeds, and agricultural commodities from Russia to international B2B buyers. GOST-compliant certification, flexible packaging, worldwide shipping."
     />
     <meta name="robots" content="index, follow" />
-    <meta property="og:title" content="ALAA AGRO Website" />
+    <link rel="canonical" href="https://alaa-agro.ru/en" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="ALAA AGRO TRADE LLC" />
+    <meta property="og:url" content="https://alaa-agro.ru/en" />
+    <meta
+      property="og:title"
+      content="ALAA AGRO TRADE LLC | Russian Agricultural Products for Global Trade"
+    />
     <meta
       property="og:description"
-      content="ALAA AGRO Website — built on Replit. Update this description to reflect the app."
+      content="Reliable supply of grains, pulses, oilseeds, seeds, and agricultural commodities from Russia to international B2B buyers."
     />
-    <meta property="og:type" content="website" />
+    <meta
+      property="og:image"
+      content="https://alaa-agro.ru/hero/slide-1-port.jpg"
+    />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="ru_RU" />
+
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="ALAA AGRO Website" />
+    <meta
+      name="twitter:title"
+      content="ALAA AGRO TRADE LLC | Russian Agricultural Products for Global Trade"
+    />
     <meta
       name="twitter:description"
-      content="ALAA AGRO Website — built on Replit. Update this description to reflect the app."
+      content="Reliable supply of grains, pulses, oilseeds, seeds, and agricultural commodities from Russia to international B2B buyers."
     />
+    <meta
+      name="twitter:image"
+      content="https://alaa-agro.ru/hero/slide-1-port.jpg"
+    />
+
+    <link rel="alternate" hreflang="en" href="https://alaa-agro.ru/en" />
+    <link rel="alternate" hreflang="ru" href="https://alaa-agro.ru/ru" />
+    <link rel="alternate" hreflang="x-default" href="https://alaa-agro.ru/en" />
+
     <link rel="icon" type="image/png" href="/alaa-agro-logo.png" />
     <link
       rel="preload"

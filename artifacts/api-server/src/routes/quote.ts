@@ -16,9 +16,12 @@ async function sendViaBrevo(opts: {
   const apiKey = process.env["BREVO_API_KEY"];
   if (!apiKey) throw new Error("BREVO_API_KEY not set");
 
-  // Sender email must be a verified sender in your Brevo account.
-  // The SMTP login address is always pre-verified for transactional sending.
-  const senderEmail = process.env["SMTP_USER"] ?? "noreply@brevo.com";
+  // Must be an address that appears under Senders in the Brevo account, which
+  // is NOT the same thing as the SMTP login (`SMTP_USER`). Sending from the SMTP
+  // login gets rejected, and because email failures here are non-fatal that
+  // showed up as leads silently arriving without a notification.
+  const senderEmail = process.env["BREVO_SENDER_EMAIL"];
+  if (!senderEmail) throw new Error("BREVO_SENDER_EMAIL not set");
 
   const payload = {
     sender: { name: "ALAA AGRO Website", email: senderEmail },
@@ -44,10 +47,27 @@ async function sendViaBrevo(opts: {
   }
 }
 
+// Every value below is buyer-supplied and goes straight into an HTML email, so
+// it has to be escaped — otherwise a `message` field containing markup rewrites
+// the notification you read.
+const ESCAPES: Record<string, string> = {
+  "&": "&amp;",
+  "<": "&lt;",
+  ">": "&gt;",
+  '"': "&quot;",
+  "'": "&#39;",
+};
+
+function esc(value: unknown): string {
+  return String(value)
+    .replace(/[&<>"']/g, (c) => ESCAPES[c] ?? c)
+    .replace(/\r?\n/g, "<br>");
+}
+
 function buildEmailHtml(data: Record<string, unknown>): string {
   const row = (label: string, value: unknown) =>
     value
-      ? `<tr><td style="padding:6px 12px;font-weight:600;color:#555;white-space:nowrap;vertical-align:top;">${label}</td><td style="padding:6px 12px;color:#111;">${String(value)}</td></tr>`
+      ? `<tr><td style="padding:6px 12px;font-weight:600;color:#555;white-space:nowrap;vertical-align:top;">${label}</td><td style="padding:6px 12px;color:#111;">${esc(value)}</td></tr>`
       : "";
 
   const productsStr = String(data["productsOfInterest"] ?? "");
@@ -154,9 +174,18 @@ router.post("/quote", async (req: Request, res: Response) => {
   // ── Step 2: Send email via Brevo API (best-effort) ────────────────────────
   const recipientEmail = process.env["QUOTE_RECIPIENT_EMAIL"];
   const brevoApiKey = process.env["BREVO_API_KEY"];
+  const senderEmail = process.env["BREVO_SENDER_EMAIL"];
 
-  if (!brevoApiKey || !recipientEmail) {
-    logger.warn({ id: savedId }, "Brevo not configured — quote saved to DB only");
+  if (!brevoApiKey || !recipientEmail || !senderEmail) {
+    logger.warn(
+      {
+        id: savedId,
+        hasApiKey: Boolean(brevoApiKey),
+        hasRecipient: Boolean(recipientEmail),
+        hasSender: Boolean(senderEmail),
+      },
+      "Brevo not fully configured — quote saved to DB only",
+    );
     await db
       .update(quoteRequestsTable)
       .set({ emailSent: "no_smtp" })

@@ -45,6 +45,16 @@ export function SEOHead({ title, description, path = '' }: SEOHeadProps) {
     }
     ogLocale.setAttribute('content', locale === 'en' ? 'en_US' : 'ru_RU');
 
+    // Canonical for the current route. index.html ships one for the site root;
+    // this keeps it correct as the user navigates.
+    let canonical = document.querySelector('link[rel="canonical"]');
+    if (!canonical) {
+      canonical = document.createElement('link');
+      canonical.setAttribute('rel', 'canonical');
+      document.head.appendChild(canonical);
+    }
+    canonical.setAttribute('href', `https://alaa-agro.ru${path || `/${locale}`}`);
+
     // Clean up alternate links
     document.querySelectorAll('link[rel="alternate"]').forEach(el => el.remove());
     

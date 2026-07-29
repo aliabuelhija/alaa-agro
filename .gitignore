@@ -27,7 +27,7 @@ node_modules
 !.vscode/launch.json
 !.vscode/extensions.json
 
-# secrets — never commit; on Replit these come from Secrets / .replit [userenv]
+# secrets — never commit; in production these come from the host's environment
 .env
 .env.*
 !.env.example
@@ -52,3 +52,6 @@ Thumbs.db
 # Replit
 .cache/
 .local/
+
+# Claude Code local state
+.claude/settings.local.json

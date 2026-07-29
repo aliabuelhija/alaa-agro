@@ -20,13 +20,7 @@ node_modules
 Dockerfile
 .dockerignore
 README.md
-
-# Replit-specific — irrelevant off-platform.
-.replit
-.replitignore
-.neon
-replit.md
-**/.replit-artifact
+render.yaml
 
 # 230 MB of hero videos that no source file references (verified: nothing in
 # artifacts/alaa-agro/src imports or links any .mp4). Excluding them keeps the
