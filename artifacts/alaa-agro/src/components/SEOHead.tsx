@@ -53,7 +53,7 @@ export function SEOHead({ title, description, path = '' }: SEOHeadProps) {
       canonical.setAttribute('rel', 'canonical');
       document.head.appendChild(canonical);
     }
-    canonical.setAttribute('href', `https://alaa-agro.ru${path || `/${locale}`}`);
+    canonical.setAttribute('href', `https://alaa-argo.com${path || `/${locale}`}`);
 
     // Clean up alternate links
     document.querySelectorAll('link[rel="alternate"]').forEach(el => el.remove());
@@ -63,7 +63,7 @@ export function SEOHead({ title, description, path = '' }: SEOHeadProps) {
       const link = document.createElement('link');
       link.setAttribute('rel', 'alternate');
       link.setAttribute('hreflang', lang);
-      link.setAttribute('href', `https://alaa-agro.ru${href}`);
+      link.setAttribute('href', `https://alaa-argo.com${href}`);
       document.head.appendChild(link);
     };
 

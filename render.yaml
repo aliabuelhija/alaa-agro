@@ -33,7 +33,7 @@ services:
       # Must be an address listed under Senders in Brevo — NOT the SMTP login.
       # Brevo rejects unverified senders, and because email failure is non-fatal
       # that shows up as leads saving with no notification email. Ideally
-      # noreply@alaa-agro.ru once the domain is authenticated in Brevo, which
+      # noreply@alaa-argo.com once the domain is authenticated in Brevo, which
       # also fixes SPF/DKIM alignment for delivery to mail.ru.
       - key: BREVO_SENDER_EMAIL
         sync: false

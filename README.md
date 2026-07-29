@@ -4,7 +4,12 @@ Bilingual (EN/RU) marketing and lead-capture site for ALAA AGRO TRADE LLC, a
 Russian exporter of grains, pulses, oilseeds, seeds and sunflower oil to
 international B2B buyers.
 
-Live: https://alaa-agro.onrender.com — target domain `alaa-agro.ru`.
+Live at **https://alaa-argo.com** (Cloudflare in front of Render). The Render
+service is also reachable directly at https://alaa-agro.onrender.com.
+
+Note the spelling: the domain is `alaa-argo` (r before g), while the workspace
+package and directory are `alaa-agro`. Canonical URLs, hreflang and the sitemap
+must all use the domain spelling.
 
 ## Run locally
 

@@ -10,7 +10,7 @@
 import fs from "node:fs";
 import path from "node:path";
 
-const ORIGIN = "https://alaa-agro.ru";
+const ORIGIN = "https://alaa-argo.com";
 const LOCALES = ["en", "ru"];
 const DEFAULT_LOCALE = "en";
 
