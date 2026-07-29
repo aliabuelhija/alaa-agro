@@ -15,13 +15,21 @@ RUN corepack enable && corepack prepare pnpm@11.18.0 --activate
 # layers buy little and break easily.
 COPY . .
 
-# CI=false keeps ERR_PNPM_IGNORED_BUILDS a warning rather than a hard failure.
-# esbuild is already listed under `onlyBuiltDependencies` in pnpm-workspace.yaml,
-# so its build script is approved; this only stops the stricter CI-mode check
-# (which build platforms set by default) from aborting the install. If esbuild
-# were genuinely broken, the api-server build below would fail loudly — it runs
-# esbuild directly.
-RUN CI=false pnpm install --frozen-lockfile
+# --ignore-scripts is deliberate. pnpm 11 aborts the install when a dependency
+# has an unapproved build script, and it rejected esbuild@0.27.3 even though
+# pnpm-workspace.yaml lists `esbuild` under onlyBuiltDependencies. Opting out of
+# scripts outright is deterministic and safe here:
+#
+#   * esbuild is the only installed package with a script (`postinstall`) — the
+#     other onlyBuiltDependencies entries (@swc/core, msw, unrs-resolver) have
+#     zero references in the lockfile.
+#   * esbuild gets its binary from the @esbuild/linux-x64 optional dependency,
+#     which is in the lockfile, rather than from that postinstall step.
+#   * the two build commands below invoke esbuild directly, so a genuinely
+#     broken esbuild fails loudly on the very next line instead of shipping.
+#
+# strictDepBuilds=false is belt-and-braces in case the check still fires.
+RUN pnpm install --frozen-lockfile --ignore-scripts --config.strictDepBuilds=false
 
 RUN pnpm --filter @workspace/alaa-agro run build \
  && pnpm --filter @workspace/api-server run build
