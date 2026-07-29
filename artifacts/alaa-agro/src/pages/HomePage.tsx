@@ -160,7 +160,7 @@ export function HomePage() {
               },
               {
                 key: "Packaging & Logistics",
-                img: "hero-real-warehouse.jpg",
+                img: "packaging/container-load.jpg",
                 icon: <Package size={18} strokeWidth={1.5} />,
                 span: "sm:col-span-2 lg:col-span-8",
                 minH: "min-h-[268px]",
