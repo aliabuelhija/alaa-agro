@@ -94,7 +94,7 @@ Source of truth for content:
 | `DATABASE_URL` | yes | Neon Postgres connection string |
 | `PORT` | yes | Render sets this; `8080` locally |
 | `BREVO_API_KEY` | for email | Brevo transactional API key |
-| `BREVO_SENDER_EMAIL` | for email | Must be verified in Brevo |
+| `BREVO_SENDER_EMAIL` | for email | `noreply@alaa-argo.com` — must be a verified Brevo sender |
 | `QUOTE_RECIPIENT_EMAIL` | for email | Where quote notifications go |
 | `STATIC_DIR` | no | Defaults to the sibling SPA build |
 
