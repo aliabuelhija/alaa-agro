@@ -16,7 +16,7 @@ export function InsightsPage() {
       <div className="bg-background min-h-screen pt-32 pb-24">
         <article className="container mx-auto px-6 max-w-3xl">
           <Link href="/insights" className="inline-flex items-center text-sm font-medium text-muted-foreground hover:text-foreground mb-8 transition-colors">
-            <ArrowLeft size={16} className="mr-2" /> Back to Insights
+            <ArrowLeft size={16} className="me-2" /> Back to Insights
           </Link>
           
           <div className="mb-8">

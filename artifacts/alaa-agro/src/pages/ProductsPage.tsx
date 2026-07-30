@@ -52,7 +52,7 @@ export function ProductsPage() {
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
             <div>
               <p className="text-xs font-bold tracking-[0.2em] uppercase mb-3" style={{ color: '#C29A3D' }}>
-                {locale === 'en' ? 'Product Catalogue' : 'Каталог продукции'}
+                {locale !== 'ru' ? 'Product Catalogue' : 'Каталог продукции'}
               </p>
               <h1 className="font-serif text-3xl md:text-5xl text-white leading-tight">
                 {t('productsPage.title')}
@@ -112,7 +112,7 @@ export function ProductsPage() {
               placeholder={t('productsPage.search')}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-9 pr-8 py-2.5 rounded-lg border border-border bg-card text-sm focus:outline-none focus:ring-2 focus:ring-accent/40 focus:border-accent transition-all"
+              className="w-full ps-9 pe-8 py-2.5 rounded-lg border border-border bg-card text-sm focus:outline-none focus:ring-2 focus:ring-accent/40 focus:border-accent transition-all"
             />
             {searchQuery && (
               <button
@@ -163,7 +163,7 @@ export function ProductsPage() {
         <div className="rounded-xl bg-[#1A1200] border border-white/10 p-8 md:p-10 flex flex-col md:flex-row items-center justify-between gap-6">
           <div>
             <p className="text-xs font-bold tracking-[0.18em] uppercase mb-2" style={{ color: '#C29A3D' }}>
-              {locale === 'en' ? 'Ready to order?' : 'Готовы к заказу?'}
+              {locale !== 'ru' ? 'Ready to order?' : 'Готовы к заказу?'}
             </p>
             <h3 className="font-serif text-xl md:text-2xl text-white">{t('quoteCta.help')}</h3>
             <p className="text-white/60 text-sm mt-1">{t('quoteCta.body')}</p>

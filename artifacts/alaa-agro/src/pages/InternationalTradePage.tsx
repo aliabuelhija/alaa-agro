@@ -210,7 +210,7 @@ function ExportProcessSection({ isEn }: { isEn: boolean }) {
 
 export function InternationalTradePage() {
   const { locale, t } = useLocale();
-  const isEn = locale === 'en';
+  const isEn = locale !== 'ru';
 
   return (
     <div className="bg-background pt-[82px]">
@@ -300,7 +300,7 @@ export function InternationalTradePage() {
             href={`/${locale}/quote`}
             className="inline-flex items-center px-10 py-4 bg-accent text-accent-foreground font-semibold rounded hover:bg-accent/90 transition-all hover:shadow-[0_8px_30px_rgba(194,154,61,0.35)] uppercase tracking-wide text-sm"
           >
-            {t('quoteCta.primary')} <ArrowRight size={18} className="ml-2" />
+            {t('quoteCta.primary')} <ArrowRight size={18} className="ms-2" />
           </Link>
         </div>
       </section>

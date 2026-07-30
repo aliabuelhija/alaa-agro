@@ -89,7 +89,7 @@ const stats = [
 
 export function AboutPage() {
   const { locale, t } = useLocale();
-  const isEn = locale === 'en';
+  const isEn = locale !== 'ru';
 
   return (
     <div className="bg-background pt-[82px] pb-0">

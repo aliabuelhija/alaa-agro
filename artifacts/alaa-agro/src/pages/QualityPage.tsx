@@ -36,7 +36,7 @@ export function QualityPage() {
 
           <div className="mb-10">
             <p className="text-xs uppercase tracking-[0.25em] text-accent font-semibold mb-3">
-              {locale === 'en' ? 'Our Process' : 'Наш процесс'}
+              {locale !== 'ru' ? 'Our Process' : 'Наш процесс'}
             </p>
             <h2 className="text-3xl md:text-4xl font-serif text-foreground">{t('qualityPage.focusTitle')}</h2>
           </div>
@@ -107,7 +107,7 @@ export function QualityPage() {
                 href={`/${locale}/products`}
                 className="inline-flex items-center px-8 py-4 bg-accent text-accent-foreground font-semibold rounded hover:bg-accent/90 transition-colors uppercase tracking-wide text-sm"
               >
-                {t('nav.products')} <ArrowRight size={18} className="ml-2" />
+                {t('nav.products')} <ArrowRight size={18} className="ms-2" />
               </Link>
             </div>
             {/* Certificates section */}

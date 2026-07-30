@@ -90,7 +90,7 @@ export function QuotePage() {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } catch {
       setSubmitError(
-        locale === 'en'
+        locale !== 'ru'
           ? 'We could not send your request. Please try again or contact us directly on WhatsApp.'
           : 'Не удалось отправить запрос. Пожалуйста, попробуйте ещё раз или свяжитесь с нами напрямую в WhatsApp.'
       );
@@ -138,7 +138,7 @@ export function QuotePage() {
             <CheckCircle2 className="w-24 h-24 text-accent mx-auto mb-8" />
             <h1 className="text-4xl md:text-5xl font-serif text-foreground mb-6">{t('forms.success')}</h1>
             <p className="text-muted-foreground text-lg max-w-lg mx-auto mb-10">
-              {locale === 'en' 
+              {locale !== 'ru' 
                 ? 'Thank you for your request. Our commercial team will review your requirements and contact you shortly.'
                 : 'Спасибо за ваш запрос. Наша коммерческая команда изучит ваши требования и свяжется с вами в ближайшее время.'}
             </p>
@@ -146,11 +146,11 @@ export function QuotePage() {
             {/* WhatsApp follow-up */}
             <div className="max-w-md mx-auto">
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent mb-3">
-                {locale === 'en' ? 'Want to follow up? Reach us on WhatsApp' : 'Хотите уточнить детали? Напишите нам в WhatsApp'}
+                {locale !== 'ru' ? 'Want to follow up? Reach us on WhatsApp' : 'Хотите уточнить детали? Напишите нам в WhatsApp'}
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-left">
                 {WA_CONTACTS.map(c => {
-                  const msg = locale === 'en'
+                  const msg = locale !== 'ru'
                     ? `Hello, I have just submitted a quote request on the ALAA AGRO website and would like to follow up.`
                     : `Здравствуйте, я только что отправил запрос на коммерческое предложение на сайте АЛАА АГРО и хотел бы уточнить детали.`;
                   return (
@@ -167,11 +167,11 @@ export function QuotePage() {
                       </span>
                       <div className="min-w-0">
                         <p className="text-sm font-semibold text-foreground leading-tight">
-                          {locale === 'en' ? c.nameEn : c.nameRu}
+                          {locale !== 'ru' ? c.nameEn : c.nameRu}
                         </p>
                         <p className="text-xs text-muted-foreground">{c.phone}</p>
                       </div>
-                      <ArrowRight size={14} className="ml-auto shrink-0 text-muted-foreground group-hover:text-foreground transition-colors" />
+                      <ArrowRight size={14} className="ms-auto shrink-0 text-muted-foreground group-hover:text-foreground transition-colors" />
                     </a>
                   );
                 })}
@@ -188,11 +188,11 @@ export function QuotePage() {
             {/* WhatsApp quick contact */}
             <div className="mb-10 bg-card border border-border rounded-2xl p-6">
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent mb-3">
-                {locale === 'en' ? 'Fastest response — WhatsApp' : 'Быстрый ответ — WhatsApp'}
+                {locale !== 'ru' ? 'Fastest response — WhatsApp' : 'Быстрый ответ — WhatsApp'}
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {WA_CONTACTS.map(c => {
-                  const msg = locale === 'en'
+                  const msg = locale !== 'ru'
                     ? `Hello, I would like to submit a quote request for ALAA AGRO products.`
                     : `Здравствуйте, я хотел бы отправить запрос на коммерческое предложение по продукции АЛАА АГРО.`;
                   return (
@@ -209,11 +209,11 @@ export function QuotePage() {
                       </span>
                       <div className="min-w-0">
                         <p className="text-sm font-semibold text-foreground leading-tight">
-                          {locale === 'en' ? c.nameEn : c.nameRu}
+                          {locale !== 'ru' ? c.nameEn : c.nameRu}
                         </p>
                         <p className="text-xs text-muted-foreground">{c.phone}</p>
                       </div>
-                      <ArrowRight size={14} className="ml-auto shrink-0 text-muted-foreground group-hover:text-foreground transition-colors" />
+                      <ArrowRight size={14} className="ms-auto shrink-0 text-muted-foreground group-hover:text-foreground transition-colors" />
                     </a>
                   );
                 })}
@@ -221,7 +221,7 @@ export function QuotePage() {
               <div className="flex items-center gap-3 mt-5">
                 <div className="flex-1 h-px bg-border" />
                 <span className="text-xs text-muted-foreground px-1">
-                  {locale === 'en' ? 'or fill in the form below' : 'или заполните форму ниже'}
+                  {locale !== 'ru' ? 'or fill in the form below' : 'или заполните форму ниже'}
                 </span>
                 <div className="flex-1 h-px bg-border" />
               </div>
@@ -271,12 +271,12 @@ export function QuotePage() {
                 <h2 className="text-2xl font-serif mb-8 border-b border-border pb-4">{t('quotePage.step2')}</h2>
                 
                 <div className="mb-8">
-                  <label className="block text-sm font-medium mb-4">{t('quotePage.productsLabel')} * <span className="text-xs text-muted-foreground font-normal ml-2">({t('quotePage.productsHint')})</span></label>
+                  <label className="block text-sm font-medium mb-4">{t('quotePage.productsLabel')} * <span className="text-xs text-muted-foreground font-normal ms-2">({t('quotePage.productsHint')})</span></label>
                   <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
                     {products.map(p => (
                       <label key={p.id} className={`flex items-center gap-3 p-3 rounded-lg border cursor-pointer transition-colors ${selectedProducts.includes(p.name) ? 'border-accent bg-accent/5' : 'border-border bg-background hover:border-accent/50'}`}>
                         <input type="checkbox" value={p.name} {...register("productsOfInterest")} className="accent-accent" />
-                        <span className="text-sm font-medium">{locale === 'en' ? p.name : p.nameRu}</span>
+                        <span className="text-sm font-medium">{locale !== 'ru' ? p.name : p.nameRu}</span>
                       </label>
                     ))}
                   </div>
@@ -392,7 +392,7 @@ export function QuotePage() {
                     className="flex items-center gap-2 px-10 py-3 bg-accent text-accent-foreground font-bold rounded-lg hover:bg-accent/90 transition-colors shadow-lg uppercase tracking-wide disabled:opacity-60 disabled:cursor-not-allowed"
                   >
                     {isSubmitting
-                      ? (locale === 'en' ? 'Sending…' : 'Отправка…')
+                      ? (locale !== 'ru' ? 'Sending…' : 'Отправка…')
                       : t('forms.submit')}
                   </button>
                 )}

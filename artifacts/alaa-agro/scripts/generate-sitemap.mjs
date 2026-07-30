@@ -11,7 +11,7 @@ import fs from "node:fs";
 import path from "node:path";
 
 const ORIGIN = "https://alaa-argo.com";
-const LOCALES = ["en", "ru"];
+const LOCALES = ["en", "ru", "ar"];
 const DEFAULT_LOCALE = "en";
 
 const pkgRoot = path.resolve(import.meta.dirname, "..");

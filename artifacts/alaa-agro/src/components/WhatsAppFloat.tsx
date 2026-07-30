@@ -34,7 +34,7 @@ export function WhatsAppFloat() {
             >
               <X size={14} />
             </button>
-            <p className="text-[13px] font-semibold text-gray-900 mb-1 pr-4">
+            <p className="text-[13px] font-semibold text-gray-900 mb-1 pe-4">
               {locale === 'ru' ? 'Пишите напрямую в WhatsApp' : 'Chat directly on WhatsApp'}
             </p>
             <p className="text-[12px] text-gray-500 mb-3 leading-snug">

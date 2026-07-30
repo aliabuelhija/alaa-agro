@@ -4,7 +4,7 @@ import { Toaster } from '@/components/ui/toaster';
 import { TooltipProvider } from '@/components/ui/tooltip';
 import { Route, Switch, Router as WouterRouter, useLocation, Redirect } from 'wouter';
 import { LocaleProvider, useLocale } from './contexts/LocaleContext';
-import { Locale } from './i18n';
+import { DEFAULT_LOCALE, isLocale, localeFromPath } from './i18n';
 
 // Layout
 import { Layout } from './components/Layout';
@@ -36,18 +36,15 @@ function LocaleRouter() {
 
   // Update context locale if URL locale changes
   React.useEffect(() => {
-    const match = location.match(/^\/(en|ru)(?:\/|$)/);
-    if (match) {
-      const urlLocale = match[1] as Locale;
-      if (urlLocale !== contextLocale) {
-        setLocale(urlLocale);
-      }
+    const urlLocale = localeFromPath(location);
+    if (urlLocale && urlLocale !== contextLocale) {
+      setLocale(urlLocale);
     }
   }, [location, contextLocale, setLocale]);
 
-  const match = location.match(/^\/(en|ru)(?:\/|$)/);
-  if (!match) {
-    const storedLocale = localStorage.getItem('alaa_agro_locale') || 'en';
+  if (!localeFromPath(location)) {
+    const saved = localStorage.getItem('alaa_agro_locale');
+    const storedLocale = isLocale(saved) ? saved : DEFAULT_LOCALE;
     const cleanLocation = location === '/' ? '' : location;
     return <Redirect to={`/${storedLocale}${cleanLocation}`} />;
   }

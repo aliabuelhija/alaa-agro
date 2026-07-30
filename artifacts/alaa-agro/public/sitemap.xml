@@ -5,288 +5,504 @@
     <loc>https://alaa-argo.com/en</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://alaa-argo.com/en" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://alaa-argo.com/ru" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alaa-argo.com/ar" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://alaa-argo.com/en" />
   </url>
   <url>
     <loc>https://alaa-argo.com/en/products</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://alaa-argo.com/en/products" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://alaa-argo.com/ru/products" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alaa-argo.com/ar/products" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://alaa-argo.com/en/products" />
   </url>
   <url>
     <loc>https://alaa-argo.com/en/about</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://alaa-argo.com/en/about" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://alaa-argo.com/ru/about" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alaa-argo.com/ar/about" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://alaa-argo.com/en/about" />
   </url>
   <url>
     <loc>https://alaa-argo.com/en/quality</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://alaa-argo.com/en/quality" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://alaa-argo.com/ru/quality" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alaa-argo.com/ar/quality" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://alaa-argo.com/en/quality" />
   </url>
   <url>
     <loc>https://alaa-argo.com/en/packaging</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://alaa-argo.com/en/packaging" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://alaa-argo.com/ru/packaging" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alaa-argo.com/ar/packaging" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://alaa-argo.com/en/packaging" />
   </url>
   <url>
     <loc>https://alaa-argo.com/en/trade</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://alaa-argo.com/en/trade" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://alaa-argo.com/ru/trade" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alaa-argo.com/ar/trade" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://alaa-argo.com/en/trade" />
   </url>
   <url>
     <loc>https://alaa-argo.com/en/quote</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://alaa-argo.com/en/quote" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://alaa-argo.com/ru/quote" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alaa-argo.com/ar/quote" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://alaa-argo.com/en/quote" />
   </url>
   <url>
     <loc>https://alaa-argo.com/en/contact</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://alaa-argo.com/en/contact" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://alaa-argo.com/ru/contact" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alaa-argo.com/ar/contact" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://alaa-argo.com/en/contact" />
   </url>
   <url>
     <loc>https://alaa-argo.com/en/products/wheat</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://alaa-argo.com/en/products/wheat" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://alaa-argo.com/ru/products/wheat" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alaa-argo.com/ar/products/wheat" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://alaa-argo.com/en/products/wheat" />
   </url>
   <url>
     <loc>https://alaa-argo.com/en/products/corn</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://alaa-argo.com/en/products/corn" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://alaa-argo.com/ru/products/corn" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alaa-argo.com/ar/products/corn" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://alaa-argo.com/en/products/corn" />
   </url>
   <url>
     <loc>https://alaa-argo.com/en/products/barley</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://alaa-argo.com/en/products/barley" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://alaa-argo.com/ru/products/barley" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alaa-argo.com/ar/products/barley" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://alaa-argo.com/en/products/barley" />
   </url>
   <url>
     <loc>https://alaa-argo.com/en/products/oats</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://alaa-argo.com/en/products/oats" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://alaa-argo.com/ru/products/oats" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alaa-argo.com/ar/products/oats" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://alaa-argo.com/en/products/oats" />
   </url>
   <url>
     <loc>https://alaa-argo.com/en/products/buckwheat</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://alaa-argo.com/en/products/buckwheat" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://alaa-argo.com/ru/products/buckwheat" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alaa-argo.com/ar/products/buckwheat" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://alaa-argo.com/en/products/buckwheat" />
   </url>
   <url>
     <loc>https://alaa-argo.com/en/products/millet</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://alaa-argo.com/en/products/millet" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://alaa-argo.com/ru/products/millet" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alaa-argo.com/ar/products/millet" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://alaa-argo.com/en/products/millet" />
   </url>
   <url>
     <loc>https://alaa-argo.com/en/products/sorghum</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://alaa-argo.com/en/products/sorghum" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://alaa-argo.com/ru/products/sorghum" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alaa-argo.com/ar/products/sorghum" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://alaa-argo.com/en/products/sorghum" />
   </url>
   <url>
     <loc>https://alaa-argo.com/en/products/chickpeas</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://alaa-argo.com/en/products/chickpeas" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://alaa-argo.com/ru/products/chickpeas" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alaa-argo.com/ar/products/chickpeas" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://alaa-argo.com/en/products/chickpeas" />
   </url>
   <url>
     <loc>https://alaa-argo.com/en/products/lentils</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://alaa-argo.com/en/products/lentils" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://alaa-argo.com/ru/products/lentils" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alaa-argo.com/ar/products/lentils" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://alaa-argo.com/en/products/lentils" />
   </url>
   <url>
     <loc>https://alaa-argo.com/en/products/peas</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://alaa-argo.com/en/products/peas" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://alaa-argo.com/ru/products/peas" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alaa-argo.com/ar/products/peas" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://alaa-argo.com/en/products/peas" />
   </url>
   <url>
     <loc>https://alaa-argo.com/en/products/yellow-peas</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://alaa-argo.com/en/products/yellow-peas" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://alaa-argo.com/ru/products/yellow-peas" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alaa-argo.com/ar/products/yellow-peas" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://alaa-argo.com/en/products/yellow-peas" />
   </url>
   <url>
     <loc>https://alaa-argo.com/en/products/brown-flaxseed</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://alaa-argo.com/en/products/brown-flaxseed" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://alaa-argo.com/ru/products/brown-flaxseed" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alaa-argo.com/ar/products/brown-flaxseed" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://alaa-argo.com/en/products/brown-flaxseed" />
   </url>
   <url>
     <loc>https://alaa-argo.com/en/products/sunflower-seeds</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://alaa-argo.com/en/products/sunflower-seeds" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://alaa-argo.com/ru/products/sunflower-seeds" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alaa-argo.com/ar/products/sunflower-seeds" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://alaa-argo.com/en/products/sunflower-seeds" />
   </url>
   <url>
     <loc>https://alaa-argo.com/en/products/spring-vetch</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://alaa-argo.com/en/products/spring-vetch" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://alaa-argo.com/ru/products/spring-vetch" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alaa-argo.com/ar/products/spring-vetch" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://alaa-argo.com/en/products/spring-vetch" />
   </url>
   <url>
     <loc>https://alaa-argo.com/en/products/coriander</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://alaa-argo.com/en/products/coriander" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://alaa-argo.com/ru/products/coriander" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alaa-argo.com/ar/products/coriander" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://alaa-argo.com/en/products/coriander" />
   </url>
   <url>
     <loc>https://alaa-argo.com/en/products/sunflower-oil</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://alaa-argo.com/en/products/sunflower-oil" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://alaa-argo.com/ru/products/sunflower-oil" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alaa-argo.com/ar/products/sunflower-oil" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://alaa-argo.com/en/products/sunflower-oil" />
   </url>
   <url>
     <loc>https://alaa-argo.com/ru</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://alaa-argo.com/en" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://alaa-argo.com/ru" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alaa-argo.com/ar" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://alaa-argo.com/en" />
   </url>
   <url>
     <loc>https://alaa-argo.com/ru/products</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://alaa-argo.com/en/products" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://alaa-argo.com/ru/products" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alaa-argo.com/ar/products" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://alaa-argo.com/en/products" />
   </url>
   <url>
     <loc>https://alaa-argo.com/ru/about</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://alaa-argo.com/en/about" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://alaa-argo.com/ru/about" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alaa-argo.com/ar/about" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://alaa-argo.com/en/about" />
   </url>
   <url>
     <loc>https://alaa-argo.com/ru/quality</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://alaa-argo.com/en/quality" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://alaa-argo.com/ru/quality" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alaa-argo.com/ar/quality" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://alaa-argo.com/en/quality" />
   </url>
   <url>
     <loc>https://alaa-argo.com/ru/packaging</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://alaa-argo.com/en/packaging" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://alaa-argo.com/ru/packaging" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alaa-argo.com/ar/packaging" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://alaa-argo.com/en/packaging" />
   </url>
   <url>
     <loc>https://alaa-argo.com/ru/trade</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://alaa-argo.com/en/trade" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://alaa-argo.com/ru/trade" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alaa-argo.com/ar/trade" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://alaa-argo.com/en/trade" />
   </url>
   <url>
     <loc>https://alaa-argo.com/ru/quote</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://alaa-argo.com/en/quote" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://alaa-argo.com/ru/quote" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alaa-argo.com/ar/quote" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://alaa-argo.com/en/quote" />
   </url>
   <url>
     <loc>https://alaa-argo.com/ru/contact</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://alaa-argo.com/en/contact" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://alaa-argo.com/ru/contact" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alaa-argo.com/ar/contact" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://alaa-argo.com/en/contact" />
   </url>
   <url>
     <loc>https://alaa-argo.com/ru/products/wheat</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://alaa-argo.com/en/products/wheat" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://alaa-argo.com/ru/products/wheat" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alaa-argo.com/ar/products/wheat" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://alaa-argo.com/en/products/wheat" />
   </url>
   <url>
     <loc>https://alaa-argo.com/ru/products/corn</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://alaa-argo.com/en/products/corn" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://alaa-argo.com/ru/products/corn" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alaa-argo.com/ar/products/corn" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://alaa-argo.com/en/products/corn" />
   </url>
   <url>
     <loc>https://alaa-argo.com/ru/products/barley</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://alaa-argo.com/en/products/barley" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://alaa-argo.com/ru/products/barley" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alaa-argo.com/ar/products/barley" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://alaa-argo.com/en/products/barley" />
   </url>
   <url>
     <loc>https://alaa-argo.com/ru/products/oats</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://alaa-argo.com/en/products/oats" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://alaa-argo.com/ru/products/oats" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alaa-argo.com/ar/products/oats" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://alaa-argo.com/en/products/oats" />
   </url>
   <url>
     <loc>https://alaa-argo.com/ru/products/buckwheat</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://alaa-argo.com/en/products/buckwheat" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://alaa-argo.com/ru/products/buckwheat" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alaa-argo.com/ar/products/buckwheat" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://alaa-argo.com/en/products/buckwheat" />
   </url>
   <url>
     <loc>https://alaa-argo.com/ru/products/millet</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://alaa-argo.com/en/products/millet" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://alaa-argo.com/ru/products/millet" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alaa-argo.com/ar/products/millet" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://alaa-argo.com/en/products/millet" />
   </url>
   <url>
     <loc>https://alaa-argo.com/ru/products/sorghum</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://alaa-argo.com/en/products/sorghum" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://alaa-argo.com/ru/products/sorghum" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alaa-argo.com/ar/products/sorghum" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://alaa-argo.com/en/products/sorghum" />
   </url>
   <url>
     <loc>https://alaa-argo.com/ru/products/chickpeas</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://alaa-argo.com/en/products/chickpeas" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://alaa-argo.com/ru/products/chickpeas" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alaa-argo.com/ar/products/chickpeas" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://alaa-argo.com/en/products/chickpeas" />
   </url>
   <url>
     <loc>https://alaa-argo.com/ru/products/lentils</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://alaa-argo.com/en/products/lentils" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://alaa-argo.com/ru/products/lentils" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alaa-argo.com/ar/products/lentils" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://alaa-argo.com/en/products/lentils" />
   </url>
   <url>
     <loc>https://alaa-argo.com/ru/products/peas</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://alaa-argo.com/en/products/peas" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://alaa-argo.com/ru/products/peas" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alaa-argo.com/ar/products/peas" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://alaa-argo.com/en/products/peas" />
   </url>
   <url>
     <loc>https://alaa-argo.com/ru/products/yellow-peas</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://alaa-argo.com/en/products/yellow-peas" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://alaa-argo.com/ru/products/yellow-peas" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alaa-argo.com/ar/products/yellow-peas" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://alaa-argo.com/en/products/yellow-peas" />
   </url>
   <url>
     <loc>https://alaa-argo.com/ru/products/brown-flaxseed</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://alaa-argo.com/en/products/brown-flaxseed" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://alaa-argo.com/ru/products/brown-flaxseed" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alaa-argo.com/ar/products/brown-flaxseed" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://alaa-argo.com/en/products/brown-flaxseed" />
   </url>
   <url>
     <loc>https://alaa-argo.com/ru/products/sunflower-seeds</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://alaa-argo.com/en/products/sunflower-seeds" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://alaa-argo.com/ru/products/sunflower-seeds" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alaa-argo.com/ar/products/sunflower-seeds" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://alaa-argo.com/en/products/sunflower-seeds" />
   </url>
   <url>
     <loc>https://alaa-argo.com/ru/products/spring-vetch</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://alaa-argo.com/en/products/spring-vetch" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://alaa-argo.com/ru/products/spring-vetch" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alaa-argo.com/ar/products/spring-vetch" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://alaa-argo.com/en/products/spring-vetch" />
   </url>
   <url>
     <loc>https://alaa-argo.com/ru/products/coriander</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://alaa-argo.com/en/products/coriander" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://alaa-argo.com/ru/products/coriander" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alaa-argo.com/ar/products/coriander" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://alaa-argo.com/en/products/coriander" />
   </url>
   <url>
     <loc>https://alaa-argo.com/ru/products/sunflower-oil</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://alaa-argo.com/en/products/sunflower-oil" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://alaa-argo.com/ru/products/sunflower-oil" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alaa-argo.com/ar/products/sunflower-oil" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alaa-argo.com/en/products/sunflower-oil" />
+  </url>
+  <url>
+    <loc>https://alaa-argo.com/ar</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alaa-argo.com/en" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://alaa-argo.com/ru" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alaa-argo.com/ar" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alaa-argo.com/en" />
+  </url>
+  <url>
+    <loc>https://alaa-argo.com/ar/products</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alaa-argo.com/en/products" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://alaa-argo.com/ru/products" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alaa-argo.com/ar/products" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alaa-argo.com/en/products" />
+  </url>
+  <url>
+    <loc>https://alaa-argo.com/ar/about</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alaa-argo.com/en/about" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://alaa-argo.com/ru/about" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alaa-argo.com/ar/about" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alaa-argo.com/en/about" />
+  </url>
+  <url>
+    <loc>https://alaa-argo.com/ar/quality</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alaa-argo.com/en/quality" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://alaa-argo.com/ru/quality" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alaa-argo.com/ar/quality" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alaa-argo.com/en/quality" />
+  </url>
+  <url>
+    <loc>https://alaa-argo.com/ar/packaging</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alaa-argo.com/en/packaging" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://alaa-argo.com/ru/packaging" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alaa-argo.com/ar/packaging" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alaa-argo.com/en/packaging" />
+  </url>
+  <url>
+    <loc>https://alaa-argo.com/ar/trade</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alaa-argo.com/en/trade" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://alaa-argo.com/ru/trade" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alaa-argo.com/ar/trade" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alaa-argo.com/en/trade" />
+  </url>
+  <url>
+    <loc>https://alaa-argo.com/ar/quote</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alaa-argo.com/en/quote" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://alaa-argo.com/ru/quote" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alaa-argo.com/ar/quote" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alaa-argo.com/en/quote" />
+  </url>
+  <url>
+    <loc>https://alaa-argo.com/ar/contact</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alaa-argo.com/en/contact" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://alaa-argo.com/ru/contact" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alaa-argo.com/ar/contact" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alaa-argo.com/en/contact" />
+  </url>
+  <url>
+    <loc>https://alaa-argo.com/ar/products/wheat</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alaa-argo.com/en/products/wheat" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://alaa-argo.com/ru/products/wheat" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alaa-argo.com/ar/products/wheat" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alaa-argo.com/en/products/wheat" />
+  </url>
+  <url>
+    <loc>https://alaa-argo.com/ar/products/corn</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alaa-argo.com/en/products/corn" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://alaa-argo.com/ru/products/corn" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alaa-argo.com/ar/products/corn" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alaa-argo.com/en/products/corn" />
+  </url>
+  <url>
+    <loc>https://alaa-argo.com/ar/products/barley</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alaa-argo.com/en/products/barley" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://alaa-argo.com/ru/products/barley" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alaa-argo.com/ar/products/barley" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alaa-argo.com/en/products/barley" />
+  </url>
+  <url>
+    <loc>https://alaa-argo.com/ar/products/oats</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alaa-argo.com/en/products/oats" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://alaa-argo.com/ru/products/oats" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alaa-argo.com/ar/products/oats" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alaa-argo.com/en/products/oats" />
+  </url>
+  <url>
+    <loc>https://alaa-argo.com/ar/products/buckwheat</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alaa-argo.com/en/products/buckwheat" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://alaa-argo.com/ru/products/buckwheat" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alaa-argo.com/ar/products/buckwheat" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alaa-argo.com/en/products/buckwheat" />
+  </url>
+  <url>
+    <loc>https://alaa-argo.com/ar/products/millet</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alaa-argo.com/en/products/millet" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://alaa-argo.com/ru/products/millet" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alaa-argo.com/ar/products/millet" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alaa-argo.com/en/products/millet" />
+  </url>
+  <url>
+    <loc>https://alaa-argo.com/ar/products/sorghum</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alaa-argo.com/en/products/sorghum" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://alaa-argo.com/ru/products/sorghum" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alaa-argo.com/ar/products/sorghum" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alaa-argo.com/en/products/sorghum" />
+  </url>
+  <url>
+    <loc>https://alaa-argo.com/ar/products/chickpeas</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alaa-argo.com/en/products/chickpeas" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://alaa-argo.com/ru/products/chickpeas" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alaa-argo.com/ar/products/chickpeas" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alaa-argo.com/en/products/chickpeas" />
+  </url>
+  <url>
+    <loc>https://alaa-argo.com/ar/products/lentils</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alaa-argo.com/en/products/lentils" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://alaa-argo.com/ru/products/lentils" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alaa-argo.com/ar/products/lentils" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alaa-argo.com/en/products/lentils" />
+  </url>
+  <url>
+    <loc>https://alaa-argo.com/ar/products/peas</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alaa-argo.com/en/products/peas" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://alaa-argo.com/ru/products/peas" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alaa-argo.com/ar/products/peas" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alaa-argo.com/en/products/peas" />
+  </url>
+  <url>
+    <loc>https://alaa-argo.com/ar/products/yellow-peas</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alaa-argo.com/en/products/yellow-peas" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://alaa-argo.com/ru/products/yellow-peas" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alaa-argo.com/ar/products/yellow-peas" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alaa-argo.com/en/products/yellow-peas" />
+  </url>
+  <url>
+    <loc>https://alaa-argo.com/ar/products/brown-flaxseed</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alaa-argo.com/en/products/brown-flaxseed" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://alaa-argo.com/ru/products/brown-flaxseed" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alaa-argo.com/ar/products/brown-flaxseed" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alaa-argo.com/en/products/brown-flaxseed" />
+  </url>
+  <url>
+    <loc>https://alaa-argo.com/ar/products/sunflower-seeds</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alaa-argo.com/en/products/sunflower-seeds" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://alaa-argo.com/ru/products/sunflower-seeds" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alaa-argo.com/ar/products/sunflower-seeds" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alaa-argo.com/en/products/sunflower-seeds" />
+  </url>
+  <url>
+    <loc>https://alaa-argo.com/ar/products/spring-vetch</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alaa-argo.com/en/products/spring-vetch" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://alaa-argo.com/ru/products/spring-vetch" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alaa-argo.com/ar/products/spring-vetch" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alaa-argo.com/en/products/spring-vetch" />
+  </url>
+  <url>
+    <loc>https://alaa-argo.com/ar/products/coriander</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alaa-argo.com/en/products/coriander" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://alaa-argo.com/ru/products/coriander" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alaa-argo.com/ar/products/coriander" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alaa-argo.com/en/products/coriander" />
+  </url>
+  <url>
+    <loc>https://alaa-argo.com/ar/products/sunflower-oil</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alaa-argo.com/en/products/sunflower-oil" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://alaa-argo.com/ru/products/sunflower-oil" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alaa-argo.com/ar/products/sunflower-oil" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://alaa-argo.com/en/products/sunflower-oil" />
   </url>
 </urlset>

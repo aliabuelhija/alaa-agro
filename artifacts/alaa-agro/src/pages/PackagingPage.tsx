@@ -124,7 +124,7 @@ export function PackagingPage() {
           {/* Standard formats */}
           <div className="mb-3">
             <p className="text-xs uppercase tracking-[0.25em] text-accent font-semibold mb-2">
-              {locale === 'en' ? 'Grains · Pulses · Oilseeds · Seeds' : 'Зерновые · Бобовые · Масличные · Семена'}
+              {locale !== 'ru' ? 'Grains · Pulses · Oilseeds · Seeds' : 'Зерновые · Бобовые · Масличные · Семена'}
             </p>
             <h2 className="text-3xl md:text-4xl font-serif text-foreground">
               {t('packagingPage.standard')}
@@ -180,7 +180,7 @@ export function PackagingPage() {
                   <source srcSet={`${import.meta.env.BASE_URL}products/sunflower-oil_2.webp`} type="image/webp" />
                   <img
                     src={`${import.meta.env.BASE_URL}products/sunflower-oil_2.jpg`}
-                    alt={locale === 'en' ? 'ALAA AGRO refined sunflower oil — export packaging' : 'Рафинированное подсолнечное масло АЛАА АГРО'}
+                    alt={locale !== 'ru' ? 'ALAA AGRO refined sunflower oil — export packaging' : 'Рафинированное подсолнечное масло АЛАА АГРО'}
                     className="w-full h-full object-cover"
                     style={{ objectPosition: 'center 40%' }}
                   />
@@ -189,13 +189,13 @@ export function PackagingPage() {
               {/* Content */}
               <div className="p-8 md:p-10 flex flex-col justify-center">
                 <p className="text-xs uppercase tracking-[0.25em] text-accent font-semibold mb-2">
-                  {locale === 'en' ? 'Vegetable Oils' : 'Растительные масла'}
+                  {locale !== 'ru' ? 'Vegetable Oils' : 'Растительные масла'}
                 </p>
                 <h2 className="text-2xl md:text-3xl font-serif text-foreground mb-2">
                   {t('packagingPage.special')}
                 </h2>
                 <p className="text-sm text-muted-foreground mb-7 font-light">
-                  {locale === 'en'
+                  {locale !== 'ru'
                     ? 'Refined sunflower oil is available in three packaging configurations to suit retail, wholesale, and industrial buyers.'
                     : 'Рафинированное подсолнечное масло доступно в трёх форматах упаковки — для розницы, оптовиков и промышленных покупателей.'}
                 </p>
@@ -209,9 +209,9 @@ export function PackagingPage() {
                         {String(i + 1).padStart(2, '0')}
                       </span>
                       <div>
-                        <p className="font-semibold text-foreground text-sm">{locale === 'en' ? f.iconEn : f.iconRu}</p>
-                        <p className="text-accent font-medium text-sm">{locale === 'en' ? f.sizesEn : f.sizesRu}</p>
-                        <p className="text-xs text-muted-foreground mt-0.5">{locale === 'en' ? f.noteEn : f.noteRu}</p>
+                        <p className="font-semibold text-foreground text-sm">{locale !== 'ru' ? f.iconEn : f.iconRu}</p>
+                        <p className="text-accent font-medium text-sm">{locale !== 'ru' ? f.sizesEn : f.sizesRu}</p>
+                        <p className="text-xs text-muted-foreground mt-0.5">{locale !== 'ru' ? f.noteEn : f.noteRu}</p>
                       </div>
                     </div>
                   ))}
@@ -224,10 +224,10 @@ export function PackagingPage() {
           <div className="mb-14">
             <div className="mb-6">
               <p className="text-xs uppercase tracking-[0.25em] text-accent font-semibold mb-2">
-                {locale === 'en' ? 'Real photos' : 'Реальные фото'}
+                {locale !== 'ru' ? 'Real photos' : 'Реальные фото'}
               </p>
               <h2 className="text-3xl md:text-4xl font-serif text-foreground">
-                {locale === 'en' ? 'Our Packaging in Practice' : 'Наша упаковка в действии'}
+                {locale !== 'ru' ? 'Our Packaging in Practice' : 'Наша упаковка в действии'}
               </h2>
             </div>
 
@@ -326,7 +326,7 @@ export function PackagingPage() {
             />
             <p className="text-white/70 text-sm text-center mt-3">
               {GALLERY[lightbox].caption[locale as 'en' | 'ru']}
-              <span className="text-white/30 ml-2">
+              <span className="text-white/30 ms-2">
                 {lightbox + 1} / {GALLERY.length}
               </span>
             </p>

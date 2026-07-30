@@ -133,7 +133,7 @@ export function CertificatesSection() {
               className="flex flex-col items-center text-center gap-4 px-5 py-8"
               style={{
                 background: "rgba(255,250,240,0.55)",
-                borderRight:
+                borderInlineEnd:
                   i < CREDENTIALS.length - 1
                     ? "1px solid rgba(194,154,61,0.18)"
                     : undefined,

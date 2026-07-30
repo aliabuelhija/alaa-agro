@@ -71,7 +71,7 @@ export function ContactPage() {
       reset();
     } catch (err) {
       setSubmitError(
-        locale === 'en'
+        locale !== 'ru'
           ? 'Submission failed — please try WhatsApp or email us directly.'
           : 'Ошибка отправки — пожалуйста, напишите нам в WhatsApp или на почту.'
       );
@@ -161,7 +161,7 @@ export function ContactPage() {
                   onClick={() => setIsSuccess(false)}
                   className="px-6 py-2.5 mt-8 bg-primary text-primary-foreground font-medium rounded-lg hover:bg-primary/90"
                 >
-                  {locale === 'en' ? 'Send another message' : 'Отправить другое сообщение'}
+                  {locale !== 'ru' ? 'Send another message' : 'Отправить другое сообщение'}
                 </button>
               </div>
             ) : (
@@ -169,11 +169,11 @@ export function ContactPage() {
                 {/* WhatsApp quick contact */}
                 <div className="mb-6">
                   <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent mb-3">
-                    {locale === 'en' ? 'Fastest response — WhatsApp' : 'Быстрый ответ — WhatsApp'}
+                    {locale !== 'ru' ? 'Fastest response — WhatsApp' : 'Быстрый ответ — WhatsApp'}
                   </p>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     {WA_CONTACTS.map(c => {
-                      const msg = locale === 'en'
+                      const msg = locale !== 'ru'
                         ? `Hello, I would like to enquire about ALAA AGRO products.`
                         : `Здравствуйте, я хотел бы узнать о продукции АЛАА АГРО.`;
                       return (
@@ -190,11 +190,11 @@ export function ContactPage() {
                           </span>
                           <div className="min-w-0">
                             <p className="text-sm font-semibold text-foreground leading-tight">
-                              {locale === 'en' ? c.nameEn : c.nameRu}
+                              {locale !== 'ru' ? c.nameEn : c.nameRu}
                             </p>
                             <p className="text-xs text-muted-foreground">{c.phone}</p>
                           </div>
-                          <ArrowRight size={14} className="ml-auto shrink-0 text-muted-foreground group-hover:text-foreground transition-colors" />
+                          <ArrowRight size={14} className="ms-auto shrink-0 text-muted-foreground group-hover:text-foreground transition-colors" />
                         </a>
                       );
                     })}
@@ -205,7 +205,7 @@ export function ContactPage() {
                 <div className="flex items-center gap-3 mb-6">
                   <div className="flex-1 h-px bg-border" />
                   <span className="text-xs text-muted-foreground px-1">
-                    {locale === 'en' ? 'or send us a message below' : 'или напишите нам ниже'}
+                    {locale !== 'ru' ? 'or send us a message below' : 'или напишите нам ниже'}
                   </span>
                   <div className="flex-1 h-px bg-border" />
                 </div>
@@ -246,7 +246,7 @@ export function ContactPage() {
                 <div className="flex items-start gap-4 bg-background p-4 rounded-xl border border-border">
                   <input type="checkbox" id="consent" {...register("consent")} className="mt-1 w-5 h-5 accent-accent shrink-0" />
                   <label htmlFor="consent" className="text-sm text-muted-foreground leading-relaxed cursor-pointer">
-                    {locale === 'en' 
+                    {locale !== 'ru' 
                       ? 'I consent to ALAA AGRO TRADE LLC collecting my details to respond to my enquiry.' 
                       : 'Я даю согласие ООО «АЛАА АГРО ТРЕЙД» на сбор моих данных для ответа на мой запрос.'} *
                   </label>

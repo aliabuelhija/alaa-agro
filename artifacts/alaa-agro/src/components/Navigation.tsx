@@ -4,6 +4,13 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Globe } from "lucide-react";
 const logoPath = `${import.meta.env.BASE_URL}alaa-agro-logo.png`;
 import { useLocale } from "../contexts/LocaleContext";
+import {
+  LOCALES,
+  LOCALE_LABEL,
+  LOCALE_PREFIX_RE,
+  LOCALE_SHORT,
+  type Locale,
+} from "../i18n";
 
 const NAV_H = 84;
 
@@ -11,6 +18,7 @@ export function Navigation() {
   const [location, setLocation] = useLocation();
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [langOpen, setLangOpen] = useState(false);
   const { locale, t } = useLocale();
 
   useEffect(() => {
@@ -27,9 +35,10 @@ export function Navigation() {
     };
   }, [mobileMenuOpen]);
 
-  const toggleLocale = () => {
-    const newLocale = locale === "en" ? "ru" : "en";
-    setLocation(location.replace(/^\/(en|ru)/, `/${newLocale}`));
+  const switchTo = (next: Locale) => {
+    setLangOpen(false);
+    if (next === locale) return;
+    setLocation(location.replace(LOCALE_PREFIX_RE, `/${next}`));
   };
 
   const navLinks = [
@@ -142,24 +151,80 @@ export function Navigation() {
           </ul>
 
           <div
-            className="flex items-center gap-3 ml-3 pl-4"
-            style={{ borderLeft: "1px solid rgba(150,102,21,0.28)" }}
+            className="flex items-center gap-3 ms-3 ps-4"
+            style={{ borderInlineStart: "1px solid rgba(150,102,21,0.28)" }}
           >
-            {/* Language toggle */}
-            <button
-              onClick={toggleLocale}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded text-sm font-semibold transition-colors"
-              style={{ color: "#3A322A" }}
-              onMouseEnter={(e) => {
-                (e.currentTarget as HTMLElement).style.color = "#966615";
-              }}
-              onMouseLeave={(e) => {
-                (e.currentTarget as HTMLElement).style.color = "#3A322A";
-              }}
-            >
-              <Globe size={14} />
-              {locale === "en" ? "RU" : "EN"}
-            </button>
+            {/* Language selector — a dropdown rather than a toggle, since there
+                are three locales. Each option shows its own native name. */}
+            <div className="relative">
+              <button
+                onClick={() => setLangOpen((v) => !v)}
+                aria-haspopup="listbox"
+                aria-expanded={langOpen}
+                aria-label="Select language"
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded text-sm font-semibold transition-colors"
+                style={{ color: langOpen ? "#966615" : "#3A322A" }}
+                onMouseEnter={(e) => {
+                  (e.currentTarget as HTMLElement).style.color = "#966615";
+                }}
+                onMouseLeave={(e) => {
+                  (e.currentTarget as HTMLElement).style.color = langOpen
+                    ? "#966615"
+                    : "#3A322A";
+                }}
+              >
+                <Globe size={14} />
+                {LOCALE_SHORT[locale]}
+              </button>
+
+              {langOpen && (
+                <>
+                  {/* click-away */}
+                  <div
+                    className="fixed inset-0 z-40"
+                    onClick={() => setLangOpen(false)}
+                  />
+                  <ul
+                    role="listbox"
+                    className="absolute top-full mt-2 z-50 min-w-[9.5rem] overflow-hidden rounded-lg py-1"
+                    style={{
+                      insetInlineEnd: 0,
+                      background: "rgba(251,248,242,0.99)",
+                      border: "1px solid rgba(150,102,21,0.28)",
+                      boxShadow: "0 8px 24px rgba(42,35,28,0.16)",
+                    }}
+                  >
+                    {LOCALES.map((l) => (
+                      <li key={l}>
+                        <button
+                          role="option"
+                          aria-selected={l === locale}
+                          onClick={() => switchTo(l)}
+                          dir={l === "ar" ? "rtl" : "ltr"}
+                          className="w-full px-4 py-2 text-sm text-start transition-colors"
+                          style={{
+                            color: l === locale ? "#966615" : "#3A322A",
+                            fontWeight: l === locale ? 700 : 500,
+                            background:
+                              l === locale ? "rgba(201,151,45,0.10)" : "transparent",
+                          }}
+                          onMouseEnter={(e) => {
+                            (e.currentTarget as HTMLElement).style.background =
+                              "rgba(201,151,45,0.14)";
+                          }}
+                          onMouseLeave={(e) => {
+                            (e.currentTarget as HTMLElement).style.background =
+                              l === locale ? "rgba(201,151,45,0.10)" : "transparent";
+                          }}
+                        >
+                          {LOCALE_LABEL[l]}
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
+                </>
+              )}
+            </div>
 
             {/* Quote CTA — rich gold, dark text */}
             <Link
@@ -204,7 +269,7 @@ export function Navigation() {
                   : "Открыть меню"
             }
             aria-expanded={mobileMenuOpen}
-            className="p-2 -mr-2"
+            className="p-2 -me-2"
           >
             {mobileMenuOpen ? (
               <X size={26} style={{ color: "#2A231C" }} />
@@ -259,14 +324,32 @@ export function Navigation() {
                 >
                   {t("nav.quote")}
                 </Link>
-                <button
-                  onClick={toggleLocale}
-                  className="flex items-center gap-2 text-sm font-semibold py-2 w-full"
-                  style={{ color: "#3A322A" }}
-                >
-                  <Globe size={16} style={{ color: "#966615" }} />
-                  {locale === "en" ? "Русский" : "English"}
-                </button>
+                {/* Three locales, so a row of choices rather than a toggle */}
+                <div className="flex items-center gap-2 py-1">
+                  <Globe
+                    size={16}
+                    style={{ color: "#966615" }}
+                    className="shrink-0"
+                  />
+                  {LOCALES.map((l) => (
+                    <button
+                      key={l}
+                      onClick={() => switchTo(l)}
+                      aria-current={l === locale}
+                      dir={l === "ar" ? "rtl" : "ltr"}
+                      className="flex-1 py-2 text-sm rounded transition-colors"
+                      style={{
+                        color: l === locale ? "#17130F" : "#3A322A",
+                        fontWeight: l === locale ? 700 : 500,
+                        background:
+                          l === locale ? "rgba(201,151,45,0.18)" : "transparent",
+                        border: "1px solid rgba(150,102,21,0.22)",
+                      }}
+                    >
+                      {LOCALE_LABEL[l]}
+                    </button>
+                  ))}
+                </div>
                 <div
                   className="text-sm space-y-1 pt-1"
                   style={{ color: "#6E6256" }}

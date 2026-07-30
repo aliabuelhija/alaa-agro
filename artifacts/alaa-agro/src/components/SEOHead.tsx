@@ -1,10 +1,28 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useLocale } from '../contexts/LocaleContext';
+import {
+  DEFAULT_LOCALE,
+  LOCALES,
+  LOCALE_PREFIX_RE,
+  OG_LOCALE,
+} from '../i18n';
+
+const ORIGIN = 'https://alaa-argo.com';
 
 interface SEOHeadProps {
   title: string;
   description: string;
   path?: string;
+}
+
+function upsertMeta(attr: 'name' | 'property', key: string, content: string) {
+  let el = document.querySelector(`meta[${attr}="${key}"]`);
+  if (!el) {
+    el = document.createElement('meta');
+    el.setAttribute(attr, key);
+    document.head.appendChild(el);
+  }
+  el.setAttribute('content', content);
 }
 
 export function SEOHead({ title, description, path = '' }: SEOHeadProps) {
@@ -13,37 +31,27 @@ export function SEOHead({ title, description, path = '' }: SEOHeadProps) {
   useEffect(() => {
     document.title = title;
 
-    let metaDesc = document.querySelector('meta[name="description"]');
-    if (!metaDesc) {
-      metaDesc = document.createElement('meta');
-      metaDesc.setAttribute('name', 'description');
-      document.head.appendChild(metaDesc);
-    }
-    metaDesc.setAttribute('content', description);
+    upsertMeta('name', 'description', description);
+    upsertMeta('property', 'og:title', title);
+    upsertMeta('property', 'og:description', description);
+    upsertMeta('property', 'og:locale', OG_LOCALE[locale]);
+    upsertMeta('name', 'twitter:title', title);
+    upsertMeta('name', 'twitter:description', description);
 
-    let ogTitle = document.querySelector('meta[property="og:title"]');
-    if (!ogTitle) {
-      ogTitle = document.createElement('meta');
-      ogTitle.setAttribute('property', 'og:title');
-      document.head.appendChild(ogTitle);
+    // Alternate og:locale entries for the other languages.
+    document
+      .querySelectorAll('meta[property="og:locale:alternate"]')
+      .forEach((el) => el.remove());
+    for (const l of LOCALES) {
+      if (l === locale) continue;
+      const el = document.createElement('meta');
+      el.setAttribute('property', 'og:locale:alternate');
+      el.setAttribute('content', OG_LOCALE[l]);
+      document.head.appendChild(el);
     }
-    ogTitle.setAttribute('content', title);
 
-    let ogDesc = document.querySelector('meta[property="og:description"]');
-    if (!ogDesc) {
-      ogDesc = document.createElement('meta');
-      ogDesc.setAttribute('property', 'og:description');
-      document.head.appendChild(ogDesc);
-    }
-    ogDesc.setAttribute('content', description);
-
-    let ogLocale = document.querySelector('meta[property="og:locale"]');
-    if (!ogLocale) {
-      ogLocale = document.createElement('meta');
-      ogLocale.setAttribute('property', 'og:locale');
-      document.head.appendChild(ogLocale);
-    }
-    ogLocale.setAttribute('content', locale === 'en' ? 'en_US' : 'ru_RU');
+    const cleanPath = path.replace(LOCALE_PREFIX_RE, '');
+    const canonicalPath = path || `/${locale}`;
 
     // Canonical for the current route. index.html ships one for the site root;
     // this keeps it correct as the user navigates.
@@ -53,25 +61,24 @@ export function SEOHead({ title, description, path = '' }: SEOHeadProps) {
       canonical.setAttribute('rel', 'canonical');
       document.head.appendChild(canonical);
     }
-    canonical.setAttribute('href', `https://alaa-argo.com${path || `/${locale}`}`);
+    canonical.setAttribute('href', `${ORIGIN}${canonicalPath}`);
+    upsertMeta('property', 'og:url', `${ORIGIN}${canonicalPath}`);
 
-    // Clean up alternate links
-    document.querySelectorAll('link[rel="alternate"]').forEach(el => el.remove());
-    
-    // Add alternate links
+    // One hreflang per locale, plus x-default pointing at the default locale.
+    document
+      .querySelectorAll('link[rel="alternate"]')
+      .forEach((el) => el.remove());
+
     const addAlternate = (lang: string, href: string) => {
       const link = document.createElement('link');
       link.setAttribute('rel', 'alternate');
       link.setAttribute('hreflang', lang);
-      link.setAttribute('href', `https://alaa-argo.com${href}`);
+      link.setAttribute('href', `${ORIGIN}${href}`);
       document.head.appendChild(link);
     };
 
-    const cleanPath = path.replace(/^\/(en|ru)/, '');
-    addAlternate('en', `/en${cleanPath}`);
-    addAlternate('ru', `/ru${cleanPath}`);
-    addAlternate('x-default', `/en${cleanPath}`);
-
+    for (const l of LOCALES) addAlternate(l, `/${l}${cleanPath}`);
+    addAlternate('x-default', `/${DEFAULT_LOCALE}${cleanPath}`);
   }, [title, description, path, locale]);
 
   return null;

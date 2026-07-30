@@ -36,7 +36,7 @@ function packagingSummary(packaging: string[], locale: string): string {
 export function ProductCard({ product }: ProductCardProps) {
   const { locale, t } = useLocale();
   const name = locale === 'ru' ? product.nameRu : product.name;
-  const nameAlt = locale === 'en' ? product.nameRu : product.name;
+  const nameAlt = locale !== 'ru' ? product.nameRu : product.name;
 
   // Pick 3 key specs for the card
   const keySpecs = product.specs.slice(0, 3);
