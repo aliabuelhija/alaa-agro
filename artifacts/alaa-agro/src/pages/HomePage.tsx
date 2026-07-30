@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { Link } from "wouter";
 import { products } from "../data/products";
-import { categories } from "../data/categories";
+import { categories, categoryName } from "../data/categories";
 import { useLocale } from "../contexts/LocaleContext";
 import { SEOHead } from "../components/SEOHead";
 import {
@@ -27,7 +27,7 @@ export function HomePage() {
   const containerRef = useRef<HTMLDivElement>(null);
   const prefersReducedMotion = useReducedMotion();
 
-  const { locale, t } = useLocale();
+  const { locale, t, pick } = useLocale();
 
   return (
     <div ref={containerRef} className="bg-background">
@@ -72,23 +72,19 @@ export function HomePage() {
                 className="text-[11px] font-bold tracking-[0.26em] uppercase mb-3"
                 style={{ color: "#9A6818" }}
               >
-                {locale === "en"
-                  ? "Russian origin · Export-ready range"
-                  : "Российское происхождение · Экспортный ассортимент"}
+                {pick({ en: "Russian origin · Export-ready range", ru: "Российское происхождение · Экспортный ассортимент", ar: 'منشأ روسي · تشكيلة جاهزة للتصدير' })}
               </p>
               <h2
                 className="font-serif text-3xl md:text-4xl mb-3"
                 style={{ color: "#29231D" }}
               >
-                {locale === "en" ? "What We Sell" : "Что мы поставляем"}
+                {pick({ en: "What We Sell", ru: "Что мы поставляем", ar: 'ما نورّده' })}
               </h2>
               <p
                 className="text-sm md:text-base leading-relaxed"
                 style={{ color: "#7B6A5B" }}
               >
-                {locale === "en"
-                  ? "A focused range of grains, pulses, oilseeds, seeds and vegetable oils prepared for international trade."
-                  : "Специализированный ассортимент зерновых, бобовых, масличных, семян и растительных масел, подготовленных для международной торговли."}
+                {pick({ en: "A focused range of grains, pulses, oilseeds, seeds and vegetable oils prepared for international trade.", ru: "Специализированный ассортимент зерновых, бобовых, масличных, семян и растительных масел, подготовленных для международной торговли.", ar: 'تشكيلة مختارة من الحبوب والبقوليات والبذور الزيتية والبذور والزيوت النباتية، مُهيّأة للتجارة الدولية.' })}
               </p>
             </div>
             <Link
@@ -99,7 +95,7 @@ export function HomePage() {
                 borderBottom: "1px solid rgba(154,104,24,0.35)",
               }}
             >
-              {locale === "en" ? "View Full Catalogue" : "Полный каталог"}
+              {pick({ en: "View Full Catalogue", ru: "Полный каталог", ar: 'عرض الكتالوج الكامل' })}
               <ArrowRight
                 size={14}
                 className="transition-transform duration-200 group-hover:translate-x-1"
@@ -119,6 +115,8 @@ export function HomePage() {
                 phrase: "Wheat, barley, corn and other cereal commodities.",
                 phraseRu:
                   "Пшеница, ячмень, кукуруза и другие зерновые культуры.",
+                phraseAr:
+                  "القمح والشعير والذرة وغيرها من سلع الحبوب.",
               },
               {
                 key: "Pulses",
@@ -128,6 +126,8 @@ export function HomePage() {
                 minH: "min-h-[268px]",
                 phrase: "Chickpeas, lentils and peas for food processing.",
                 phraseRu: "Нут, чечевица и горох для пищевой переработки.",
+                phraseAr:
+                  "الحمص والعدس والبازلاء لتصنيع الأغذية.",
               },
               {
                 key: "Oilseeds",
@@ -137,6 +137,8 @@ export function HomePage() {
                 minH: "min-h-[268px]",
                 phrase: "Flaxseed and sunflower seeds for oil extraction.",
                 phraseRu: "Лён и семена подсолнечника для производства масла.",
+                phraseAr:
+                  "بذر الكتان وبذور دوار الشمس لاستخلاص الزيت.",
               },
               {
                 key: "Seeds",
@@ -147,6 +149,8 @@ export function HomePage() {
                 phrase: "Spring vetch and coriander, cleaned and sorted.",
                 phraseRu:
                   "Вика яровая и кориандр, очищенные и отсортированные.",
+                phraseAr:
+                  "البيقية الربيعية والكزبرة، منقّاة ومصنّفة.",
               },
               {
                 key: "Vegetable Oils",
@@ -157,6 +161,8 @@ export function HomePage() {
                 phrase: "Refined sunflower oil in retail and bulk formats.",
                 phraseRu:
                   "Рафинированное подсолнечное масло в розничных и оптовых форматах.",
+                phraseAr:
+                  "زيت دوار الشمس المكرر بصيغ التجزئة والصب.",
               },
               {
                 key: "Packaging & Logistics",
@@ -168,6 +174,8 @@ export function HomePage() {
                   "Export bags, big bags, pallets and container preparation.",
                 phraseRu:
                   "Экспортные мешки, биг-бэги, поддоны и подготовка контейнеров.",
+                phraseAr:
+                  "أكياس تصدير وأكياس كبيرة ومنصات وتحضير الحاويات.",
               },
             ].map((card, i) => {
               const cat = categories.find((c) => c.id === card.key);
@@ -179,12 +187,8 @@ export function HomePage() {
                 ? `/${locale}/packaging`
                 : `/${locale}/products?category=${card.key}`;
               const title = isService
-                ? locale === "en"
-                  ? "Packaging & Logistics"
-                  : "Упаковка и логистика"
-                : locale === "en"
-                  ? cat.name
-                  : cat.nameRu;
+                ? pick({ en: "Packaging & Logistics", ru: "Упаковка и логистика", ar: 'التعبئة والخدمات اللوجستية' })
+                : categoryName(cat, locale);
               return (
                 <motion.div
                   key={card.key}
@@ -269,28 +273,26 @@ export function HomePage() {
                         style={{ color: "rgba(246,240,230,0.65)" }}
                       >
                         {isService
-                          ? locale === "en"
-                            ? "Export services"
-                            : "Экспортные услуги"
-                          : `${count} ${locale === "en" ? (count === 1 ? "product" : "products") : "поз."}`}
+                          ? pick({ en: "Export services", ru: "Экспортные услуги", ar: 'خدمات التصدير' })
+                          : `${count} ${pick({
+                              en: count === 1 ? "product" : "products",
+                              ru: "поз.",
+                              ar: count === 1 ? 'منتج' : 'منتجات',
+                            })}`}
                       </p>
                       <p
                         className="text-[13px] leading-snug mb-3.5 max-w-md"
                         style={{ color: "rgba(246,240,230,0.80)" }}
                       >
-                        {locale === "en" ? card.phrase : card.phraseRu}
+                        {pick({ en: card.phrase, ru: card.phraseRu, ar: card.phraseAr })}
                       </p>
                       <span
                         className="inline-flex items-center gap-1.5 text-[13px] font-semibold"
                         style={{ color: "#DDBB68" }}
                       >
                         {isService
-                          ? locale === "en"
-                            ? "Learn more"
-                            : "Подробнее"
-                          : locale === "en"
-                            ? "Explore category"
-                            : "Смотреть категорию"}
+                          ? pick({ en: "Learn more", ru: "Подробнее", ar: 'اعرف المزيد' })
+                          : pick({ en: "Explore category", ru: "Смотреть категорию", ar: 'استكشاف الفئة' })}
                         <ArrowRight
                           size={13}
                           className={
@@ -442,9 +444,7 @@ export function HomePage() {
                 letterSpacing: "0.30em",
               }}
             >
-              {locale === "en"
-                ? "Export-Ready Solutions"
-                : "Решения для экспорта"}
+              {pick({ en: "Export-Ready Solutions", ru: "Решения для экспорта", ar: 'حلول جاهزة للتصدير' })}
             </p>
             <h2
               className="font-serif text-4xl md:text-5xl mb-4"
@@ -465,9 +465,7 @@ export function HomePage() {
               className="text-sm max-w-xl mx-auto"
               style={{ color: "#7A6450", lineHeight: 1.8 }}
             >
-              {locale === "en"
-                ? "Flexible packaging and loading formats designed for reliable international delivery."
-                : "Гибкие форматы упаковки и загрузки, разработанные для надёжной международной доставки."}
+              {pick({ en: "Flexible packaging and loading formats designed for reliable international delivery.", ru: "Гибкие форматы упаковки и загрузки, разработанные для надёжной международной доставки.", ar: 'صيغ تعبئة وتحميل مرنة مصممة لتسليم دولي موثوق.' })}
             </p>
           </div>
 
@@ -476,22 +474,22 @@ export function HomePage() {
             {[
               {
                 format: "25 kg",
-                sub: locale === "en" ? "PP Woven Bags" : "Мешки ПП 25 кг",
+                sub: pick({ en: "PP Woven Bags", ru: "Мешки ПП 25 кг", ar: 'أكياس بولي بروبيلين منسوجة' }),
                 photo: "packaging/bag-25kg.jpg",
               },
               {
                 format: "50 kg",
-                sub: locale === "en" ? "PP Woven Bags" : "Мешки ПП 50 кг",
+                sub: pick({ en: "PP Woven Bags", ru: "Мешки ПП 50 кг", ar: 'أكياس بولي بروبيلين منسوجة' }),
                 photo: "packaging/bag-50kg.jpg",
               },
               {
-                format: locale === "en" ? "Big Bags" : "Биг-бэги",
-                sub: locale === "en" ? "~1,000 kg FIBC" : "МКР ~1 000 кг",
+                format: pick({ en: "Big Bags", ru: "Биг-бэги", ar: 'أكياس كبيرة' }),
+                sub: pick({ en: "~1,000 kg FIBC", ru: "МКР ~1 000 кг", ar: 'FIBC ~1000 كجم' }),
                 photo: "packaging/bigbag-fibc.jpg",
               },
               {
-                format: locale === "en" ? "Container" : "Контейнер",
-                sub: locale === "en" ? "Full Loads FCL/LCL" : "Полная загрузка",
+                format: pick({ en: "Container", ru: "Контейнер", ar: 'حاوية' }),
+                sub: pick({ en: "Full Loads FCL/LCL", ru: "Полная загрузка", ar: 'حمولات كاملة FCL/LCL' }),
                 photo: "packaging/container-load.jpg",
               },
             ].map((item, i) => (

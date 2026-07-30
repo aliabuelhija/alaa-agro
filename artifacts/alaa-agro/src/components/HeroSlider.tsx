@@ -12,44 +12,47 @@ const PHOTO_RATIO = '1536 / 1024';
 
 type Slide = {
   img: string;
-  eyebrow: { en: string; ru: string };
-  headline: { en: string; ru: string };
-  sub: { en: string; ru: string };
+  eyebrow: { en: string; ru: string; ar: string };
+  headline: { en: string; ru: string; ar: string };
+  sub: { en: string; ru: string; ar: string };
 };
 
 const SLIDES: Slide[] = [
   {
     img: 'hero/slide-1-port.jpg',
-    eyebrow: { en: 'Ready for Global Delivery', ru: 'Готово к мировой доставке' },
-    headline: { en: 'Reliable International Shipment', ru: 'Надёжные международные отгрузки' },
+    eyebrow: { en: 'Ready for Global Delivery', ru: 'Готово к мировой доставке', ar: 'جاهز للتسليم العالمي' },
+    headline: { en: 'Reliable International Shipment', ru: 'Надёжные международные отгрузки', ar: 'شحن دولي موثوق' },
     sub: {
       en: 'Branded consignments prepared and loaded for dependable movement to international markets.',
       ru: 'Брендированные партии подготовлены и погружены для надёжных поставок на международные рынки.',
+      ar: 'شحنات تحمل علامتنا التجارية، مُعدّة ومحمّلة لنقل موثوق إلى الأسواق الدولية.',
     },
   },
   {
     img: 'hero/slide-2-map.jpg',
-    eyebrow: { en: 'Delivered with Confidence', ru: 'Доставлено с уверенностью' },
-    headline: { en: 'From Moscow to World Markets', ru: 'Из Москвы на мировые рынки' },
+    eyebrow: { en: 'Delivered with Confidence', ru: 'Доставлено с уверенностью', ar: 'تسليم بثقة' },
+    headline: { en: 'From Moscow to World Markets', ru: 'Из Москвы на мировые рынки', ar: 'من موسكو إلى أسواق العالم' },
     sub: {
       en: 'Coordinated export routes connecting Russian origin to buyers across the globe.',
       ru: 'Скоординированные экспортные маршруты, соединяющие российское происхождение с покупателями по всему миру.',
+      ar: 'مسارات تصدير منسّقة تربط المنشأ الروسي بالمشترين في مختلف أنحاء العالم.',
     },
   },
   {
     img: 'hero/slide-3-field.jpg',
-    eyebrow: { en: 'From Russian Origin', ru: 'Российское происхождение' },
-    headline: { en: 'Premium Agricultural Products', ru: 'Премиальная сельхозпродукция' },
+    eyebrow: { en: 'From Russian Origin', ru: 'Российское происхождение', ar: 'من منشأ روسي' },
+    headline: { en: 'Premium Agricultural Products', ru: 'Премиальная сельхозпродукция', ar: 'منتجات زراعية ممتازة' },
     sub: {
       en: 'Selected grains, pulses, oilseeds and seeds prepared for international buyers.',
       ru: 'Отборные зерновые, бобовые, масличные и семена, подготовленные для международных покупателей.',
+      ar: 'حبوب وبقوليات وبذور زيتية وبذور مختارة، مُعدّة للمشترين الدوليين.',
     },
   },
 ];
 
 export function HeroSlider() {
   const { locale } = useLocale();
-  const lang = (locale === 'ru' ? 'ru' : 'en') as 'en' | 'ru';
+  const lang = locale;
   const prefersReducedMotion = useReducedMotion();
 
   const heroRef = useRef<HTMLElement>(null);

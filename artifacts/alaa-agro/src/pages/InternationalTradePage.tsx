@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useLocale } from '../contexts/LocaleContext';
+import type { Locale } from '../i18n';
 import { SEOHead } from '../components/SEOHead';
 import { Link } from 'wouter';
 import {
@@ -25,6 +26,10 @@ const processSteps = [
       title: 'Запрос',
       desc: 'Отправьте нам продукт, объём и направление. Мы ответим в течение одного рабочего дня с наличием и предварительными условиями.',
     },
+    ar: {
+      title: 'الاستفسار',
+      desc: 'أرسل لنا المنتج والكمية وجهة الوصول. نرد خلال يوم عمل واحد بالتوافر والشروط الإرشادية.',
+    },
   },
   {
     icon: FileSignature,
@@ -35,6 +40,10 @@ const processSteps = [
     ru: {
       title: 'Коммерческое предложение',
       desc: 'Вы получаете официальное предложение со спецификациями, Инкотермс, вариантами упаковки и условиями оплаты.',
+    },
+    ar: {
+      title: 'عرض السعر',
+      desc: 'تستلم عرضاً رسمياً يتضمن المواصفات وشروط إنكوترمز وخيارات التعبئة وشروط الدفع — جاهزاً للتعاقد.',
     },
   },
   {
@@ -47,6 +56,10 @@ const processSteps = [
       title: 'Подготовка',
       desc: 'Товар отбирается, проходит контроль качества и упаковывается в фирменную экспортную упаковку с полным пакетом документов.',
     },
+    ar: {
+      title: 'التحضير',
+      desc: 'يتم انتقاء السلع وفحص جودتها وتعبئتها في عبوات تصدير تحمل علامتنا، مع إعداد المستندات كاملة.',
+    },
   },
   {
     icon: Ship,
@@ -57,6 +70,10 @@ const processSteps = [
     ru: {
       title: 'Доставка',
       desc: 'Груз отправляется автомобильным, железнодорожным или морским транспортом — с отслеживанием и поддержкой до вашего склада.',
+    },
+    ar: {
+      title: 'التسليم',
+      desc: 'تُحمّل الشحنة وتُرسل براً أو بالسكك الحديدية أو بحراً، مع التتبع والدعم حتى وصولها إلى مستودعكم.',
     },
   },
 ];
@@ -69,15 +86,15 @@ const LOOP_DURATION = 5.5; // seconds per full journey
 function ProcessStep({
   step,
   index,
-  isEn,
+  locale,
   highlighted,
 }: {
   step: (typeof processSteps)[number];
   index: number;
-  isEn: boolean;
+  locale: Locale;
   highlighted: boolean;
 }) {
-  const content = isEn ? step.en : step.ru;
+  const content = step[locale];
   const Icon = step.icon;
 
   return (
@@ -144,7 +161,7 @@ function TravellingPulse({ orientation, progress }: { orientation: 'h' | 'v'; pr
   );
 }
 
-function ExportProcessSection({ isEn }: { isEn: boolean }) {
+function ExportProcessSection({ locale }: { locale: Locale }) {
   const reducedMotion = useReducedMotion() ?? false;
   const [highlightedIndex, setHighlightedIndex] = useState(-1);
   const progress = useMotionValue(0);
@@ -197,7 +214,7 @@ function ExportProcessSection({ isEn }: { isEn: boolean }) {
                 key={i}
                 step={step}
                 index={i}
-                isEn={isEn}
+                locale={locale}
                 highlighted={!reducedMotion && i === highlightedIndex}
               />
             ))}
@@ -210,7 +227,6 @@ function ExportProcessSection({ isEn }: { isEn: boolean }) {
 
 export function InternationalTradePage() {
   const { locale, t, pick } = useLocale();
-  const isEn = locale !== 'ru';
 
   return (
     <div className="bg-background pt-[82px]">
@@ -255,7 +271,7 @@ export function InternationalTradePage() {
       </section>
 
       {/* Process cards — ambient animated */}
-      <ExportProcessSection isEn={isEn} />
+      <ExportProcessSection locale={locale} />
 
       {/* Why work with us — compact */}
       <section className="py-10 md:py-12 bg-secondary text-secondary-foreground">

@@ -9,8 +9,10 @@ import {
   productSeoTitle,
   productSeoDesc,
   specLabel,
+  categoryLabel,
+  packagingLabel,
 } from '../data/products';
-import { categories } from '../data/categories';
+import { categories, categoryName } from '../data/categories';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, ArrowRight, CheckCircle2, Package, Wheat, MessageSquare, Download, X } from 'lucide-react';
 import { ProductCard } from '../components/ProductCard';
@@ -82,10 +84,12 @@ export function ProductDetailPage() {
   };
 
   const openWhatsApp = () => {
-    const productName = locale !== 'ru' ? product?.name : product?.nameRu;
-    const msg = locale !== 'ru'
-      ? `Hello, I am interested in ${productName}. Could you please send me a quote and specifications?`
-      : `Здравствуйте, меня интересует ${productName}. Пожалуйста, пришлите коммерческое предложение и спецификацию.`;
+    const label = product ? productName(product, locale) : '';
+    const msg = pick({
+      en: `Hello, I am interested in ${label}. Could you please send me a quote and specifications?`,
+      ru: `Здравствуйте, меня интересует ${label}. Пожалуйста, пришлите коммерческое предложение и спецификацию.`,
+      ar: `مرحباً، أنا مهتم بـ ${label}. هل يمكنكم إرسال عرض سعر والمواصفات؟`,
+    });
     window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
   };
 
@@ -101,7 +105,7 @@ export function ProductDetailPage() {
   }
 
   const category = categories.find(c => c.id === product.category);
-  const catName = category ? (locale !== 'ru' ? category.name : category.nameRu) : product.category;
+  const catName = category ? categoryName(category, locale) : categoryLabel(product.category, locale);
   
   const relatedProducts = products
     .filter(p => p.category === product.category && p.id !== product.id)
@@ -205,7 +209,7 @@ export function ProductDetailPage() {
                 <div className="flex flex-wrap gap-2">
                   {product.packaging.map((pack, i) => (
                     <span key={i} className="px-3 py-1.5 bg-card border border-border rounded text-sm text-foreground font-medium shadow-sm">
-                      {pack}
+                      {packagingLabel(pack, locale)}
                     </span>
                   ))}
                 </div>
@@ -229,13 +233,17 @@ export function ProductDetailPage() {
             </h2>
             <div className="mb-4" style={{ height: '1px', width: '44px', background: 'linear-gradient(90deg, #C29A3D, rgba(194,154,61,0.10))' }} />
             <p className="text-sm max-w-xl" style={{ color: '#7A6450', lineHeight: 1.8 }}>
-              {locale !== 'ru'
-                ? product.category === 'Vegetable Oils'
-                  ? 'Sunflower oil ships in retail bottles, plastic cans and bulk IBC tanks — sized for every buyer.'
-                  : `${name} is available in multiple export formats to suit your logistics requirements.`
-                : product.category === 'Vegetable Oils'
-                  ? 'Подсолнечное масло поставляется в розничных бутылках, пластиковых канистрах и наливных IBC-контейнерах.'
-                  : `${name} доступен в нескольких форматах упаковки для ваших логистических требований.`}
+              {product.category === 'Vegetable Oils'
+                ? pick({
+                    en: 'Sunflower oil ships in retail bottles, plastic cans and bulk IBC tanks — sized for every buyer.',
+                    ru: 'Подсолнечное масло поставляется в розничных бутылках, пластиковых канистрах и наливных IBC-контейнерах.',
+                    ar: 'يُشحن زيت دوار الشمس في عبوات التجزئة والعبوات البلاستيكية وخزانات IBC للصب — بمقاسات تلائم كل مشترٍ.',
+                  })
+                : pick({
+                    en: `${name} is available in multiple export formats to suit your logistics requirements.`,
+                    ru: `${name} доступен в нескольких форматах упаковки для ваших логистических требований.`,
+                    ar: `${name} متاح بصيغ تصدير متعددة تلائم متطلباتكم اللوجستية.`,
+                  })}
             </p>
           </div>
 
@@ -375,9 +383,11 @@ export function ProductDetailPage() {
           >
             <div>
               <p className="font-serif text-base text-foreground mb-1">
-                {locale !== 'ru'
-                  ? `Ready to order ${name}?`
-                  : `Готовы заказать ${name}?`}
+                {pick({
+                  en: `Ready to order ${name}?`,
+                  ru: `Готовы заказать ${name}?`,
+                  ar: `جاهز لطلب ${name}؟`,
+                })}
               </p>
               <p className="text-xs" style={{ color: '#7A6450' }}>
                 {pick({ en: 'Tell us your format, quantity and destination — we\'ll send a full offer within 24 hours.', ru: 'Укажите формат, объём и страну назначения — вышлем коммерческое предложение в течение 24 часов.', ar: 'أخبرنا بالصيغة والكمية وجهة الوصول — وسنرسل عرضاً كاملاً خلال 24 ساعة.' })}

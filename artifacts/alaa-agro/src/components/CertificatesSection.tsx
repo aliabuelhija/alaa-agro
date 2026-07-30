@@ -15,42 +15,51 @@ const CREDENTIALS = [
     badge: "certificates/cert-gost-compliant.svg",
     name_en: "GOST Compliant",
     name_ru: "Соответствие ГОСТ",
+    name_ar: "مطابق لمعيار GOST",
     sub_en: "Russian Federation Standards",
     sub_ru: "Стандарты РФ",
+    sub_ar: "معايير الاتحاد الروسي",
   },
   {
     badge: "certificates/cert-phytosanitary.svg",
     name_en: "Phytosanitary Cleared",
     name_ru: "Фитосанитарный контроль",
+    name_ar: "تصريح الصحة النباتية",
     sub_en: "Export Health Compliance",
     sub_ru: "Экспортные нормы здоровья",
+    sub_ar: "امتثال الصحة للتصدير",
   },
   {
     badge: "certificates/cert-non-gmo.svg",
     name_en: "Non-GMO Declaration",
     name_ru: "Декларация Non-GMO",
+    name_ar: "إقرار خالٍ من التعديل الجيني",
     sub_en: "Conventional Origin",
     sub_ru: "Традиционное происхождение",
+    sub_ar: "منشأ تقليدي",
   },
   {
     badge: "certificates/cert-fumigation.svg",
     name_en: "Fumigation Treated",
     name_ru: "Фумигация",
+    name_ar: "معالجة بالتبخير",
     sub_en: "Pest-Free Storage",
     sub_ru: "Защита от вредителей",
+    sub_ar: "تخزين خالٍ من الآفات",
   },
   {
     badge: "certificates/cert-laboratory-tested.svg",
     name_en: "Laboratory Tested",
     name_ru: "Лабораторный контроль",
+    name_ar: "مُختبر مخبرياً",
     sub_en: "Analytical Standards",
     sub_ru: "Аналитические стандарты",
+    sub_ar: "تحليل من طرف ثالث",
   },
 ];
 
 export function CertificatesSection() {
-  const { locale } = useLocale();
-  const en = locale === "en";
+  const { locale, pick } = useLocale();
   const base = import.meta.env.BASE_URL;
   const reduced = useReducedMotion();
 
@@ -87,13 +96,13 @@ export function CertificatesSection() {
               letterSpacing: "0.30em",
             }}
           >
-            {en ? "Standards & Compliance" : "Стандарты и соответствие"}
+            {pick({ en: "Standards & Compliance", ru: "Стандарты и соответствие", ar: 'المعايير والامتثال' })}
           </p>
           <h2
             className="font-serif text-3xl md:text-4xl mb-4"
             style={{ color: "#2C1F0E" }}
           >
-            {en ? "Quality & Compliance" : "Качество и соответствие"}
+            {pick({ en: "Quality & Compliance", ru: "Качество и соответствие", ar: 'الجودة والامتثال' })}
           </h2>
           <div
             className="mx-auto mb-4"
@@ -108,9 +117,7 @@ export function CertificatesSection() {
             className="text-sm max-w-lg mx-auto"
             style={{ color: "rgba(44,31,14,0.55)", lineHeight: 1.8 }}
           >
-            {en
-              ? "Every shipment is prepared to meet the documentation and compliance requirements of international trade."
-              : "Каждая отгрузка подготовлена в соответствии с требованиями международной торговли."}
+            {pick({ en: "Every shipment is prepared to meet the documentation and compliance requirements of international trade.", ru: "Каждая отгрузка подготовлена в соответствии с требованиями международной торговли.", ar: 'تُجهَّز كل شحنة لتلبية متطلبات المستندات والامتثال في التجارة الدولية.' })}
           </p>
         </motion.div>
 
@@ -141,7 +148,7 @@ export function CertificatesSection() {
             >
               <img
                 src={`${base}${c.badge}`}
-                alt={en ? c.name_en : c.name_ru}
+                alt={pick({ en: c.name_en, ru: c.name_ru, ar: c.name_ar })}
                 width={80}
                 height={80}
                 loading="lazy"
@@ -152,13 +159,13 @@ export function CertificatesSection() {
                   className="font-serif text-sm leading-snug mb-1"
                   style={{ color: "#2C1F0E" }}
                 >
-                  {en ? c.name_en : c.name_ru}
+                  {pick({ en: c.name_en, ru: c.name_ru, ar: c.name_ar })}
                 </p>
                 <p
                   className="text-[11px]"
                   style={{ color: "rgba(44,31,14,0.50)" }}
                 >
-                  {en ? c.sub_en : c.sub_ru}
+                  {pick({ en: c.sub_en, ru: c.sub_ru, ar: c.sub_ar })}
                 </p>
               </div>
             </motion.div>
@@ -170,9 +177,7 @@ export function CertificatesSection() {
           className="text-center text-xs mt-8 italic"
           style={{ color: "rgba(44,31,14,0.40)" }}
         >
-          {en
-            ? "Full documentation — certificates of origin, phytosanitary certificates and quality analysis reports — available on request."
-            : "Полный пакет документов — сертификаты происхождения, фитосанитарные сертификаты и протоколы анализа качества — предоставляется по запросу."}
+          {pick({ en: "Full documentation — certificates of origin, phytosanitary certificates and quality analysis reports — available on request.", ru: "Полный пакет документов — сертификаты происхождения, фитосанитарные сертификаты и протоколы анализа качества — предоставляется по запросу.", ar: 'المستندات كاملة — شهادات المنشأ وشهادات الصحة النباتية وتقارير تحليل الجودة — متاحة عند الطلب.' })}
         </p>
       </div>
     </section>

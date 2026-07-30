@@ -8,7 +8,7 @@ import { SEOHead } from '../components/SEOHead';
 import { Link } from 'wouter';
 
 const WA_CONTACTS = [
-  { number: '79265705777', nameEn: 'Alaa Noufal', nameRu: 'Алаа Ноуфал', phone: '+7 (926) 570-57-77' },
+  { number: '79265705777', nameEn: 'Alaa Noufal', nameRu: 'Алаа Ноуфал', nameAr: 'علاء نوفل', phone: '+7 (926) 570-57-77' },
 ];
 
 function WhatsAppIcon() {
@@ -170,9 +170,11 @@ export function ContactPage() {
                   </p>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     {WA_CONTACTS.map(c => {
-                      const msg = locale !== 'ru'
-                        ? `Hello, I would like to enquire about ALAA AGRO products.`
-                        : `Здравствуйте, я хотел бы узнать о продукции АЛАА АГРО.`;
+                      const msg = pick({
+                        en: 'Hello, I would like to enquire about ALAA AGRO products.',
+                        ru: 'Здравствуйте, я хотел бы узнать о продукции АЛАА АГРО.',
+                        ar: 'مرحباً، أود الاستفسار عن منتجات ALAA AGRO.',
+                      });
                       return (
                         <a
                           key={c.number}
@@ -187,7 +189,7 @@ export function ContactPage() {
                           </span>
                           <div className="min-w-0">
                             <p className="text-sm font-semibold text-foreground leading-tight">
-                              {locale !== 'ru' ? c.nameEn : c.nameRu}
+                              {pick({ en: c.nameEn, ru: c.nameRu, ar: c.nameAr })}
                             </p>
                             <p className="text-xs text-muted-foreground">{c.phone}</p>
                           </div>

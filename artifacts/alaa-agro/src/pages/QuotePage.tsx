@@ -8,7 +8,7 @@ import { CheckCircle2, ChevronRight, ChevronLeft, Building2, PackageSearch, File
 import { products, productName } from '../data/products';
 
 const WA_CONTACTS = [
-  { number: '79265705777', nameEn: 'Alaa Noufal', nameRu: 'Алаа Ноуфал', phone: '+7 (926) 570-57-77' },
+  { number: '79265705777', nameEn: 'Alaa Noufal', nameRu: 'Алаа Ноуфал', nameAr: 'علاء نوفل', phone: '+7 (926) 570-57-77' },
 ];
 
 function WhatsAppIcon() {
@@ -145,9 +145,11 @@ export function QuotePage() {
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-left">
                 {WA_CONTACTS.map(c => {
-                  const msg = locale !== 'ru'
-                    ? `Hello, I have just submitted a quote request on the ALAA AGRO website and would like to follow up.`
-                    : `Здравствуйте, я только что отправил запрос на коммерческое предложение на сайте АЛАА АГРО и хотел бы уточнить детали.`;
+                  const msg = pick({
+                    en: 'Hello, I have just submitted a quote request on the ALAA AGRO website and would like to follow up.',
+                    ru: 'Здравствуйте, я только что отправил запрос на коммерческое предложение на сайте АЛАА АГРО и хотел бы уточнить детали.',
+                    ar: 'مرحباً، لقد أرسلت للتو طلب عرض سعر عبر موقع ALAA AGRO وأرغب في متابعته.',
+                  });
                   return (
                     <a
                       key={c.number}
@@ -162,7 +164,7 @@ export function QuotePage() {
                       </span>
                       <div className="min-w-0">
                         <p className="text-sm font-semibold text-foreground leading-tight">
-                          {locale !== 'ru' ? c.nameEn : c.nameRu}
+                          {pick({ en: c.nameEn, ru: c.nameRu, ar: c.nameAr })}
                         </p>
                         <p className="text-xs text-muted-foreground">{c.phone}</p>
                       </div>
@@ -187,9 +189,11 @@ export function QuotePage() {
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {WA_CONTACTS.map(c => {
-                  const msg = locale !== 'ru'
-                    ? `Hello, I would like to submit a quote request for ALAA AGRO products.`
-                    : `Здравствуйте, я хотел бы отправить запрос на коммерческое предложение по продукции АЛАА АГРО.`;
+                  const msg = pick({
+                    en: 'Hello, I would like to submit a quote request for ALAA AGRO products.',
+                    ru: 'Здравствуйте, я хотел бы отправить запрос на коммерческое предложение по продукции АЛАА АГРО.',
+                    ar: 'مرحباً، أرغب في إرسال طلب عرض سعر لمنتجات ALAA AGRO.',
+                  });
                   return (
                     <a
                       key={c.number}
@@ -204,7 +208,7 @@ export function QuotePage() {
                       </span>
                       <div className="min-w-0">
                         <p className="text-sm font-semibold text-foreground leading-tight">
-                          {locale !== 'ru' ? c.nameEn : c.nameRu}
+                          {pick({ en: c.nameEn, ru: c.nameRu, ar: c.nameAr })}
                         </p>
                         <p className="text-xs text-muted-foreground">{c.phone}</p>
                       </div>

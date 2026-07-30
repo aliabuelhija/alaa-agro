@@ -19,7 +19,7 @@ export function Navigation() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
-  const { locale, t } = useLocale();
+  const { locale, t, pick } = useLocale();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -261,13 +261,8 @@ export function Navigation() {
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label={
               mobileMenuOpen
-                ? locale === "en"
-                  ? "Close menu"
-                  : "Закрыть меню"
-                : locale === "en"
-                  ? "Open menu"
-                  : "Открыть меню"
-            }
+                ? pick({ en: "Close menu", ru: "Закрыть меню", ar: 'إغلاق القائمة' })
+                : pick({ en: "Open menu", ru: "Открыть меню", ar: 'فتح القائمة' })}
             aria-expanded={mobileMenuOpen}
             className="p-2 -me-2"
           >

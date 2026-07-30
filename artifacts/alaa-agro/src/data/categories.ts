@@ -29,3 +29,9 @@ export function categoryDescription(c: CategoryData, locale: Locale): string {
   if (locale === "ar") return c.descriptionAr;
   return c.description;
 }
+
+/** Resolve a category label from its id, for places that only carry the id. */
+export function categoryLabelById(id: string, locale: Locale): string {
+  const c = categories.find((x) => x.id === id);
+  return c ? categoryName(c, locale) : id;
+}

@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Package } from 'lucide-react';
 import { Product, productName, specLabel } from '../data/products';
 import { useLocale } from '../contexts/LocaleContext';
-import { categories } from '../data/categories';
+import { categoryLabelById } from '../data/categories';
 
 interface ProductCardProps {
   product: Product;
@@ -13,9 +13,12 @@ interface ProductCardProps {
 const WA_NUMBER = '79265705777';
 
 function buildWaUrl(productName: string, locale: string) {
-  const msg = locale === 'ru'
-    ? `Здравствуйте, интересует оптовая закупка: ${productName}. Прошу выслать коммерческое предложение.`
-    : `Hello, I'm interested in a bulk order of: ${productName}. Please send me a commercial offer.`;
+  const msg =
+    locale === 'ru'
+      ? `Здравствуйте, интересует оптовая закупка: ${productName}. Прошу выслать коммерческое предложение.`
+      : locale === 'ar'
+        ? `مرحباً، أنا مهتم بشراء كمية بالجملة من: ${productName}. يرجى إرسال عرض تجاري.`
+        : `Hello, I'm interested in a bulk order of: ${productName}. Please send me a commercial offer.`;
   return `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`;
 }
 
@@ -26,10 +29,10 @@ function packagingSummary(packaging: string[], locale: string): string {
   const kg: string[] = [];
   if (has('25 kg')) kg.push('25');
   if (has('50 kg')) kg.push('50');
-  if (kg.length) parts.push(locale === 'ru' ? `Мешки ${kg.join(' / ')} кг` : `${kg.join(' / ')} kg bags`);
-  if (has('big bag')) parts.push(locale === 'ru' ? 'Биг-бэги' : 'Big bags');
-  if (has('container')) parts.push(locale === 'ru' ? 'Контейнеры' : 'Containers');
-  if (has('bottle') || has(' l ') || has('cartons')) parts.push(locale === 'ru' ? 'Бутылки' : 'Bottled');
+  if (kg.length) parts.push(locale === 'ru' ? `Мешки ${kg.join(' / ')} кг` : locale === 'ar' ? `أكياس ${kg.join(' / ')} كجم` : `${kg.join(' / ')} kg bags`);
+  if (has('big bag')) parts.push(locale === 'ru' ? 'Биг-бэги' : locale === 'ar' ? 'أكياس كبيرة' : 'Big bags');
+  if (has('container')) parts.push(locale === 'ru' ? 'Контейнеры' : locale === 'ar' ? 'حاويات' : 'Containers');
+  if (has('bottle') || has(' l ') || has('cartons')) parts.push(locale === 'ru' ? 'Бутылки' : locale === 'ar' ? 'معبأ في عبوات' : 'Bottled');
   return parts.join(' · ');
 }
 
@@ -71,9 +74,7 @@ export function ProductCard({ product }: ProductCardProps) {
           className="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-[0.14em]"
           style={{ background: 'rgba(12,9,3,0.60)', color: '#E3B84F', backdropFilter: 'blur(8px)', border: '1px solid rgba(227,184,79,0.25)' }}
         >
-          {locale === 'ru'
-            ? (categories.find(c => c.id === product.category)?.nameRu ?? product.category)
-            : product.category}
+          {categoryLabelById(product.category, locale)}
         </span>
       </Link>
 

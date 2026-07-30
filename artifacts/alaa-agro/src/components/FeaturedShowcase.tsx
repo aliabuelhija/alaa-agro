@@ -10,47 +10,47 @@ type ShowcaseItem = {
   id: string;
   slug: string;
   bag: string;
-  name: { en: string; ru: string };
-  spec: { en: string; ru: string };
-  packaging: { en: string; ru: string };
+  name: { en: string; ru: string; ar: string };
+  spec: { en: string; ru: string; ar: string };
+  packaging: { en: string; ru: string; ar: string };
 };
 
 const ITEMS: ShowcaseItem[] = [
   {
     id: 'wheat', slug: 'wheat', bag: 'showcase/bag-wheat.png',
-    name: { en: 'Wheat', ru: 'Пшеница' },
-    spec: { en: 'Protein 11.5–14.0% · Gluten 23–30%', ru: 'Белок 11,5–14,0% · Клейковина 23–30%' },
-    packaging: { en: 'PP bags 25/50 kg · Big bags · Bulk', ru: 'Мешки ПП 25/50 кг · Биг-бэги · Насыпью' },
+    name: { en: 'Wheat', ru: 'Пшеница', ar: 'القمح' },
+    spec: { en: 'Protein 11.5–14.0% · Gluten 23–30%', ru: 'Белок 11,5–14,0% · Клейковина 23–30%', ar: 'بروتين 11.5–14.0% · غلوتين 23–30%' },
+    packaging: { en: 'PP bags 25/50 kg · Big bags · Bulk', ru: 'Мешки ПП 25/50 кг · Биг-бэги · Насыпью', ar: 'أكياس بولي بروبيلين 25/50 كجم · أكياس كبيرة · صب' },
   },
   {
     id: 'corn', slug: 'corn', bag: 'showcase/bag-corn.png',
-    name: { en: 'Corn / Maize', ru: 'Кукуруза' },
-    spec: { en: 'Moisture max 14% · Feed & food grades', ru: 'Влажность до 14% · Кормовая и пищевая' },
-    packaging: { en: 'PP bags 25/50 kg · Big bags · Bulk', ru: 'Мешки ПП 25/50 кг · Биг-бэги · Насыпью' },
+    name: { en: 'Corn / Maize', ru: 'Кукуруза', ar: 'الذرة' },
+    spec: { en: 'Moisture max 14% · Feed & food grades', ru: 'Влажность до 14% · Кормовая и пищевая', ar: 'رطوبة حتى 14% · درجات علفية وغذائية' },
+    packaging: { en: 'PP bags 25/50 kg · Big bags · Bulk', ru: 'Мешки ПП 25/50 кг · Биг-бэги · Насыпью', ar: 'أكياس بولي بروبيلين 25/50 كجم · أكياس كبيرة · صب' },
   },
   {
     id: 'chickpeas', slug: 'chickpeas', bag: 'showcase/bag-chickpeas.png',
-    name: { en: 'Chickpeas', ru: 'Нут' },
-    spec: { en: 'Calibre 6–9 mm · Hand-pick quality', ru: 'Калибр 6–9 мм · Ручная очистка' },
-    packaging: { en: 'PP bags 25/50 kg · Big bags', ru: 'Мешки ПП 25/50 кг · Биг-бэги' },
+    name: { en: 'Chickpeas', ru: 'Нут', ar: 'الحمص' },
+    spec: { en: 'Calibre 6–9 mm · Hand-pick quality', ru: 'Калибр 6–9 мм · Ручная очистка', ar: 'عيار 6–9 مم · جودة الانتقاء اليدوي' },
+    packaging: { en: 'PP bags 25/50 kg · Big bags', ru: 'Мешки ПП 25/50 кг · Биг-бэги', ar: 'أكياس بولي بروبيلين 25/50 كجم · أكياس كبيرة' },
   },
   {
     id: 'lentils', slug: 'lentils', bag: 'showcase/bag-lentils.png',
-    name: { en: 'Lentils', ru: 'Чечевица' },
-    spec: { en: 'Red & green varieties · Purity ≥99%', ru: 'Красная и зелёная · Чистота ≥99%' },
-    packaging: { en: 'PP bags 25/50 kg · Big bags', ru: 'Мешки ПП 25/50 кг · Биг-бэги' },
+    name: { en: 'Lentils', ru: 'Чечевица', ar: 'العدس' },
+    spec: { en: 'Red & green varieties · Purity ≥99%', ru: 'Красная и зелёная · Чистота ≥99%', ar: 'أصناف حمراء وخضراء · نقاء ≥99%' },
+    packaging: { en: 'PP bags 25/50 kg · Big bags', ru: 'Мешки ПП 25/50 кг · Биг-бэги', ar: 'أكياس بولي بروبيلين 25/50 كجم · أكياس كبيرة' },
   },
   {
     id: 'flaxseed', slug: 'brown-flaxseed', bag: 'showcase/bag-flaxseed.png',
-    name: { en: 'Flaxseed', ru: 'Лён' },
-    spec: { en: 'Oil content ≥40% · Purity ≥99%', ru: 'Масличность ≥40% · Чистота ≥99%' },
-    packaging: { en: 'PP bags 25/50 kg · Big bags', ru: 'Мешки ПП 25/50 кг · Биг-бэги' },
+    name: { en: 'Flaxseed', ru: 'Лён', ar: 'بذر الكتان' },
+    spec: { en: 'Oil content ≥40% · Purity ≥99%', ru: 'Масличность ≥40% · Чистота ≥99%', ar: 'نسبة الزيت ≥40% · نقاء ≥99%' },
+    packaging: { en: 'PP bags 25/50 kg · Big bags', ru: 'Мешки ПП 25/50 кг · Биг-бэги', ar: 'أكياس بولي بروبيلين 25/50 كجم · أكياس كبيرة' },
   },
   {
     id: 'sunflower-seeds', slug: 'sunflower-seeds', bag: 'showcase/bag-sunflower-seeds.png',
-    name: { en: 'Sunflower Seeds', ru: 'Семена подсолнечника' },
-    spec: { en: 'Confectionery & oil grades', ru: 'Кондитерские и масличные сорта' },
-    packaging: { en: 'PP bags 25/50 kg · Big bags', ru: 'Мешки ПП 25/50 кг · Биг-бэги' },
+    name: { en: 'Sunflower Seeds', ru: 'Семена подсолнечника', ar: 'بذور دوار الشمس' },
+    spec: { en: 'Confectionery & oil grades', ru: 'Кондитерские и масличные сорта', ar: 'درجات الحلويات والزيت' },
+    packaging: { en: 'PP bags 25/50 kg · Big bags', ru: 'Мешки ПП 25/50 кг · Биг-бэги', ar: 'أكياس بولي بروبيلين 25/50 كجم · أكياس كبيرة' },
   },
 ];
 
@@ -59,7 +59,7 @@ const mod = (n: number) => ((n % N) + N) % N;
 
 export function FeaturedShowcase() {
   const { locale } = useLocale();
-  const lang = (locale === 'ru' ? 'ru' : 'en') as 'en' | 'ru';
+  const lang = locale;
   const prefersReducedMotion = useReducedMotion();
 
   const sectionRef = useRef<HTMLElement>(null);

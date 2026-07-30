@@ -10,28 +10,28 @@ const STANDARD_FORMATS = [
     photo: '/packaging/bag-25kg.jpg',
     titleKey: 'packagingPage.fmt25kg',
     descKey: 'packagingPage.fmt25kgDesc',
-    chips: { en: ['25 kg net', '40 bags / pallet', 'ALAA AGRO branded'], ru: ['25 кг нетто', '40 мешков / паллет', 'Фирменная маркировка'] },
+    chips: { en: ['25 kg net', '40 bags / pallet', 'ALAA AGRO branded'], ru: ['25 кг нетто', '40 мешков / паллет', 'Фирменная маркировка'], ar: ['25 كجم صافي', '40 كيساً / منصة', 'بعلامة ALAA AGRO'] },
   },
   {
     webp: '/packaging/bag-50kg.webp',
     photo: '/packaging/bag-50kg.jpg',
     titleKey: 'packagingPage.fmt50kg',
     descKey: 'packagingPage.fmt50kgDesc',
-    chips: { en: ['50 kg net', '20 bags / pallet', 'Liner available'], ru: ['50 кг нетто', '20 мешков / паллет', 'Вкладыш по запросу'] },
+    chips: { en: ['50 kg net', '20 bags / pallet', 'Liner available'], ru: ['50 кг нетто', '20 мешков / паллет', 'Вкладыш по запросу'], ar: ['50 كجم صافي', '20 كيساً / منصة', 'بطانة متاحة'] },
   },
   {
     webp: '/packaging/bigbag-fibc.webp',
     photo: '/packaging/bigbag-fibc.jpg',
     titleKey: 'packagingPage.fmtBig',
     descKey: 'packagingPage.fmtBigDesc',
-    chips: { en: ['600–1000 kg', '2- or 4-loop', 'Food-grade liner'], ru: ['600–1000 кг', '2 или 4 стропы', 'Пищевой вкладыш'] },
+    chips: { en: ['600–1000 kg', '2- or 4-loop', 'Food-grade liner'], ru: ['600–1000 кг', '2 или 4 стропы', 'Пищевой вкладыш'], ar: ['600–1000 كجم', 'حلقتان أو أربع حلقات', 'بطانة غذائية'] },
   },
   {
     webp: '/packaging/container-load.webp',
     photo: '/packaging/container-load.jpg',
     titleKey: 'packagingPage.fmtContainer',
     descKey: 'packagingPage.fmtContainerDesc',
-    chips: { en: ['20 ft ≈ 22 MT', '40 ft ≈ 26 MT', 'Liner fitted'], ru: ['20 фут ≈ 22 МТ', '40 фут ≈ 26 МТ', 'Вкладыш в комплекте'] },
+    chips: { en: ['20 ft ≈ 22 MT', '40 ft ≈ 26 MT', 'Liner fitted'], ru: ['20 фут ≈ 22 МТ', '40 фут ≈ 26 МТ', 'Вкладыш в комплекте'], ar: ['20 قدماً ≈ 22 طناً', '40 قدماً ≈ 26 طناً', 'بطانة مركّبة'] },
   },
 ];
 
@@ -74,9 +74,9 @@ const GALLERY = [
 ];
 
 const OIL_FORMATS = [
-  { iconEn: 'PET Bottle', iconRu: 'ПЭТ-бутылка', sizesEn: '1 L · 5 L', sizesRu: '1 л · 5 л', noteEn: 'Retail & food-service', noteRu: 'Розница и фудсервис' },
-  { iconEn: 'Carton Case', iconRu: 'Картонная коробка', sizesEn: '3 × 5 L · 4 × 5 L', sizesRu: '3 × 5 л · 4 × 5 л', noteEn: 'Wholesale distribution', noteRu: 'Оптовые поставки' },
-  { iconEn: 'Bulk Container', iconRu: 'Наливная тара', sizesEn: '10 L / 20 L cans · 1 000 L IBC', sizesRu: '10 л / 20 л канистры · IBC 1 000 л', noteEn: 'Industrial & processing', noteRu: 'Промышленность и переработка' },
+  { iconEn: 'PET Bottle', iconRu: 'ПЭТ-бутылка', iconAr: 'عبوة PET', sizesEn: '1 L · 5 L', sizesRu: '1 л · 5 л', sizesAr: '1 لتر · 5 لتر', noteEn: 'Retail & food-service', noteRu: 'Розница и фудсервис', noteAr: 'التجزئة وخدمات الأغذية' },
+  { iconEn: 'Carton Case', iconRu: 'Картонная коробка', iconAr: 'صندوق كرتوني', sizesEn: '3 × 5 L · 4 × 5 L', sizesRu: '3 × 5 л · 4 × 5 л', sizesAr: '3 × 5 لتر · 4 × 5 لتر', noteEn: 'Wholesale distribution', noteRu: 'Оптовые поставки', noteAr: 'التوزيع بالجملة' },
+  { iconEn: 'Bulk Container', iconRu: 'Наливная тара', iconAr: 'عبوة صب', sizesEn: '10 L / 20 L cans · 1 000 L IBC', sizesRu: '10 л / 20 л канистры · IBC 1 000 л', sizesAr: 'عبوات 10 لتر / 20 لتر · IBC 1000 لتر', noteEn: 'Industrial & processing', noteRu: 'Промышленность и переработка', noteAr: 'الصناعة والتصنيع' },
 ];
 
 export function PackagingPage() {
@@ -156,7 +156,7 @@ export function PackagingPage() {
                   </p>
                   {/* Spec chips */}
                   <div className="flex flex-wrap gap-1.5 pt-3 border-t border-border">
-                    {(locale === 'ru' ? fmt.chips.ru : fmt.chips.en).map((chip, ci) => (
+                    {fmt.chips[locale].map((chip, ci) => (
                       <span
                         key={ci}
                         className="text-[10px] font-medium px-2 py-0.5 rounded-full"
@@ -207,9 +207,9 @@ export function PackagingPage() {
                         {String(i + 1).padStart(2, '0')}
                       </span>
                       <div>
-                        <p className="font-semibold text-foreground text-sm">{locale !== 'ru' ? f.iconEn : f.iconRu}</p>
-                        <p className="text-accent font-medium text-sm">{locale !== 'ru' ? f.sizesEn : f.sizesRu}</p>
-                        <p className="text-xs text-muted-foreground mt-0.5">{locale !== 'ru' ? f.noteEn : f.noteRu}</p>
+                        <p className="font-semibold text-foreground text-sm">{pick({ en: f.iconEn, ru: f.iconRu, ar: f.iconAr })}</p>
+                        <p className="text-accent font-medium text-sm">{pick({ en: f.sizesEn, ru: f.sizesRu, ar: f.sizesAr })}</p>
+                        <p className="text-xs text-muted-foreground mt-0.5">{pick({ en: f.noteEn, ru: f.noteRu, ar: f.noteAr })}</p>
                       </div>
                     </div>
                   ))}
