@@ -143,10 +143,16 @@ function TravellingPulse({
   progress: any;
   rtl: boolean;
 }) {
-  // Under RTL the four steps flow right-to-left (CSS grid follows `dir`), so the
-  // pulse has to travel the same way. Mirroring the value keeps the -50%
-  // centering transform correct, which switching to a logical inset would not.
-  const pos = useTransform(progress, (v: number) => `${(rtl ? 1 - v : v) * 100}%`);
+  // Horizontal only: under RTL the four steps flow right-to-left (CSS grid
+  // follows `dir`), so the pulse has to travel the same way. Mirroring the value
+  // keeps the -50% centering transform correct, which switching to a logical
+  // inset would not.
+  //
+  // The vertical rail must NOT mirror. On mobile the steps stack top-to-bottom,
+  // and vertical stacking order is unaffected by text direction — mirroring it
+  // put the pulse at the top while step 04 was highlighted.
+  const mirror = rtl && orientation === 'h';
+  const pos = useTransform(progress, (v: number) => `${(mirror ? 1 - v : v) * 100}%`);
   // Fade out at the very end, fade in at the start, for a smooth restart
   const opacity = useTransform(progress, [0, 0.04, 0.94, 1], [0, 1, 1, 0]);
 
