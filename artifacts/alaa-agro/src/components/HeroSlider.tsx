@@ -51,7 +51,7 @@ const SLIDES: Slide[] = [
 ];
 
 export function HeroSlider() {
-  const { locale } = useLocale();
+  const { locale, pick } = useLocale();
   const lang = locale;
   const prefersReducedMotion = useReducedMotion();
 
@@ -167,7 +167,7 @@ export function HeroSlider() {
           onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.background = '#B8871F'; el.style.transform = 'translateY(-2px)'; }}
           onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.background = '#C9972D'; el.style.transform = ''; }}
         >
-          {lang === 'en' ? 'Explore Products' : 'Каталог продуктов'}
+          {pick({ en: 'Explore Products', ru: 'Каталог продуктов', ar: 'استعرض المنتجات' })}
         </Link>
         <Link
           href={`/${locale}/quote`}
@@ -176,15 +176,15 @@ export function HeroSlider() {
           onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor = '#E3B84F'; el.style.color = '#E3B84F'; }}
           onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor = 'rgba(232,192,94,0.55)'; el.style.color = '#F7F2E8'; }}
         >
-          {lang === 'en' ? 'Request a Quote' : 'Запросить предложение'}
+          {pick({ en: 'Request a Quote', ru: 'Запросить предложение', ar: 'طلب عرض سعر' })}
         </Link>
       </div>
 
       <div className="flex flex-wrap items-center gap-x-7 gap-y-3">
         {[
-          { icon: <Wheat size={17} />, label: lang === 'en' ? 'Grains, pulses & oilseeds' : 'Зерновые, бобовые и масличные' },
-          { icon: <Package size={17} />, label: lang === 'en' ? 'Flexible bulk packaging' : 'Гибкая оптовая упаковка' },
-          { icon: <Globe size={17} />, label: lang === 'en' ? 'International shipment coordination' : 'Координация международных отгрузок' },
+          { icon: <Wheat size={17} />, label: pick({ en: 'Grains, pulses & oilseeds', ru: 'Зерновые, бобовые и масличные', ar: 'حبوب وبقوليات وبذور زيتية' }) },
+          { icon: <Package size={17} />, label: pick({ en: 'Flexible bulk packaging', ru: 'Гибкая оптовая упаковка', ar: 'تعبئة مرنة بالجملة' }) },
+          { icon: <Globe size={17} />, label: pick({ en: 'International shipment coordination', ru: 'Координация международных отгрузок', ar: 'تنسيق الشحن الدولي' }) },
         ].map(s => (
           <div key={s.label} className="flex items-center gap-2">
             <span style={{ color: '#E3B84F' }}>{s.icon}</span>
@@ -203,7 +203,7 @@ export function HeroSlider() {
       onTouchStart={onTouchStart}
       onTouchEnd={onTouchEnd}
       aria-roledescription="carousel"
-      aria-label={lang === 'en' ? 'The journey of one product' : 'Путь одного продукта'}
+      aria-label={pick({ en: 'The journey of one product', ru: 'Путь одного продукта', ar: 'رحلة منتج واحد' })}
     >
       {/* ── MEDIA BAND — exact 3:2 photo ratio so the full image is always visible ── */}
       <div className="relative w-full" style={{ aspectRatio: PHOTO_RATIO }}>

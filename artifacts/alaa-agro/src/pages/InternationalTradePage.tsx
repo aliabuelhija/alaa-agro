@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useLocale } from '../contexts/LocaleContext';
-import type { Locale } from '../i18n';
+import { isRtl, type Locale } from '../i18n';
 import { SEOHead } from '../components/SEOHead';
 import { Link } from 'wouter';
 import {
@@ -134,8 +134,19 @@ function ProcessStep({
   );
 }
 
-function TravellingPulse({ orientation, progress }: { orientation: 'h' | 'v'; progress: any }) {
-  const pos = useTransform(progress, (v: number) => `${v * 100}%`);
+function TravellingPulse({
+  orientation,
+  progress,
+  rtl,
+}: {
+  orientation: 'h' | 'v';
+  progress: any;
+  rtl: boolean;
+}) {
+  // Under RTL the four steps flow right-to-left (CSS grid follows `dir`), so the
+  // pulse has to travel the same way. Mirroring the value keeps the -50%
+  // centering transform correct, which switching to a logical inset would not.
+  const pos = useTransform(progress, (v: number) => `${(rtl ? 1 - v : v) * 100}%`);
   // Fade out at the very end, fade in at the start, for a smooth restart
   const opacity = useTransform(progress, [0, 0.04, 0.94, 1], [0, 1, 1, 0]);
 
@@ -196,16 +207,16 @@ function ExportProcessSection({ locale }: { locale: Locale }) {
               className="absolute inset-0"
               style={{ background: 'linear-gradient(to right, rgba(194,154,61,0.2), rgba(194,154,61,0.55) 20%, rgba(194,154,61,0.55) 80%, rgba(194,154,61,0.2))' }}
             />
-            {!reducedMotion && <TravellingPulse orientation="h" progress={progress} />}
+            {!reducedMotion && <TravellingPulse orientation="h" progress={progress} rtl={isRtl(locale)} />}
           </div>
 
           {/* Mobile connecting line (vertical) — always visible, static */}
-          <div className="lg:hidden absolute left-[35px] top-8 bottom-8 w-px">
+          <div className="lg:hidden absolute start-[35px] top-8 bottom-8 w-px">
             <div
               className="absolute inset-0"
               style={{ background: 'linear-gradient(to bottom, rgba(194,154,61,0.2), rgba(194,154,61,0.5) 20%, rgba(194,154,61,0.5) 80%, rgba(194,154,61,0.2))' }}
             />
-            {!reducedMotion && <TravellingPulse orientation="v" progress={progress} />}
+            {!reducedMotion && <TravellingPulse orientation="v" progress={progress} rtl={isRtl(locale)} />}
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 lg:gap-8">

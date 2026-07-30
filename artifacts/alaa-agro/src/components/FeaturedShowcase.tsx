@@ -58,7 +58,7 @@ const N = ITEMS.length;
 const mod = (n: number) => ((n % N) + N) % N;
 
 export function FeaturedShowcase() {
-  const { locale } = useLocale();
+  const { locale, pick } = useLocale();
   const lang = locale;
   const prefersReducedMotion = useReducedMotion();
 
@@ -125,7 +125,7 @@ export function FeaturedShowcase() {
       onFocus={() => setFocused(true)}
       onBlur={(e) => { if (!e.currentTarget.contains(e.relatedTarget as Node)) setFocused(false); }}
       aria-roledescription="carousel"
-      aria-label={lang === 'en' ? 'Selected export products' : 'Избранные экспортные товары'}
+      aria-label={pick({ en: 'Selected export products', ru: 'Избранные экспортные товары', ar: 'منتجات تصدير مختارة' })}
     >
       {/* Wheat-field sunset background + warm dark overlay */}
       <div className="absolute inset-0" aria-hidden="true">
@@ -153,16 +153,18 @@ export function FeaturedShowcase() {
             <div className="flex items-center gap-3 mb-5">
               <div className="h-px w-7 shrink-0" style={{ background: '#E3B84F' }} />
               <span className="uppercase" style={{ color: '#E8C05E', fontSize: '10px', letterSpacing: '0.24em', fontWeight: 600 }}>
-                {lang === 'en' ? 'Selected Export Products' : 'Избранные экспортные товары'}
+                {pick({ en: 'Selected Export Products', ru: 'Избранные экспортные товары', ar: 'منتجات تصدير مختارة' })}
               </span>
             </div>
             <h2 className="font-serif mb-5" style={{ fontSize: 'clamp(1.9rem, 2.6vw, 2.8rem)', lineHeight: 1.15, color: '#F7F2E8' }}>
-              {lang === 'en' ? 'Frequently Requested Commodities' : 'Часто запрашиваемые товары'}
+              {pick({ en: 'Frequently Requested Commodities', ru: 'Часто запрашиваемые товары', ar: 'السلع الأكثر طلباً' })}
             </h2>
             <p className="mb-8" style={{ fontSize: '0.98rem', lineHeight: 1.75, maxWidth: '400px', color: 'rgba(247,242,232,0.78)' }}>
-              {lang === 'en'
-                ? 'A focused selection of grains, pulses and oilseeds our buyers order most — cleaned, sorted and packed under the ALAA AGRO brand.'
-                : 'Подборка зерновых, бобовых и масличных, которые чаще всего заказывают наши покупатели — очищенные, отсортированные и упакованные под брендом ALAA AGRO.'}
+              {pick({
+                en: 'A focused selection of grains, pulses and oilseeds our buyers order most — cleaned, sorted and packed under the ALAA AGRO brand.',
+                ru: 'Подборка зерновых, бобовых и масличных, которые чаще всего заказывают наши покупатели — очищенные, отсортированные и упакованные под брендом ALAA AGRO.',
+                ar: 'تشكيلة مختارة من الحبوب والبقوليات والبذور الزيتية التي يطلبها مشترونا أكثر من غيرها — منقّاة ومصنّفة ومعبأة تحت علامة ALAA AGRO.',
+              })}
             </p>
             <Link
               href={`/${locale}/products`}
@@ -171,7 +173,7 @@ export function FeaturedShowcase() {
               onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = '#B8871F'; }}
               onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = '#C9972D'; }}
             >
-              {lang === 'en' ? 'View Complete Catalogue' : 'Полный каталог'}
+              {pick({ en: 'View Complete Catalogue', ru: 'Полный каталог', ar: 'عرض الكتالوج الكامل' })}
               <ArrowRight size={15} />
             </Link>
           </motion.div>
@@ -219,7 +221,7 @@ export function FeaturedShowcase() {
               {/* Arrows */}
               <button
                 type="button"
-                aria-label={lang === 'en' ? 'Previous product' : 'Предыдущий товар'}
+                aria-label={pick({ en: 'Previous product', ru: 'Предыдущий товар', ar: 'المنتج السابق' })}
                 onClick={prev}
                 className="absolute left-0 top-1/2 -translate-y-1/2 z-10 flex h-10 w-10 items-center justify-center rounded-full transition-colors hover:bg-[rgba(232,192,94,0.15)]"
                 style={{ border: '1px solid rgba(232,192,94,0.45)', color: '#E3B84F', background: 'rgba(20,12,4,0.35)', backdropFilter: 'blur(2px)' }}
@@ -228,7 +230,7 @@ export function FeaturedShowcase() {
               </button>
               <button
                 type="button"
-                aria-label={lang === 'en' ? 'Next product' : 'Следующий товар'}
+                aria-label={pick({ en: 'Next product', ru: 'Следующий товар', ar: 'المنتج التالي' })}
                 onClick={next}
                 className="absolute right-0 top-1/2 -translate-y-1/2 z-10 flex h-10 w-10 items-center justify-center rounded-full transition-colors hover:bg-[rgba(232,192,94,0.15)]"
                 style={{ border: '1px solid rgba(232,192,94,0.45)', color: '#E3B84F', background: 'rgba(20,12,4,0.35)', backdropFilter: 'blur(2px)' }}
@@ -257,7 +259,7 @@ export function FeaturedShowcase() {
                   <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 mb-2.5">
                     <h3 className="font-serif" style={{ fontSize: '1.35rem', color: '#F7F2E8' }}>{active.name[lang]}</h3>
                     <span className="uppercase" style={{ fontSize: '10px', letterSpacing: '0.18em', fontWeight: 600, color: '#E8C05E' }}>
-                      {lang === 'en' ? 'Origin: Russia' : 'Происхождение: Россия'}
+                      {pick({ en: 'Origin: Russia', ru: 'Происхождение: Россия', ar: 'المنشأ: روسيا' })}
                     </span>
                   </div>
                   <p style={{ fontSize: '12.5px', color: 'rgba(247,242,232,0.82)', lineHeight: 1.6 }}>{active.spec[lang]}</p>
@@ -268,7 +270,7 @@ export function FeaturedShowcase() {
                       className="group inline-flex items-center gap-1.5 font-semibold"
                       style={{ fontSize: '12.5px', color: '#E3B84F', borderBottom: '1px solid rgba(232,192,94,0.35)', paddingBottom: '1px' }}
                     >
-                      {lang === 'en' ? 'View Specifications' : 'Смотреть спецификации'}
+                      {pick({ en: 'View Specifications', ru: 'Смотреть спецификации', ar: 'عرض المواصفات' })}
                       <ArrowRight size={12} className="transition-transform duration-200 group-hover:translate-x-0.5" />
                     </Link>
                     <Link
@@ -276,7 +278,7 @@ export function FeaturedShowcase() {
                       className="group inline-flex items-center gap-1.5 font-semibold"
                       style={{ fontSize: '12.5px', color: '#F7F2E8', borderBottom: '1px solid rgba(247,242,232,0.30)', paddingBottom: '1px' }}
                     >
-                      {lang === 'en' ? 'Request a Quote' : 'Запросить предложение'}
+                      {pick({ en: 'Request a Quote', ru: 'Запросить предложение', ar: 'طلب عرض سعر' })}
                       <ArrowRight size={12} className="transition-transform duration-200 group-hover:translate-x-0.5" />
                     </Link>
                   </div>
