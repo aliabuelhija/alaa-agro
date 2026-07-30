@@ -34,9 +34,21 @@
       property="og:description"
       content="Reliable supply of grains, pulses, oilseeds, seeds, and agricultural commodities from Russia to international B2B buyers."
     />
+    <!--
+      Purpose-built 1200x630 card. WhatsApp, Telegram, LinkedIn and Facebook all
+      want 1.91:1 and a small file; the raw hero photo was 1536x1024 at 359 KB
+      and carried no branding once cropped to a chat thumbnail. Declaring the
+      dimensions lets scrapers lay out the preview before the image finishes
+      downloading, which is often the difference between a card and a bare link.
+    -->
+    <meta property="og:image" content="https://alaa-argo.com/og-image.jpg" />
+    <meta property="og:image:secure_url" content="https://alaa-argo.com/og-image.jpg" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta
-      property="og:image"
-      content="https://alaa-argo.com/hero/slide-1-port.jpg"
+      property="og:image:alt"
+      content="ALAA AGRO TRADE LLC — Russian agricultural products for global trade"
     />
     <meta property="og:locale" content="en_US" />
     <meta property="og:locale:alternate" content="ru_RU" />
@@ -51,9 +63,10 @@
       name="twitter:description"
       content="Reliable supply of grains, pulses, oilseeds, seeds, and agricultural commodities from Russia to international B2B buyers."
     />
+    <meta name="twitter:image" content="https://alaa-argo.com/og-image.jpg" />
     <meta
-      name="twitter:image"
-      content="https://alaa-argo.com/hero/slide-1-port.jpg"
+      name="twitter:image:alt"
+      content="ALAA AGRO TRADE LLC — Russian agricultural products for global trade"
     />
 
     <link rel="alternate" hreflang="en" href="https://alaa-argo.com/en" />
