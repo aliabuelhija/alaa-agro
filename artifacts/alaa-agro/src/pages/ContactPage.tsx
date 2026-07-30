@@ -32,7 +32,7 @@ const formSchema = z.object({
 type FormValues = z.infer<typeof formSchema>;
 
 export function ContactPage() {
-  const { locale, t } = useLocale();
+  const { locale, t, pick } = useLocale();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
@@ -71,10 +71,7 @@ export function ContactPage() {
       reset();
     } catch (err) {
       setSubmitError(
-        locale !== 'ru'
-          ? 'Submission failed — please try WhatsApp or email us directly.'
-          : 'Ошибка отправки — пожалуйста, напишите нам в WhatsApp или на почту.'
-      );
+        pick({ en: 'Submission failed — please try WhatsApp or email us directly.', ru: 'Ошибка отправки — пожалуйста, напишите нам в WhatsApp или на почту.', ar: 'فشل الإرسال — يرجى التواصل عبر واتساب أو مراسلتنا بالبريد الإلكتروني مباشرة.' }));
     } finally {
       setIsSubmitting(false);
     }
@@ -161,7 +158,7 @@ export function ContactPage() {
                   onClick={() => setIsSuccess(false)}
                   className="px-6 py-2.5 mt-8 bg-primary text-primary-foreground font-medium rounded-lg hover:bg-primary/90"
                 >
-                  {locale !== 'ru' ? 'Send another message' : 'Отправить другое сообщение'}
+                  {pick({ en: 'Send another message', ru: 'Отправить другое сообщение', ar: 'إرسال رسالة أخرى' })}
                 </button>
               </div>
             ) : (
@@ -169,7 +166,7 @@ export function ContactPage() {
                 {/* WhatsApp quick contact */}
                 <div className="mb-6">
                   <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent mb-3">
-                    {locale !== 'ru' ? 'Fastest response — WhatsApp' : 'Быстрый ответ — WhatsApp'}
+                    {pick({ en: 'Fastest response — WhatsApp', ru: 'Быстрый ответ — WhatsApp', ar: 'أسرع استجابة — واتساب' })}
                   </p>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     {WA_CONTACTS.map(c => {
@@ -205,7 +202,7 @@ export function ContactPage() {
                 <div className="flex items-center gap-3 mb-6">
                   <div className="flex-1 h-px bg-border" />
                   <span className="text-xs text-muted-foreground px-1">
-                    {locale !== 'ru' ? 'or send us a message below' : 'или напишите нам ниже'}
+                    {pick({ en: 'or send us a message below', ru: 'или напишите нам ниже', ar: 'أو أرسل لنا رسالة أدناه' })}
                   </span>
                   <div className="flex-1 h-px bg-border" />
                 </div>
@@ -246,9 +243,7 @@ export function ContactPage() {
                 <div className="flex items-start gap-4 bg-background p-4 rounded-xl border border-border">
                   <input type="checkbox" id="consent" {...register("consent")} className="mt-1 w-5 h-5 accent-accent shrink-0" />
                   <label htmlFor="consent" className="text-sm text-muted-foreground leading-relaxed cursor-pointer">
-                    {locale !== 'ru' 
-                      ? 'I consent to ALAA AGRO TRADE LLC collecting my details to respond to my enquiry.' 
-                      : 'Я даю согласие ООО «АЛАА АГРО ТРЕЙД» на сбор моих данных для ответа на мой запрос.'} *
+                    {pick({ en: 'I consent to ALAA AGRO TRADE LLC collecting my details to respond to my enquiry.', ru: 'Я даю согласие ООО «АЛАА АГРО ТРЕЙД» на сбор моих данных для ответа на мой запрос.', ar: 'أوافق على قيام ALAA AGRO TRADE LLC بجمع بياناتي للرد على استفساري.' })} *
                   </label>
                 </div>
                 {errors.consent && <p className="text-destructive text-sm mt-1">{errors.consent.message}</p>}

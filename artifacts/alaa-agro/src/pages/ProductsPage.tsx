@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { products } from '../data/products';
-import { categories } from '../data/categories';
+import { products, productSearchTerms } from '../data/products';
+import { categories, categoryName } from '../data/categories';
 import { ProductCard } from '../components/ProductCard';
 import { Search, X, ArrowRight } from 'lucide-react';
 import { useLocale } from '../contexts/LocaleContext';
@@ -11,7 +11,7 @@ import { SEOHead } from '../components/SEOHead';
 const ALL = 'All';
 
 export function ProductsPage() {
-  const { locale, t } = useLocale();
+  const { locale, t, pick } = useLocale();
   const queryParams = new URLSearchParams(window.location.search);
   const initialCategory = queryParams.get('category') || ALL;
 
@@ -21,13 +21,16 @@ export function ProductsPage() {
   const filtered = products.filter((p) => {
     const catOk = activeCategory === ALL || p.category === activeCategory;
     const q = searchQuery.toLowerCase();
-    const nameOk = !q || p.name.toLowerCase().includes(q) || p.nameRu.toLowerCase().includes(q);
+    const nameOk = !q || productSearchTerms(p).some((n) => n.toLowerCase().includes(q));
     return catOk && nameOk;
   });
 
   const tabs = [
-    { id: ALL, labelEn: 'All Products', labelRu: 'Все продукты' },
-    ...categories.map((c) => ({ id: c.id, labelEn: c.name, labelRu: c.nameRu })),
+    {
+      id: ALL,
+      label: pick({ en: 'All Products', ru: 'Все продукты', ar: 'جميع المنتجات' }),
+    },
+    ...categories.map((c) => ({ id: c.id, label: categoryName(c, locale) })),
   ];
 
   return (
@@ -52,7 +55,7 @@ export function ProductsPage() {
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
             <div>
               <p className="text-xs font-bold tracking-[0.2em] uppercase mb-3" style={{ color: '#C29A3D' }}>
-                {locale !== 'ru' ? 'Product Catalogue' : 'Каталог продукции'}
+                {pick({ en: 'Product Catalogue', ru: 'Каталог продукции', ar: 'كتالوج المنتجات' })}
               </p>
               <h1 className="font-serif text-3xl md:text-5xl text-white leading-tight">
                 {t('productsPage.title')}
@@ -80,7 +83,7 @@ export function ProductsPage() {
                   className="relative shrink-0 px-4 py-3 text-sm font-medium transition-colors whitespace-nowrap focus:outline-none"
                   style={{ color: active ? '#C29A3D' : 'rgba(255,255,255,0.5)' }}
                 >
-                  {locale === 'ru' ? tab.labelRu : tab.labelEn}
+                  {tab.label}
                   {active && (
                     <motion.div
                       layoutId="cat-underline"
@@ -163,7 +166,7 @@ export function ProductsPage() {
         <div className="rounded-xl bg-[#1A1200] border border-white/10 p-8 md:p-10 flex flex-col md:flex-row items-center justify-between gap-6">
           <div>
             <p className="text-xs font-bold tracking-[0.18em] uppercase mb-2" style={{ color: '#C29A3D' }}>
-              {locale !== 'ru' ? 'Ready to order?' : 'Готовы к заказу?'}
+              {pick({ en: 'Ready to order?', ru: 'Готовы к заказу?', ar: 'جاهز للطلب؟' })}
             </p>
             <h3 className="font-serif text-xl md:text-2xl text-white">{t('quoteCta.help')}</h3>
             <p className="text-white/60 text-sm mt-1">{t('quoteCta.body')}</p>

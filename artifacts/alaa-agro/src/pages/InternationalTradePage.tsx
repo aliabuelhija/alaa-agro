@@ -209,7 +209,7 @@ function ExportProcessSection({ isEn }: { isEn: boolean }) {
 }
 
 export function InternationalTradePage() {
-  const { locale, t } = useLocale();
+  const { locale, t, pick } = useLocale();
   const isEn = locale !== 'ru';
 
   return (
@@ -225,11 +225,11 @@ export function InternationalTradePage() {
       <section className="pt-10 md:pt-14 pb-8 text-center px-6 bg-card border-b border-border">
         <div className="container mx-auto max-w-3xl">
           <p className="text-xs uppercase tracking-[0.25em] text-accent font-semibold mb-3">
-            {isEn ? 'Export Process' : 'Экспортный процесс'}
+            {pick({ en: 'Export Process', ru: 'Экспортный процесс', ar: 'عملية التصدير' })}
           </p>
           <h1 className="text-3xl md:text-5xl font-serif text-foreground mb-3 leading-tight">{t('tradeProcess.title')}</h1>
           <p className="text-base md:text-lg text-muted-foreground font-light">
-            {isEn ? 'A clear, transparent process for international B2B buyers.' : 'Понятный и прозрачный процесс для международных B2B-покупателей.'}
+            {pick({ en: 'A clear, transparent process for international B2B buyers.', ru: 'Понятный и прозрачный процесс для международных B2B-покупателей.', ar: 'عملية واضحة وشفافة للمشترين الدوليين.' })}
           </p>
         </div>
       </section>
@@ -243,7 +243,7 @@ export function InternationalTradePage() {
           >
             <img
               src="/trade/trade-hero.jpg"
-              alt={isEn ? 'ALAA AGRO branded export logistics — port, container ship and trade routes from Moscow' : 'Экспортная логистика ALAA AGRO — порт, контейнеровоз и торговые маршруты из Москвы'}
+              alt={pick({ en: 'ALAA AGRO branded export logistics — port, container ship and trade routes from Moscow', ru: 'Экспортная логистика ALAA AGRO — порт, контейнеровоз и торговые маршруты из Москвы', ar: 'الخدمات اللوجستية للتصدير لدى ALAA AGRO — الميناء وسفن الحاويات وطرق التجارة من موسكو' })}
               className="block w-full h-auto"
             />
             <div
@@ -289,12 +289,10 @@ export function InternationalTradePage() {
         <div className="relative container mx-auto max-w-3xl text-center">
           <div className="mx-auto mb-6 h-px w-16" style={{ backgroundColor: 'rgba(194,154,61,0.7)' }} />
           <h2 className="text-3xl md:text-4xl font-serif text-white mb-4 leading-tight">
-            {isEn ? 'Ready to start your shipment?' : 'Готовы начать поставку?'}
+            {pick({ en: 'Ready to start your shipment?', ru: 'Готовы начать поставку?', ar: 'جاهز لبدء شحنتك؟' })}
           </h2>
           <p className="text-white/60 font-light mb-8 max-w-xl mx-auto">
-            {isEn
-              ? 'Tell us what you need — product, volume and destination — and receive a formal quotation within one business day.'
-              : 'Сообщите нам, что вам нужно — продукт, объём и направление — и получите официальное предложение в течение одного рабочего дня.'}
+            {pick({ en: 'Tell us what you need — product, volume and destination — and receive a formal quotation within one business day.', ru: 'Сообщите нам, что вам нужно — продукт, объём и направление — и получите официальное предложение в течение одного рабочего дня.', ar: 'أخبرنا بما تحتاجه — المنتج والكمية وجهة الوصول — واستلم عرض سعر رسمياً خلال يوم عمل واحد.' })}
           </p>
           <Link
             href={`/${locale}/quote`}

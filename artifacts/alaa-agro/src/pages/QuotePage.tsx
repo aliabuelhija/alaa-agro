@@ -5,7 +5,7 @@ import * as z from 'zod';
 import { useLocale } from '../contexts/LocaleContext';
 import { SEOHead } from '../components/SEOHead';
 import { CheckCircle2, ChevronRight, ChevronLeft, Building2, PackageSearch, FileText, ArrowRight } from 'lucide-react';
-import { products } from '../data/products';
+import { products, productName } from '../data/products';
 
 const WA_CONTACTS = [
   { number: '79265705777', nameEn: 'Alaa Noufal', nameRu: 'Алаа Ноуфал', phone: '+7 (926) 570-57-77' },
@@ -51,7 +51,7 @@ const formSchema = step1Schema.merge(step2Schema).merge(step3Schema);
 type FormValues = z.infer<typeof formSchema>;
 
 export function QuotePage() {
-  const { locale, t } = useLocale();
+  const { locale, t, pick } = useLocale();
   const [step, setStep] = useState(1);
   const [isSuccess, setIsSuccess] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -90,10 +90,7 @@ export function QuotePage() {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } catch {
       setSubmitError(
-        locale !== 'ru'
-          ? 'We could not send your request. Please try again or contact us directly on WhatsApp.'
-          : 'Не удалось отправить запрос. Пожалуйста, попробуйте ещё раз или свяжитесь с нами напрямую в WhatsApp.'
-      );
+        pick({ en: 'We could not send your request. Please try again or contact us directly on WhatsApp.', ru: 'Не удалось отправить запрос. Пожалуйста, попробуйте ещё раз или свяжитесь с нами напрямую в WhatsApp.', ar: 'لم نتمكن من إرسال طلبكم. يرجى المحاولة مرة أخرى أو التواصل معنا مباشرة عبر واتساب.' }));
     } finally {
       setIsSubmitting(false);
     }
@@ -138,15 +135,13 @@ export function QuotePage() {
             <CheckCircle2 className="w-24 h-24 text-accent mx-auto mb-8" />
             <h1 className="text-4xl md:text-5xl font-serif text-foreground mb-6">{t('forms.success')}</h1>
             <p className="text-muted-foreground text-lg max-w-lg mx-auto mb-10">
-              {locale !== 'ru' 
-                ? 'Thank you for your request. Our commercial team will review your requirements and contact you shortly.'
-                : 'Спасибо за ваш запрос. Наша коммерческая команда изучит ваши требования и свяжется с вами в ближайшее время.'}
+              {pick({ en: 'Thank you for your request. Our commercial team will review your requirements and contact you shortly.', ru: 'Спасибо за ваш запрос. Наша коммерческая команда изучит ваши требования и свяжется с вами в ближайшее время.', ar: 'شكراً لطلبكم. سيراجع فريقنا التجاري متطلباتكم ويتواصل معكم قريباً.' })}
             </p>
 
             {/* WhatsApp follow-up */}
             <div className="max-w-md mx-auto">
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent mb-3">
-                {locale !== 'ru' ? 'Want to follow up? Reach us on WhatsApp' : 'Хотите уточнить детали? Напишите нам в WhatsApp'}
+                {pick({ en: 'Want to follow up? Reach us on WhatsApp', ru: 'Хотите уточнить детали? Напишите нам в WhatsApp', ar: 'هل تريد المتابعة؟ تواصل معنا عبر واتساب' })}
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-left">
                 {WA_CONTACTS.map(c => {
@@ -188,7 +183,7 @@ export function QuotePage() {
             {/* WhatsApp quick contact */}
             <div className="mb-10 bg-card border border-border rounded-2xl p-6">
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent mb-3">
-                {locale !== 'ru' ? 'Fastest response — WhatsApp' : 'Быстрый ответ — WhatsApp'}
+                {pick({ en: 'Fastest response — WhatsApp', ru: 'Быстрый ответ — WhatsApp', ar: 'أسرع استجابة — واتساب' })}
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {WA_CONTACTS.map(c => {
@@ -221,7 +216,7 @@ export function QuotePage() {
               <div className="flex items-center gap-3 mt-5">
                 <div className="flex-1 h-px bg-border" />
                 <span className="text-xs text-muted-foreground px-1">
-                  {locale !== 'ru' ? 'or fill in the form below' : 'или заполните форму ниже'}
+                  {pick({ en: 'or fill in the form below', ru: 'или заполните форму ниже', ar: 'أو املأ النموذج أدناه' })}
                 </span>
                 <div className="flex-1 h-px bg-border" />
               </div>
@@ -276,7 +271,7 @@ export function QuotePage() {
                     {products.map(p => (
                       <label key={p.id} className={`flex items-center gap-3 p-3 rounded-lg border cursor-pointer transition-colors ${selectedProducts.includes(p.name) ? 'border-accent bg-accent/5' : 'border-border bg-background hover:border-accent/50'}`}>
                         <input type="checkbox" value={p.name} {...register("productsOfInterest")} className="accent-accent" />
-                        <span className="text-sm font-medium">{locale !== 'ru' ? p.name : p.nameRu}</span>
+                        <span className="text-sm font-medium">{productName(p, locale)}</span>
                       </label>
                     ))}
                   </div>
@@ -392,7 +387,7 @@ export function QuotePage() {
                     className="flex items-center gap-2 px-10 py-3 bg-accent text-accent-foreground font-bold rounded-lg hover:bg-accent/90 transition-colors shadow-lg uppercase tracking-wide disabled:opacity-60 disabled:cursor-not-allowed"
                   >
                     {isSubmitting
-                      ? (locale !== 'ru' ? 'Sending…' : 'Отправка…')
+                      ? (pick({ en: 'Sending…', ru: 'Отправка…', ar: 'جارٍ الإرسال…' }))
                       : t('forms.submit')}
                   </button>
                 )}

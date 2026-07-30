@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'wouter';
 import { motion } from 'framer-motion';
 import { ArrowRight, Package } from 'lucide-react';
-import { Product } from '../data/products';
+import { Product, productName, specLabel } from '../data/products';
 import { useLocale } from '../contexts/LocaleContext';
 import { categories } from '../data/categories';
 
@@ -35,8 +35,8 @@ function packagingSummary(packaging: string[], locale: string): string {
 
 export function ProductCard({ product }: ProductCardProps) {
   const { locale, t } = useLocale();
-  const name = locale === 'ru' ? product.nameRu : product.name;
-  const nameAlt = locale !== 'ru' ? product.nameRu : product.name;
+  const name = productName(product, locale);
+  const nameAlt = locale === 'en' ? product.nameRu : product.name;
 
   // Pick 3 key specs for the card
   const keySpecs = product.specs.slice(0, 3);
@@ -92,7 +92,7 @@ export function ProductCard({ product }: ProductCardProps) {
           {keySpecs.map((spec, i) => (
             <div key={i} className="flex items-baseline justify-between py-[7px] gap-3" style={{ borderTop: '1px solid rgba(194,154,61,0.12)' }}>
               <span className="text-xs" style={{ color: '#9A8070' }}>
-                {locale === 'ru' ? spec.labelRu : spec.label}
+                {specLabel(spec, locale)}
               </span>
               <span className="text-xs font-semibold tabular-nums shrink-0 text-right" style={{ color: '#2B241C' }}>
                 {spec.value}

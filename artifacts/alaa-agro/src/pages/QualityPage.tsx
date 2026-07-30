@@ -12,7 +12,7 @@ const STEPS = [
 ];
 
 export function QualityPage() {
-  const { locale, t } = useLocale();
+  const { locale, t, pick } = useLocale();
 
   return (
     <div className="bg-background pt-[82px] pb-12">
@@ -36,7 +36,7 @@ export function QualityPage() {
 
           <div className="mb-10">
             <p className="text-xs uppercase tracking-[0.25em] text-accent font-semibold mb-3">
-              {locale !== 'ru' ? 'Our Process' : 'Наш процесс'}
+              {pick({ en: 'Our Process', ru: 'Наш процесс', ar: 'منظومة عملنا' })}
             </p>
             <h2 className="text-3xl md:text-4xl font-serif text-foreground">{t('qualityPage.focusTitle')}</h2>
           </div>

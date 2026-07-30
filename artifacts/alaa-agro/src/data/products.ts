@@ -1,3 +1,11 @@
+import type { Locale } from "../i18n";
+import {
+  CATEGORY_AR,
+  PACKAGING_AR,
+  SPEC_LABEL_AR,
+  productsAr,
+} from "./products.ar";
+
 export interface ProductSpec {
   label: string;
   labelRu: string;
@@ -401,3 +409,66 @@ export const products: Product[] = [
     seoDescRu: "Поставщик российского подсолнечного масла. Пищевое качество, различная упаковка. Запросить предложение."
   },
 ];
+
+// ── Locale-aware accessors ───────────────────────────────────────────────────
+// Every field that varies by language goes through one of these, so no page has
+// to know how the English/Russian/Arabic copy is stored. Arabic lives in
+// products.ar.ts keyed by product id, and falls back to English if a product has
+// no Arabic entry yet — never to Russian.
+
+export function productName(p: Product, locale: Locale): string {
+  if (locale === "ru") return p.nameRu;
+  if (locale === "ar") return productsAr[p.id]?.name ?? p.name;
+  return p.name;
+}
+
+export function productDescription(p: Product, locale: Locale): string {
+  if (locale === "ru") return p.descriptionRu;
+  if (locale === "ar") return productsAr[p.id]?.description ?? p.descriptionEn;
+  return p.descriptionEn;
+}
+
+export function productApplication(p: Product, locale: Locale): string {
+  if (locale === "ru") return p.applicationRu;
+  if (locale === "ar") return productsAr[p.id]?.application ?? p.applicationEn;
+  return p.applicationEn;
+}
+
+export function productHighlights(p: Product, locale: Locale): string[] {
+  if (locale === "ru") return p.highlightsRu;
+  if (locale === "ar") return productsAr[p.id]?.highlights ?? p.highlights;
+  return p.highlights;
+}
+
+export function productSeoTitle(p: Product, locale: Locale): string {
+  if (locale === "ru") return p.seoTitleRu;
+  if (locale === "ar") return productsAr[p.id]?.seoTitle ?? p.seoTitleEn;
+  return p.seoTitleEn;
+}
+
+export function productSeoDesc(p: Product, locale: Locale): string {
+  if (locale === "ru") return p.seoDescRu;
+  if (locale === "ar") return productsAr[p.id]?.seoDesc ?? p.seoDescEn;
+  return p.seoDescEn;
+}
+
+export function specLabel(spec: ProductSpec, locale: Locale): string {
+  if (locale === "ru") return spec.labelRu;
+  if (locale === "ar") return SPEC_LABEL_AR[spec.label] ?? spec.label;
+  return spec.label;
+}
+
+export function packagingLabel(value: string, locale: Locale): string {
+  if (locale === "ar") return PACKAGING_AR[value] ?? value;
+  return value;
+}
+
+export function categoryLabel(category: string, locale: Locale): string {
+  if (locale === "ar") return CATEGORY_AR[category] ?? category;
+  return category;
+}
+
+/** All names a product should be findable by, whatever language the user types. */
+export function productSearchTerms(p: Product): string[] {
+  return [p.name, p.nameRu, productsAr[p.id]?.name ?? ""].filter(Boolean);
+}

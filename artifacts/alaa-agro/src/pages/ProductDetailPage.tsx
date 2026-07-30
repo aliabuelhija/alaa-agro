@@ -1,6 +1,15 @@
 import React, { useState } from 'react';
 import { useRoute, Link } from 'wouter';
-import { products } from '../data/products';
+import {
+  products,
+  productName,
+  productDescription,
+  productApplication,
+  productHighlights,
+  productSeoTitle,
+  productSeoDesc,
+  specLabel,
+} from '../data/products';
 import { categories } from '../data/categories';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, ArrowRight, CheckCircle2, Package, Wheat, MessageSquare, Download, X } from 'lucide-react';
@@ -26,7 +35,7 @@ type FormValues = z.infer<typeof formSchema>;
 export function ProductDetailPage() {
   const [, params] = useRoute("/:locale/products/:slug");
   const slug = params?.slug;
-  const { locale, t } = useLocale();
+  const { locale, t, pick } = useLocale();
   const [showModal, setShowModal] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
 
@@ -66,9 +75,7 @@ export function ProductDetailPage() {
         reset();
       }, 3500);
     } catch {
-      alert(locale !== 'ru'
-        ? 'Submission failed — please reach out via WhatsApp.'
-        : 'Ошибка отправки — пожалуйста, напишите нам в WhatsApp.');
+      alert(pick({ en: 'Submission failed — please reach out via WhatsApp.', ru: 'Ошибка отправки — пожалуйста, напишите нам в WhatsApp.', ar: 'فشل الإرسال — يرجى التواصل عبر واتساب.' }));
     } finally {
       setIsSubmitting(false);
     }
@@ -105,13 +112,13 @@ export function ProductDetailPage() {
                      product.category === 'Oilseeds' ? 'from-yellow-100/50' :
                      product.category === 'Vegetable Oils' ? 'from-orange-100/50' : 'from-stone-100/50';
 
-  const name = locale !== 'ru' ? product.name : product.nameRu;
-  const nameSec = locale !== 'ru' ? product.nameRu : product.name;
-  const description = locale !== 'ru' ? product.descriptionEn : product.descriptionRu;
-  const application = locale !== 'ru' ? product.applicationEn : product.applicationRu;
-  const highlights = locale !== 'ru' ? product.highlights : product.highlightsRu;
-  const seoTitle = locale !== 'ru' ? product.seoTitleEn : product.seoTitleRu;
-  const seoDesc = locale !== 'ru' ? product.seoDescEn : product.seoDescRu;
+  const name = productName(product, locale);
+  const nameSec = locale === 'en' ? product.nameRu : product.name;
+  const description = productDescription(product, locale);
+  const application = productApplication(product, locale);
+  const highlights = productHighlights(product, locale);
+  const seoTitle = productSeoTitle(product, locale);
+  const seoDesc = productSeoDesc(product, locale);
 
   return (
     <div className="bg-background pb-20">
@@ -149,7 +156,7 @@ export function ProductDetailPage() {
               
               <div className="prose prose-lg prose-p:text-muted-foreground prose-p:leading-relaxed max-w-none mb-10">
                 <p>{description}</p>
-                <p><strong>{locale !== 'ru' ? 'Application:' : 'Применение:'}</strong> {application}</p>
+                <p><strong>{pick({ en: 'Application:', ru: 'Применение:', ar: 'الاستخدامات:' })}</strong> {application}</p>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
@@ -181,7 +188,7 @@ export function ProductDetailPage() {
               <div className="space-y-4 mb-10">
                 {product.specs.map((spec, i) => (
                   <div key={i} className="flex justify-between items-end border-b border-border/50 pb-3">
-                    <span className="text-muted-foreground text-sm font-medium">{locale !== 'ru' ? spec.label : spec.labelRu}</span>
+                    <span className="text-muted-foreground text-sm font-medium">{specLabel(spec, locale)}</span>
                     <span className="font-bold text-foreground text-right max-w-[60%]">{spec.value}</span>
                   </div>
                 ))}
@@ -215,10 +222,10 @@ export function ProductDetailPage() {
           {/* Header */}
           <div className="mb-10 md:mb-12">
             <p className="font-bold uppercase mb-3" style={{ color: '#9A6818', fontSize: '10px', letterSpacing: '0.28em' }}>
-              {locale !== 'ru' ? 'Export-Ready Solutions' : 'Решения для экспорта'}
+              {pick({ en: 'Export-Ready Solutions', ru: 'Решения для экспорта', ar: 'حلول جاهزة للتصدير' })}
             </p>
             <h2 className="font-serif text-2xl md:text-3xl mb-2" style={{ color: '#2B241C' }}>
-              {locale !== 'ru' ? 'Prepared for International Trade' : 'Готово к международной торговле'}
+              {pick({ en: 'Prepared for International Trade', ru: 'Готово к международной торговле', ar: 'جاهزون للتجارة الدولية' })}
             </h2>
             <div className="mb-4" style={{ height: '1px', width: '44px', background: 'linear-gradient(90deg, #C29A3D, rgba(194,154,61,0.10))' }} />
             <p className="text-sm max-w-xl" style={{ color: '#7A6450', lineHeight: 1.8 }}>
@@ -257,7 +264,7 @@ export function ProductDetailPage() {
                     src={`${import.meta.env.BASE_URL}packaging/container-load.jpg`}
                     srcSet={`${import.meta.env.BASE_URL}packaging/container-load-480.jpg 480w, ${import.meta.env.BASE_URL}packaging/container-load.jpg 1024w`}
                     sizes="(max-width: 640px) 100vw, 288px"
-                    alt={locale !== 'ru' ? 'Container loading – bulk oil shipment' : 'Загрузка контейнера – навалом'}
+                    alt={pick({ en: 'Container loading – bulk oil shipment', ru: 'Загрузка контейнера – навалом', ar: 'تحميل الحاويات — شحن الزيت بالصب' })}
                     loading="lazy"
                     width={1024}
                     height={1024}
@@ -266,8 +273,8 @@ export function ProductDetailPage() {
                   <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(21,18,13,0.45) 0%, transparent 50%)', pointerEvents: 'none' }} />
                 </div>
                 <div className="flex flex-col items-center text-center px-3 py-3">
-                  <div className="font-serif text-base font-semibold mb-0.5 leading-tight" style={{ color: '#2B241C' }}>{locale !== 'ru' ? 'Container / Bulk' : 'Контейнер / Навалом'}</div>
-                  <div className="text-[11px]" style={{ color: '#7A6450' }}>{locale !== 'ru' ? 'IBC Tanks · FCL/LCL' : 'IBC-контейнеры · FCL/LCL'}</div>
+                  <div className="font-serif text-base font-semibold mb-0.5 leading-tight" style={{ color: '#2B241C' }}>{pick({ en: 'Container / Bulk', ru: 'Контейнер / Навалом', ar: 'حاويات / صب' })}</div>
+                  <div className="text-[11px]" style={{ color: '#7A6450' }}>{pick({ en: 'IBC Tanks · FCL/LCL', ru: 'IBC-контейнеры · FCL/LCL', ar: 'خزانات IBC · FCL/LCL' })}</div>
                 </div>
               </motion.div>
               <motion.div
@@ -279,14 +286,14 @@ export function ProductDetailPage() {
                 style={{ background: '#FFFAF4', border: '1px solid rgba(194,154,61,0.22)', borderTop: '3px solid #C29A3D', boxShadow: '0 2px 14px rgba(43,36,28,0.07)' }}
               >
                 <p className="text-xs font-bold uppercase tracking-widest mb-4" style={{ color: '#9A6818' }}>
-                  {locale !== 'ru' ? 'Available Formats' : 'Доступные форматы'}
+                  {pick({ en: 'Available Formats', ru: 'Доступные форматы', ar: 'الصيغ المتاحة' })}
                 </p>
                 <div className="space-y-3">
                   {[
-                    { label: locale !== 'ru' ? 'Retail Bottles' : 'Розничные бутылки', detail: '1 L · 5 L PET' },
-                    { label: locale !== 'ru' ? 'Plastic Cans' : 'Пластиковые канистры', detail: '10 L · 20 L' },
-                    { label: locale !== 'ru' ? 'Carton Packs' : 'Картонные упаковки', detail: '3×5 L · 4×5 L' },
-                    { label: locale !== 'ru' ? 'IBC Tanks' : 'IBC-контейнеры', detail: '1,000 L bulk' },
+                    { label: pick({ en: 'Retail Bottles', ru: 'Розничные бутылки', ar: 'عبوات التجزئة' }), detail: '1 L · 5 L PET' },
+                    { label: pick({ en: 'Plastic Cans', ru: 'Пластиковые канистры', ar: 'عبوات بلاستيكية' }), detail: '10 L · 20 L' },
+                    { label: pick({ en: 'Carton Packs', ru: 'Картонные упаковки', ar: 'عبوات كرتونية' }), detail: '3×5 L · 4×5 L' },
+                    { label: pick({ en: 'IBC Tanks', ru: 'IBC-контейнеры', ar: 'خزانات IBC' }), detail: '1,000 L bulk' },
                   ].map((row, i) => (
                     <div key={i} className="flex items-center justify-between border-b pb-2" style={{ borderColor: 'rgba(194,154,61,0.16)' }}>
                       <span className="text-sm font-medium" style={{ color: '#2B241C' }}>{row.label}</span>
@@ -299,11 +306,11 @@ export function ProductDetailPage() {
           ) : (
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 mb-8">
               {[
-                { format: '25 kg', sub: locale !== 'ru' ? 'PP Woven Bags' : 'Мешки ПП 25 кг', photo: 'packaging/bag-25kg.jpg' },
-                { format: '50 kg', sub: locale !== 'ru' ? 'PP Woven Bags' : 'Мешки ПП 50 кг', photo: 'packaging/bag-50kg.jpg' },
-                { format: locale !== 'ru' ? 'Pallets' : 'Поддоны', sub: locale !== 'ru' ? 'Stacked & Wrapped' : 'Паллетирование', photo: 'packaging/pallets.jpg' },
-                { format: locale !== 'ru' ? 'Big Bags' : 'Биг-бэги', sub: locale !== 'ru' ? '~1,000 kg FIBC' : 'МКР ~1 000 кг', photo: 'packaging/bigbag-fibc.jpg' },
-                { format: locale !== 'ru' ? 'Container' : 'Контейнер', sub: locale !== 'ru' ? 'Full Loads FCL/LCL' : 'Полная загрузка', photo: 'packaging/container-load.jpg' },
+                { format: '25 kg', sub: pick({ en: 'PP Woven Bags', ru: 'Мешки ПП 25 кг', ar: 'أكياس بولي بروبيلين منسوجة' }), photo: 'packaging/bag-25kg.jpg' },
+                { format: '50 kg', sub: pick({ en: 'PP Woven Bags', ru: 'Мешки ПП 50 кг', ar: 'أكياس بولي بروبيلين منسوجة' }), photo: 'packaging/bag-50kg.jpg' },
+                { format: pick({ en: 'Pallets', ru: 'Поддоны', ar: 'منصات نقل' }), sub: pick({ en: 'Stacked & Wrapped', ru: 'Паллетирование', ar: 'مرصوفة ومغلفة' }), photo: 'packaging/pallets.jpg' },
+                { format: pick({ en: 'Big Bags', ru: 'Биг-бэги', ar: 'أكياس كبيرة' }), sub: pick({ en: '~1,000 kg FIBC', ru: 'МКР ~1 000 кг', ar: 'FIBC ~1000 كجم' }), photo: 'packaging/bigbag-fibc.jpg' },
+                { format: pick({ en: 'Container', ru: 'Контейнер', ar: 'حاوية' }), sub: pick({ en: 'Full Loads FCL/LCL', ru: 'Полная загрузка', ar: 'حمولات كاملة FCL/LCL' }), photo: 'packaging/container-load.jpg' },
               ].map((item, i) => (
                 <motion.div
                   key={i}
@@ -373,9 +380,7 @@ export function ProductDetailPage() {
                   : `Готовы заказать ${name}?`}
               </p>
               <p className="text-xs" style={{ color: '#7A6450' }}>
-                {locale !== 'ru'
-                  ? 'Tell us your format, quantity and destination — we\'ll send a full offer within 24 hours.'
-                  : 'Укажите формат, объём и страну назначения — вышлем коммерческое предложение в течение 24 часов.'}
+                {pick({ en: 'Tell us your format, quantity and destination — we\'ll send a full offer within 24 hours.', ru: 'Укажите формат, объём и страну назначения — вышлем коммерческое предложение в течение 24 часов.', ar: 'أخبرنا بالصيغة والكمية وجهة الوصول — وسنرسل عرضاً كاملاً خلال 24 ساعة.' })}
               </p>
             </div>
             <div className="flex flex-col xs:flex-row gap-3 shrink-0">
@@ -385,20 +390,20 @@ export function ProductDetailPage() {
                 style={{ background: '#C29A3D', color: '#15120D' }}
               >
                 <MessageSquare size={15} />
-                {locale !== 'ru' ? 'Request a Quote' : 'Запросить предложение'}
+                {pick({ en: 'Request a Quote', ru: 'Запросить предложение', ar: 'طلب عرض سعر' })}
               </button>
               <Link
                 href={`/${locale}/packaging`}
                 className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl text-sm font-semibold transition-all duration-200 hover:bg-accent/10"
                 style={{ color: '#C29A3D', border: '1px solid rgba(194,154,61,0.35)' }}
               >
-                {locale !== 'ru' ? 'Packaging details' : 'Об упаковке'}
+                {pick({ en: 'Packaging details', ru: 'Об упаковке', ar: 'تفاصيل التعبئة' })}
                 <ArrowRight size={13} />
               </Link>
             </div>
           </div>
           <p className="text-xs italic mt-3" style={{ color: '#9A8070' }}>
-            * {locale !== 'ru' ? 'Packaging formats may vary by order quantity and destination requirements.' : 'Форматы упаковки могут варьироваться в зависимости от объёма заказа и требований страны назначения.'}
+            * {pick({ en: 'Packaging formats may vary by order quantity and destination requirements.', ru: 'Форматы упаковки могут варьироваться в зависимости от объёма заказа и требований страны назначения.', ar: 'قد تختلف صيغ التعبئة حسب كمية الطلب ومتطلبات جهة الوصول.' })}
           </p>
         </div>
       </section>
@@ -433,7 +438,7 @@ export function ProductDetailPage() {
                 <div className="flex items-start justify-between p-6 pb-4 border-b border-border">
                   <div>
                     <p className="text-xs uppercase tracking-[0.2em] text-accent font-semibold mb-1">
-                      {locale !== 'ru' ? 'Request Information' : 'Запросить информацию'}
+                      {pick({ en: 'Request Information', ru: 'Запросить информацию', ar: 'طلب معلومات' })}
                     </p>
                     <h3 className="text-xl font-serif text-foreground">{name}</h3>
                   </div>
@@ -449,7 +454,7 @@ export function ProductDetailPage() {
                   <div className="flex flex-col items-center text-center py-14 px-6">
                     <CheckCircle2 className="w-14 h-14 text-accent mb-5" />
                     <h3 className="text-2xl font-serif text-foreground mb-2">{t('forms.success')}</h3>
-                    <p className="text-muted-foreground text-sm">{locale !== 'ru' ? 'We will be in touch shortly.' : 'Мы свяжемся с вами в ближайшее время.'}</p>
+                    <p className="text-muted-foreground text-sm">{pick({ en: 'We will be in touch shortly.', ru: 'Мы свяжемся с вами в ближайшее время.', ar: 'سنتواصل معكم قريباً.' })}</p>
                   </div>
                 ) : (
                   <div className="p-6 space-y-5">
@@ -464,14 +469,14 @@ export function ProductDetailPage() {
                       <svg width="20" height="20" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
                         <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
                       </svg>
-                      {locale !== 'ru' ? 'Send inquiry via WhatsApp' : 'Отправить запрос через WhatsApp'}
+                      {pick({ en: 'Send inquiry via WhatsApp', ru: 'Отправить запрос через WhatsApp', ar: 'إرسال الاستفسار عبر واتساب' })}
                     </button>
 
                     {/* Divider */}
                     <div className="flex items-center gap-3">
                       <div className="flex-1 h-px bg-border" />
                       <span className="text-xs text-muted-foreground">
-                        {locale !== 'ru' ? 'or fill in the form below' : 'или заполните форму ниже'}
+                        {pick({ en: 'or fill in the form below', ru: 'или заполните форму ниже', ar: 'أو املأ النموذج أدناه' })}
                       </span>
                       <div className="flex-1 h-px bg-border" />
                     </div>
@@ -525,7 +530,7 @@ export function ProductDetailPage() {
                           className="px-7 py-2.5 text-sm bg-accent text-accent-foreground rounded-lg font-semibold hover:bg-accent/90 shadow-md transition-all disabled:opacity-60 disabled:cursor-not-allowed"
                         >
                           {isSubmitting
-                            ? (locale !== 'ru' ? 'Sending…' : 'Отправка…')
+                            ? (pick({ en: 'Sending…', ru: 'Отправка…', ar: 'جارٍ الإرسال…' }))
                             : t('forms.submit')}
                         </button>
                       </div>

@@ -88,7 +88,7 @@ const stats = [
 ];
 
 export function AboutPage() {
-  const { locale, t } = useLocale();
+  const { locale, t, pick } = useLocale();
   const isEn = locale !== 'ru';
 
   return (
@@ -105,7 +105,7 @@ export function AboutPage() {
           <source srcSet="/hero-cinematic-pano.webp" type="image/webp" />
           <img
             src="/hero-cinematic-pano.jpg"
-            alt={isEn ? 'ALAA AGRO — Russian agricultural fields at harvest' : 'АЛАА АГРО — российские поля в период уборки урожая'}
+            alt={pick({ en: 'ALAA AGRO — Russian agricultural fields at harvest', ru: 'АЛАА АГРО — российские поля в период уборки урожая', ar: 'ALAA AGRO — حقول زراعية روسية في موسم الحصاد' })}
             className="w-full h-[62vh] min-h-[380px] max-h-[580px] object-cover object-center"
           />
         </picture>
@@ -137,24 +137,18 @@ export function AboutPage() {
               viewport={{ once: true, margin: '-60px' }}
             >
               <p className="text-xs uppercase tracking-[0.25em] text-accent font-semibold mb-4">
-                {isEn ? 'Who We Are' : 'О компании'}
+                {pick({ en: 'Who We Are', ru: 'О компании', ar: 'من نحن' })}
               </p>
               <h2 className="text-3xl md:text-4xl font-serif text-foreground mb-6 leading-tight">
-                {isEn
-                  ? 'A dedicated trading partner for international grain buyers'
-                  : 'Надёжный торговый партнёр для международных покупателей зерна'}
+                {pick({ en: 'A dedicated trading partner for international grain buyers', ru: 'Надёжный торговый партнёр для международных покупателей зерна', ar: 'شريك تجاري متخصص للمشترين الدوليين للحبوب' })}
               </h2>
               <div className="space-y-4 text-muted-foreground font-light leading-relaxed">
                 <p>{t('aboutPage.mission')}</p>
                 <p>
-                  {isEn
-                    ? 'Our team handles every stage of the export process — from sourcing and quality confirmation to packaging, documentation and shipment coordination. Buyers receive a single point of contact and a consistent experience across every order.'
-                    : 'Наша команда ведёт каждый этап экспортного процесса — от закупки и контроля качества до упаковки, документации и координации отгрузки. Покупатели получают единую точку контакта и стабильное качество сервиса на каждом заказе.'}
+                  {pick({ en: 'Our team handles every stage of the export process — from sourcing and quality confirmation to packaging, documentation and shipment coordination. Buyers receive a single point of contact and a consistent experience across every order.', ru: 'Наша команда ведёт каждый этап экспортного процесса — от закупки и контроля качества до упаковки, документации и координации отгрузки. Покупатели получают единую точку контакта и стабильное качество сервиса на каждом заказе.', ar: 'يتولى فريقنا كل مرحلة من مراحل التصدير — من التوريد وتأكيد الجودة إلى التعبئة والمستندات وتنسيق الشحن. يحصل المشترون على نقطة تواصل واحدة وتجربة متسقة في كل طلب.' })}
                 </p>
                 <p>
-                  {isEn
-                    ? 'Operating from Moscow, we maintain direct links with trusted Russian agricultural producers across multiple regions, allowing us to source Wheat, Corn, Barley, Chickpeas, Lentils, Flaxseed and other commodities consistently year-round.'
-                    : 'Работая из Москвы, мы поддерживаем прямые связи с надёжными российскими производителями в нескольких регионах, что позволяет нам стабильно поставлять пшеницу, кукурузу, ячмень, нут, чечевицу, лён и другие культуры круглый год.'}
+                  {pick({ en: 'Operating from Moscow, we maintain direct links with trusted Russian agricultural producers across multiple regions, allowing us to source Wheat, Corn, Barley, Chickpeas, Lentils, Flaxseed and other commodities consistently year-round.', ru: 'Работая из Москвы, мы поддерживаем прямые связи с надёжными российскими производителями в нескольких регионах, что позволяет нам стабильно поставлять пшеницу, кукурузу, ячмень, нут, чечевицу, лён и другие культуры круглый год.', ar: 'من موسكو، نحافظ على علاقات مباشرة مع منتجين زراعيين روس موثوقين في مناطق متعددة، ما يتيح لنا توريد القمح والذرة والشعير والحمص والعدس وبذر الكتان وغيرها من السلع بانتظام طوال العام.' })}
                 </p>
               </div>
             </motion.div>
@@ -174,7 +168,7 @@ export function AboutPage() {
               >
                 <img
                   src="/hero-real-warehouse.jpg"
-                  alt={isEn ? 'ALAA AGRO warehouse — packaged goods ready for export' : 'Склад АЛАА АГРО — упакованные товары, готовые к экспорту'}
+                  alt={pick({ en: 'ALAA AGRO warehouse — packaged goods ready for export', ru: 'Склад АЛАА АГРО — упакованные товары, готовые к экспорту', ar: 'مستودع ALAA AGRO — منتجات معبأة جاهزة للتصدير' })}
                   className="w-full h-72 md:h-96 object-cover"
                 />
               </div>
@@ -214,12 +208,10 @@ export function AboutPage() {
         <div className="container mx-auto px-6 max-w-5xl">
           <div className="mb-12">
             <p className="text-xs uppercase tracking-[0.25em] text-accent font-semibold mb-3">
-              {isEn ? 'What every order includes' : 'Что входит в каждый заказ'}
+              {pick({ en: 'What every order includes', ru: 'Что входит в каждый заказ', ar: 'ما يشمله كل طلب' })}
             </p>
             <h2 className="text-3xl md:text-4xl font-serif text-foreground max-w-xl leading-tight">
-              {isEn
-                ? 'Six commitments we make to every buyer'
-                : 'Шесть обязательств перед каждым покупателем'}
+              {pick({ en: 'Six commitments we make to every buyer', ru: 'Шесть обязательств перед каждым покупателем', ar: 'ستة التزامات نقدمها لكل مشترٍ' })}
             </h2>
           </div>
 

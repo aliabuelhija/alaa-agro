@@ -80,7 +80,7 @@ const OIL_FORMATS = [
 ];
 
 export function PackagingPage() {
-  const { locale, t } = useLocale();
+  const { locale, t, pick } = useLocale();
   const [lightbox, setLightbox] = useState<number | null>(null);
 
   const prevPhoto = () => setLightbox((i) => (i === null ? null : (i - 1 + GALLERY.length) % GALLERY.length));
@@ -124,7 +124,7 @@ export function PackagingPage() {
           {/* Standard formats */}
           <div className="mb-3">
             <p className="text-xs uppercase tracking-[0.25em] text-accent font-semibold mb-2">
-              {locale !== 'ru' ? 'Grains · Pulses · Oilseeds · Seeds' : 'Зерновые · Бобовые · Масличные · Семена'}
+              {pick({ en: 'Grains · Pulses · Oilseeds · Seeds', ru: 'Зерновые · Бобовые · Масличные · Семена', ar: 'الحبوب · البقوليات · البذور الزيتية · البذور' })}
             </p>
             <h2 className="text-3xl md:text-4xl font-serif text-foreground">
               {t('packagingPage.standard')}
@@ -180,7 +180,7 @@ export function PackagingPage() {
                   <source srcSet={`${import.meta.env.BASE_URL}products/sunflower-oil_2.webp`} type="image/webp" />
                   <img
                     src={`${import.meta.env.BASE_URL}products/sunflower-oil_2.jpg`}
-                    alt={locale !== 'ru' ? 'ALAA AGRO refined sunflower oil — export packaging' : 'Рафинированное подсолнечное масло АЛАА АГРО'}
+                    alt={pick({ en: 'ALAA AGRO refined sunflower oil — export packaging', ru: 'Рафинированное подсолнечное масло АЛАА АГРО', ar: 'زيت دوار الشمس المكرر من ALAA AGRO — تعبئة للتصدير' })}
                     className="w-full h-full object-cover"
                     style={{ objectPosition: 'center 40%' }}
                   />
@@ -189,15 +189,13 @@ export function PackagingPage() {
               {/* Content */}
               <div className="p-8 md:p-10 flex flex-col justify-center">
                 <p className="text-xs uppercase tracking-[0.25em] text-accent font-semibold mb-2">
-                  {locale !== 'ru' ? 'Vegetable Oils' : 'Растительные масла'}
+                  {pick({ en: 'Vegetable Oils', ru: 'Растительные масла', ar: 'الزيوت النباتية' })}
                 </p>
                 <h2 className="text-2xl md:text-3xl font-serif text-foreground mb-2">
                   {t('packagingPage.special')}
                 </h2>
                 <p className="text-sm text-muted-foreground mb-7 font-light">
-                  {locale !== 'ru'
-                    ? 'Refined sunflower oil is available in three packaging configurations to suit retail, wholesale, and industrial buyers.'
-                    : 'Рафинированное подсолнечное масло доступно в трёх форматах упаковки — для розницы, оптовиков и промышленных покупателей.'}
+                  {pick({ en: 'Refined sunflower oil is available in three packaging configurations to suit retail, wholesale, and industrial buyers.', ru: 'Рафинированное подсолнечное масло доступно в трёх форматах упаковки — для розницы, оптовиков и промышленных покупателей.', ar: 'يتوفر زيت دوار الشمس المكرر بثلاث صيغ تعبئة تلائم مشتري التجزئة والجملة والصناعة.' })}
                 </p>
                 <div className="space-y-4">
                   {OIL_FORMATS.map((f, i) => (
@@ -224,10 +222,10 @@ export function PackagingPage() {
           <div className="mb-14">
             <div className="mb-6">
               <p className="text-xs uppercase tracking-[0.25em] text-accent font-semibold mb-2">
-                {locale !== 'ru' ? 'Real photos' : 'Реальные фото'}
+                {pick({ en: 'Real photos', ru: 'Реальные фото', ar: 'صور حقيقية' })}
               </p>
               <h2 className="text-3xl md:text-4xl font-serif text-foreground">
-                {locale !== 'ru' ? 'Our Packaging in Practice' : 'Наша упаковка в действии'}
+                {pick({ en: 'Our Packaging in Practice', ru: 'Наша упаковка в действии', ar: 'تعبئتنا على أرض الواقع' })}
               </h2>
             </div>
 
