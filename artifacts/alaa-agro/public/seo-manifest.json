@@ -1,0 +1,299 @@
+{
+ "origin": "https://alaa-agro.com",
+ "locales": [
+  "en",
+  "ru",
+  "ar"
+ ],
+ "defaultLocale": "en",
+ "routes": {
+  "/en": {
+   "title": "ALAA AGRO TRADE LLC | Russian Agricultural Products for Global Trade",
+   "description": "Reliable supply of grains, pulses, oilseeds, seeds, and agricultural commodities from Russia to international B2B buyers."
+  },
+  "/en/products": {
+   "title": "Our Products | ALAA AGRO TRADE LLC",
+   "description": "A comprehensive selection of premium Russian agricultural commodities."
+  },
+  "/en/about": {
+   "title": "From Russian Fields to International Markets | ALAA AGRO",
+   "description": "ALAA AGRO TRADE LLC is a Moscow-based agricultural trading company supplying selected Russian grains, pulses, oilseeds, seeds, and related commodities to international business customers. We focus on clear communication, agreed product specifications, flexible packaging, and long-term commercial cooperation."
+  },
+  "/en/quality": {
+   "title": "Our Commitment to Quality | ALAA AGRO",
+   "description": "Product parameters, documentation requirements, packaging, and commercial conditions are agreed before order confirmation."
+  },
+  "/en/packaging": {
+   "title": "Packaging & Logistics | ALAA AGRO",
+   "description": "Prepared for International Trade"
+  },
+  "/en/trade": {
+   "title": "International Trade | ALAA AGRO",
+   "description": "How We Work With International Buyers"
+  },
+  "/en/quote": {
+   "title": "Request a Quote | ALAA AGRO",
+   "description": "Please provide your details and product requirements for a tailored commercial offer."
+  },
+  "/en/contact": {
+   "title": "Contact | ALAA AGRO",
+   "description": "Get in touch to request a quote, inquire about specifications, or discuss partnership opportunities."
+  },
+  "/en/products/wheat": {
+   "title": "Wheat from Russia | ALAA AGRO TRADE LLC",
+   "description": "Russian wheat supplier. Protein 11.5–14%, gluten 23–30%. Flexible packaging. Request a quote."
+  },
+  "/en/products/corn": {
+   "title": "Corn / Maize from Russia | ALAA AGRO TRADE LLC",
+   "description": "Russian corn/maize supplier. Starch 70–72%. Request quote from ALAA AGRO."
+  },
+  "/en/products/barley": {
+   "title": "Barley from Russia | ALAA AGRO TRADE LLC",
+   "description": "Russian barley supplier. Protein 9–12%. Request quote."
+  },
+  "/en/products/oats": {
+   "title": "Oats from Russia | ALAA AGRO TRADE LLC",
+   "description": "Russian oats supplier. Fiber 8–10%. Request quote."
+  },
+  "/en/products/buckwheat": {
+   "title": "Buckwheat from Russia | ALAA AGRO TRADE LLC",
+   "description": "Russian buckwheat supplier. Protein 11–14%. Request quote."
+  },
+  "/en/products/millet": {
+   "title": "Millet from Russia | ALAA AGRO TRADE LLC",
+   "description": "Russian millet supplier. Protein 10–12%. Request quote."
+  },
+  "/en/products/sorghum": {
+   "title": "Sorghum from Russia | ALAA AGRO TRADE LLC",
+   "description": "Russian sorghum supplier. Protein 8–12%. Request quote."
+  },
+  "/en/products/chickpeas": {
+   "title": "Chickpeas from Russia | ALAA AGRO TRADE LLC",
+   "description": "Russian chickpeas supplier. Protein 18–22%, seed size 6–10 mm. Request quote."
+  },
+  "/en/products/lentils": {
+   "title": "Lentils from Russia | ALAA AGRO TRADE LLC",
+   "description": "Russian lentils supplier. Protein 20–26%. Request quote from ALAA AGRO."
+  },
+  "/en/products/peas": {
+   "title": "Green Peas from Russia | ALAA AGRO TRADE LLC",
+   "description": "Russian green peas supplier. Protein 20–24%. Request quote."
+  },
+  "/en/products/yellow-peas": {
+   "title": "Yellow Peas from Russia | ALAA AGRO TRADE LLC",
+   "description": "Russian yellow peas supplier. Protein 20–24%. Request quote."
+  },
+  "/en/products/brown-flaxseed": {
+   "title": "Brown Flaxseed from Russia | ALAA AGRO TRADE LLC",
+   "description": "Russian brown flaxseed supplier. Oil 38–45%, omega-3 rich. Request quote."
+  },
+  "/en/products/sunflower-seeds": {
+   "title": "Sunflower Seeds from Russia | ALAA AGRO TRADE LLC",
+   "description": "Russian sunflower seeds supplier. Oil 40–50%. Request quote."
+  },
+  "/en/products/spring-vetch": {
+   "title": "Spring Vetch Seeds from Russia | ALAA AGRO TRADE LLC",
+   "description": "Russian spring vetch seeds supplier. Protein 24–30%. Request quote."
+  },
+  "/en/products/coriander": {
+   "title": "Coriander Seeds from Russia | ALAA AGRO TRADE LLC",
+   "description": "Russian coriander supplier. Whole seeds, export quality. Request quote."
+  },
+  "/en/products/sunflower-oil": {
+   "title": "Sunflower Oil from Russia | ALAA AGRO TRADE LLC",
+   "description": "Russian sunflower oil supplier. Food-grade quality, multiple packaging. Request quote."
+  },
+  "/ru": {
+   "title": "АЛАА АГРО ТРЕЙД | Российская сельхозпродукция для мировой торговли",
+   "description": "Надёжные поставки зерновых, бобовых, масличных культур и семян из России для международных B2B-покупателей."
+  },
+  "/ru/products": {
+   "title": "Наша продукция | ALAA AGRO TRADE LLC",
+   "description": "Широкий выбор премиальной российской сельскохозяйственной продукции."
+  },
+  "/ru/about": {
+   "title": "С российских полей на международные рынки | ALAA AGRO",
+   "description": "ООО «АЛАА АГРО ТРЕЙД» — московская агроторговая компания, поставляющая отборные российские зерновые, бобовые, масличные культуры и семена международным клиентам. Мы ориентируемся на четкую коммуникацию, согласованные спецификации, гибкую упаковку и долгосрочное коммерческое сотрудничество."
+  },
+  "/ru/quality": {
+   "title": "Наша приверженность качеству | ALAA AGRO",
+   "description": "Параметры продукции, требования к документации, упаковка и коммерческие условия согласовываются перед подтверждением заказа."
+  },
+  "/ru/packaging": {
+   "title": "Упаковка и логистика | ALAA AGRO",
+   "description": "Готовность к международной торговле"
+  },
+  "/ru/trade": {
+   "title": "Международная торговля | ALAA AGRO",
+   "description": "Как мы работаем с международными покупателями"
+  },
+  "/ru/quote": {
+   "title": "Запросить цену | ALAA AGRO",
+   "description": "Пожалуйста, предоставьте ваши данные и требования к продукции для подготовки коммерческого предложения."
+  },
+  "/ru/contact": {
+   "title": "Контакты | ALAA AGRO",
+   "description": "Свяжитесь для запроса цен, уточнения спецификаций или обсуждения партнерства."
+  },
+  "/ru/products/wheat": {
+   "title": "Пшеница из России | ALAA AGRO TRADE LLC",
+   "description": "Поставщик российской пшеницы. Белок 11,5–14%, клейковина 23–30%. Запросить предложение."
+  },
+  "/ru/products/corn": {
+   "title": "Кукуруза из России | ALAA AGRO TRADE LLC",
+   "description": "Поставщик российской кукурузы. Крахмал 70–72%. Запросить предложение."
+  },
+  "/ru/products/barley": {
+   "title": "Ячмень из России | ALAA AGRO TRADE LLC",
+   "description": "Поставщик российского ячменя. Белок 9–12%. Запросить предложение."
+  },
+  "/ru/products/oats": {
+   "title": "Овёс из России | ALAA AGRO TRADE LLC",
+   "description": "Поставщик российского овса. Клетчатка 8–10%. Запросить предложение."
+  },
+  "/ru/products/buckwheat": {
+   "title": "Гречиха из России | ALAA AGRO TRADE LLC",
+   "description": "Поставщик российской гречихи. Белок 11–14%. Запросить предложение."
+  },
+  "/ru/products/millet": {
+   "title": "Просо из России | ALAA AGRO TRADE LLC",
+   "description": "Поставщик российского проса. Белок 10–12%. Запросить предложение."
+  },
+  "/ru/products/sorghum": {
+   "title": "Сорго из России | ALAA AGRO TRADE LLC",
+   "description": "Поставщик российского сорго. Белок 8–12%. Запросить предложение."
+  },
+  "/ru/products/chickpeas": {
+   "title": "Нут из России | ALAA AGRO TRADE LLC",
+   "description": "Поставщик российского нута. Белок 18–22%, размер семян 6–10 мм. Запросить предложение."
+  },
+  "/ru/products/lentils": {
+   "title": "Чечевица из России | ALAA AGRO TRADE LLC",
+   "description": "Поставщик российской чечевицы. Белок 20–26%. Запросить предложение."
+  },
+  "/ru/products/peas": {
+   "title": "Горох зелёный из России | ALAA AGRO TRADE LLC",
+   "description": "Поставщик российского зелёного гороха. Белок 20–24%. Запросить предложение."
+  },
+  "/ru/products/yellow-peas": {
+   "title": "Горох жёлтый из России | ALAA AGRO TRADE LLC",
+   "description": "Поставщик российского жёлтого гороха. Белок 20–24%. Запросить предложение."
+  },
+  "/ru/products/brown-flaxseed": {
+   "title": "Лён коричневый из России | ALAA AGRO TRADE LLC",
+   "description": "Поставщик коричневого льна. Масличность 38–45%, богат омега-3. Запросить предложение."
+  },
+  "/ru/products/sunflower-seeds": {
+   "title": "Семена подсолнечника из России | ALAA AGRO TRADE LLC",
+   "description": "Поставщик семян подсолнечника. Масличность 40–50%. Запросить предложение."
+  },
+  "/ru/products/spring-vetch": {
+   "title": "Вика яровая из России | ALAA AGRO TRADE LLC",
+   "description": "Поставщик вики яровой из России. Белок 24–30%. Запросить предложение."
+  },
+  "/ru/products/coriander": {
+   "title": "Кориандр из России | ALAA AGRO TRADE LLC",
+   "description": "Поставщик российского кориандра. Целые семена. Запросить предложение."
+  },
+  "/ru/products/sunflower-oil": {
+   "title": "Подсолнечное масло из России | ALAA AGRO TRADE LLC",
+   "description": "Поставщик российского подсолнечного масла. Пищевое качество, различная упаковка. Запросить предложение."
+  },
+  "/ar": {
+   "title": "ALAA AGRO TRADE LLC | منتجات زراعية روسية للتجارة العالمية",
+   "description": "توريد موثوق للحبوب والبقوليات والبذور الزيتية والبذور والسلع الزراعية من روسيا إلى المشترين الدوليين."
+  },
+  "/ar/products": {
+   "title": "منتجاتنا | ALAA AGRO TRADE LLC",
+   "description": "تشكيلة شاملة من السلع الزراعية الروسية الممتازة."
+  },
+  "/ar/about": {
+   "title": "من الحقول الروسية إلى الأسواق الدولية | ALAA AGRO",
+   "description": "ALAA AGRO TRADE LLC شركة تجارة زراعية مقرها موسكو، تورّد حبوباً وبقوليات وبذوراً زيتية وبذوراً وسلعاً زراعية روسية مختارة إلى العملاء التجاريين الدوليين. نركّز على التواصل الواضح، ومواصفات المنتجات المتفق عليها، والتعبئة المرنة، والتعاون التجاري طويل الأجل."
+  },
+  "/ar/quality": {
+   "title": "التزامنا بالجودة | ALAA AGRO",
+   "description": "يتم الاتفاق على معايير المنتج ومتطلبات المستندات والتعبئة والشروط التجارية قبل تأكيد الطلب."
+  },
+  "/ar/packaging": {
+   "title": "التعبئة والخدمات اللوجستية | ALAA AGRO",
+   "description": "جاهزون للتجارة الدولية"
+  },
+  "/ar/trade": {
+   "title": "التجارة الدولية | ALAA AGRO",
+   "description": "كيف نعمل مع المشترين الدوليين"
+  },
+  "/ar/quote": {
+   "title": "طلب عرض سعر | ALAA AGRO",
+   "description": "يرجى تقديم بياناتكم ومتطلبات المنتج للحصول على عرض تجاري مخصص."
+  },
+  "/ar/contact": {
+   "title": "اتصل بنا | ALAA AGRO",
+   "description": "تواصل معنا لطلب عرض سعر، أو الاستفسار عن المواصفات، أو مناقشة فرص الشراكة."
+  },
+  "/ar/products/wheat": {
+   "title": "قمح من روسيا | ALAA AGRO TRADE LLC",
+   "description": "مورّد قمح روسي. بروتين 11.5–14%، غلوتين 23–30%. تعبئة مرنة. اطلب عرض سعر."
+  },
+  "/ar/products/corn": {
+   "title": "ذرة من روسيا | ALAA AGRO TRADE LLC",
+   "description": "مورّد ذرة روسية. نشا 70–72%. اطلب عرض سعر من ALAA AGRO."
+  },
+  "/ar/products/barley": {
+   "title": "شعير من روسيا | ALAA AGRO TRADE LLC",
+   "description": "مورّد شعير روسي. بروتين 9–12%. اطلب عرض سعر."
+  },
+  "/ar/products/oats": {
+   "title": "شوفان من روسيا | ALAA AGRO TRADE LLC",
+   "description": "مورّد شوفان روسي. ألياف 8–10%. اطلب عرض سعر."
+  },
+  "/ar/products/buckwheat": {
+   "title": "حنطة سوداء من روسيا | ALAA AGRO TRADE LLC",
+   "description": "مورّد حنطة سوداء روسية. بروتين 11–14%. اطلب عرض سعر."
+  },
+  "/ar/products/millet": {
+   "title": "دخن من روسيا | ALAA AGRO TRADE LLC",
+   "description": "مورّد دخن روسي. بروتين 10–12%. اطلب عرض سعر."
+  },
+  "/ar/products/sorghum": {
+   "title": "ذرة رفيعة من روسيا | ALAA AGRO TRADE LLC",
+   "description": "مورّد ذرة رفيعة روسية. بروتين 8–12%. اطلب عرض سعر."
+  },
+  "/ar/products/chickpeas": {
+   "title": "حمص من روسيا | ALAA AGRO TRADE LLC",
+   "description": "مورّد حمص روسي. بروتين 18–22%، حجم البذرة 6–10 مم. اطلب عرض سعر."
+  },
+  "/ar/products/lentils": {
+   "title": "عدس من روسيا | ALAA AGRO TRADE LLC",
+   "description": "مورّد عدس روسي. بروتين 20–26%. اطلب عرض سعر من ALAA AGRO."
+  },
+  "/ar/products/peas": {
+   "title": "بازلاء خضراء من روسيا | ALAA AGRO TRADE LLC",
+   "description": "مورّد بازلاء خضراء روسية. بروتين 20–24%. اطلب عرض سعر."
+  },
+  "/ar/products/yellow-peas": {
+   "title": "بازلاء صفراء من روسيا | ALAA AGRO TRADE LLC",
+   "description": "مورّد بازلاء صفراء روسية. بروتين 20–24%. اطلب عرض سعر."
+  },
+  "/ar/products/brown-flaxseed": {
+   "title": "بذر كتان بني من روسيا | ALAA AGRO TRADE LLC",
+   "description": "مورّد بذر كتان بني روسي. نسبة الزيت 38–45%، غني بأوميغا-3. اطلب عرض سعر."
+  },
+  "/ar/products/sunflower-seeds": {
+   "title": "بذور دوار الشمس من روسيا | ALAA AGRO TRADE LLC",
+   "description": "مورّد بذور دوار الشمس الروسية. نسبة الزيت 40–50%. اطلب عرض سعر."
+  },
+  "/ar/products/spring-vetch": {
+   "title": "بذور البيقية الربيعية من روسيا | ALAA AGRO TRADE LLC",
+   "description": "مورّد بذور البيقية الربيعية الروسية. بروتين 24–30%. اطلب عرض سعر."
+  },
+  "/ar/products/coriander": {
+   "title": "بذور الكزبرة من روسيا | ALAA AGRO TRADE LLC",
+   "description": "مورّد كزبرة روسية. بذور كاملة بجودة تصديرية. اطلب عرض سعر."
+  },
+  "/ar/products/sunflower-oil": {
+   "title": "زيت دوار الشمس من روسيا | ALAA AGRO TRADE LLC",
+   "description": "مورّد زيت دوار الشمس الروسي. جودة غذائية، تعبئة متعددة. اطلب عرض سعر."
+  }
+ }
+}

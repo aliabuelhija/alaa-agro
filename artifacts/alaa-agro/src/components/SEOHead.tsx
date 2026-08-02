@@ -7,7 +7,7 @@ import {
   OG_LOCALE,
 } from '../i18n';
 
-const ORIGIN = 'https://alaa-argo.com';
+import { SITE_ORIGIN as ORIGIN } from '../config/site';
 
 interface SEOHeadProps {
   title: string;

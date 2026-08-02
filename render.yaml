@@ -40,5 +40,10 @@ services:
 
       - key: QUOTE_RECIPIENT_EMAIL
         value: Alaa.agro_trade@mail.ru
+      # Canonical origin for canonical/hreflang/og:url and the SEO manifest.
+      # Must match the domain verified in Search Console (AGRO, not ARGO).
+      - key: PUBLIC_ORIGIN
+        value: https://alaa-agro.com
+
       - key: NODE_ENV
         value: production

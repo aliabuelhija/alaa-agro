@@ -48,49 +48,129 @@ const staticDir =
 // 72 urls were duplicates of the homepage, which would drop the product pages
 // from the index entirely. SEOHead maintains these client-side once the app
 // boots; this covers the crawler's first, JS-free fetch.
-const ORIGIN = process.env["PUBLIC_ORIGIN"] ?? "https://alaa-argo.com";
-const SEO_LOCALES = ["en", "ru", "ar"] as const;
-const DEFAULT_SEO_LOCALE = "en";
+// The manifest is emitted by the frontend build (scripts/generate-seo.mjs) from
+// src/config/site.ts, so the origin and the per-route copy have exactly one
+// definition. PUBLIC_ORIGIN can override the origin for a staging host.
+interface SeoManifest {
+  origin: string;
+  locales: string[];
+  defaultLocale: string;
+  routes: Record<string, { title: string; description: string }>;
+}
+
+function loadSeoManifest(dir: string): SeoManifest {
+  const fallback: SeoManifest = {
+    origin: "https://alaa-agro.com",
+    locales: ["en", "ru", "ar"],
+    defaultLocale: "en",
+    routes: {},
+  };
+  try {
+    const raw = fs.readFileSync(path.join(dir, "seo-manifest.json"), "utf8");
+    const parsed = JSON.parse(raw) as SeoManifest;
+    if (!parsed.origin || !parsed.routes) throw new Error("malformed manifest");
+    return parsed;
+  } catch (err) {
+    logger.warn(
+      { err },
+      "seo-manifest.json missing or unreadable — falling back to origin-only SEO tags",
+    );
+    return fallback;
+  }
+}
+
 const OG_LOCALE: Record<string, string> = {
   en: "en_US",
   ru: "ru_RU",
   ar: "ar_AE",
 };
 
-function seoLinksFor(urlPath: string): string {
+const HTML_ESCAPES: Record<string, string> = {
+  "&": "&amp;",
+  "<": "&lt;",
+  ">": "&gt;",
+  '"': "&quot;",
+};
+
+/** Metadata comes from our own build, but it still lands inside HTML attributes. */
+function escapeAttr(value: string): string {
+  return value.replace(/[&<>"]/g, (c) => HTML_ESCAPES[c] ?? c);
+}
+
+function buildSeoHead(seo: SeoManifest, urlPath: string): string {
+  const origin = process.env["PUBLIC_ORIGIN"] ?? seo.origin;
   const clean = urlPath.split("?")[0]!.replace(/\/+$/, "") || "/";
-  const match = clean.match(/^\/(en|ru|ar)(\/.*)?$/);
-  const locale = match?.[1] ?? DEFAULT_SEO_LOCALE;
+  const localeRe = new RegExp(`^/(${seo.locales.join("|")})(/.*)?$`);
+  const match = clean.match(localeRe);
+  const locale = match?.[1] ?? seo.defaultLocale;
   const rest = match?.[2] ?? "";
-  const canonical = `${ORIGIN}/${locale}${rest}`;
+  const canonical = `${origin}/${locale}${rest}`;
 
-  const alternates = SEO_LOCALES.map(
-    (l) =>
-      `<link rel="alternate" hreflang="${l}" href="${ORIGIN}/${l}${rest}" />`,
-  ).join("\n    ");
-
-  return [
+  const tags = [
     `<link rel="canonical" href="${canonical}" />`,
-    alternates,
-    `<link rel="alternate" hreflang="x-default" href="${ORIGIN}/${DEFAULT_SEO_LOCALE}${rest}" />`,
+    ...seo.locales.map(
+      (l) => `<link rel="alternate" hreflang="${l}" href="${origin}/${l}${rest}" />`,
+    ),
+    `<link rel="alternate" hreflang="x-default" href="${origin}/${seo.defaultLocale}${rest}" />`,
     `<meta property="og:url" content="${canonical}" />`,
     `<meta property="og:locale" content="${OG_LOCALE[locale] ?? "en_US"}" />`,
-    ...SEO_LOCALES.filter((l) => l !== locale).map(
-      (l) => `<meta property="og:locale:alternate" content="${OG_LOCALE[l]}" />`,
-    ),
-  ].join("\n    ");
+    ...seo.locales
+      .filter((l) => l !== locale)
+      .map((l) => `<meta property="og:locale:alternate" content="${OG_LOCALE[l]}" />`),
+  ];
+
+  // Route-specific title and description. Without this every url returns the
+  // homepage's, because they all share one index.html. Unknown routes (a 404
+  // path, say) simply keep the shell's defaults.
+  const meta = seo.routes[`/${locale}${rest}`];
+  if (meta) {
+    const title = escapeAttr(meta.title);
+    const description = escapeAttr(meta.description);
+    tags.push(
+      `<title>${title}</title>`,
+      `<meta name="description" content="${description}" />`,
+      `<meta property="og:title" content="${title}" />`,
+      `<meta property="og:description" content="${description}" />`,
+      `<meta name="twitter:title" content="${title}" />`,
+      `<meta name="twitter:description" content="${description}" />`,
+    );
+  }
+
+  return tags.join("\n    ");
+}
+
+/**
+ * The shell ships a default title/description/og pair for the site root. When a
+ * route has its own, strip the defaults so the document does not end up with two
+ * of each — crawlers pick unpredictably between duplicates.
+ */
+function stripShellMeta(html: string): string {
+  return html
+    .replace(/\n?\s*<title>[\s\S]*?<\/title>/i, "")
+    .replace(/\n?\s*<meta\s+name="description"[\s\S]*?\/>/i, "")
+    .replace(/\n?\s*<meta\s+property="og:title"[\s\S]*?\/>/i, "")
+    .replace(/\n?\s*<meta\s+property="og:description"[\s\S]*?\/>/i, "")
+    .replace(/\n?\s*<meta\s+name="twitter:title"[\s\S]*?\/>/i, "")
+    .replace(/\n?\s*<meta\s+name="twitter:description"[\s\S]*?\/>/i, "");
 }
 
 if (fs.existsSync(staticDir)) {
   const indexHtml = path.join(staticDir, "index.html");
-  // Read once; the file only changes on deploy.
+  // Read once; both only change on deploy.
   const shell = fs.readFileSync(indexHtml, "utf8");
+  const seo = loadSeoManifest(staticDir);
   const hasPlaceholder = shell.includes("<!--SEO_LINKS-->");
   if (!hasPlaceholder) {
     logger.warn(
       "index.html has no <!--SEO_LINKS--> placeholder — canonical and hreflang will not be per-URL",
     );
   }
+  // Pre-strip the shell's default title/description once, rather than per request.
+  const shellNoMeta = stripShellMeta(shell);
+  logger.info(
+    { origin: process.env["PUBLIC_ORIGIN"] ?? seo.origin, routes: Object.keys(seo.routes).length },
+    "SEO manifest loaded",
+  );
 
   // Vite fingerprints filenames under /assets, so those can be cached hard.
   app.use(
@@ -135,7 +215,10 @@ if (fs.existsSync(staticDir)) {
       res.sendFile(indexHtml);
       return;
     }
-    res.type("html").send(shell.replace("<!--SEO_LINKS-->", seoLinksFor(req.path)));
+    const head = buildSeoHead(seo, req.path);
+    // Only drop the shell's defaults when this route supplied its own.
+    const base = head.includes("<title>") ? shellNoMeta : shell;
+    res.type("html").send(base.replace("<!--SEO_LINKS-->", head));
   });
 
   logger.info({ staticDir }, "Serving static site from this process");

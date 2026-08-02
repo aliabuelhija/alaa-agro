@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: https://alaa-argo.com/sitemap.xml
+
+Sitemap: https://alaa-agro.com/sitemap.xml

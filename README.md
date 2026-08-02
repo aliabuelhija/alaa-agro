@@ -4,12 +4,21 @@ Bilingual (EN/RU) marketing and lead-capture site for ALAA AGRO TRADE LLC, a
 Russian exporter of grains, pulses, oilseeds, seeds and sunflower oil to
 international B2B buyers.
 
-Live at **https://alaa-argo.com** (Cloudflare in front of Render). The Render
-service is also reachable directly at https://alaa-agro.onrender.com.
+**Canonical domain: https://alaa-agro.com** — this is what Search Console and
+Yandex Webmaster are verified for, and what every canonical, hreflang, og:url and
+sitemap entry points at. It is defined once in
+`artifacts/alaa-agro/src/config/site.ts`.
 
-Note the spelling: the domain is `alaa-argo` (r before g), while the workspace
-package and directory are `alaa-agro`. Canonical URLs, hreflang and the sitemap
-must all use the domain spelling.
+`https://alaa-argo.com` (note: ARGO, r before g) is a second domain we also own.
+It currently serves the same site with HTTP 200, which is duplicate content — a
+permanent redirect to alaa-agro.com is still to be configured in Cloudflare. Do
+not use it for SEO URLs.
+
+The one place ARGO is correct is `BREVO_SENDER_EMAIL`: the DKIM/DMARC records
+were verified on alaa-argo.com, so changing the sender would break quote emails
+until that domain is authenticated in Brevo separately.
+
+The Render service is also reachable directly at https://alaa-agro.onrender.com.
 
 ## Run locally
 
@@ -32,7 +41,7 @@ Other commands:
 pnpm run typecheck                              # whole workspace
 pnpm run build                                  # typecheck + build both packages
 pnpm --filter @workspace/db run push            # push DB schema (dev only)
-pnpm --filter @workspace/alaa-agro run gen:sitemap  # regenerate public/sitemap.xml
+pnpm --filter @workspace/alaa-agro run gen:seo      # sitemap.xml + robots.txt + seo-manifest.json
 ```
 
 ## Stack
@@ -81,7 +90,8 @@ Source of truth for content:
   non-fatal that shows up as leads arriving with no notification.
 - **Every product needs both languages.** `products.ts` carries `*Ru` variants
   alongside the English fields; `i18n/en.ts` and `i18n/ru.ts` must stay in step.
-- **`sitemap.xml` is generated**, not hand-edited — see `gen:sitemap`. It has to
+- **`sitemap.xml`, `robots.txt` and `seo-manifest.json` are generated**, not
+  hand-edited — see `gen:seo`, which runs as part of `build`. The sitemap has to
   include the product detail pages, which are the highest-intent SEO pages.
 - **`index.html` meta tags matter.** Crawlers and link-preview scrapers do not
   run the JS that `SEOHead` uses to patch the document, so the static tags must
