@@ -42,8 +42,55 @@ const staticDir =
   process.env["STATIC_DIR"] ??
   path.resolve(import.meta.dirname, "../../alaa-agro/dist/public");
 
+// ── Per-request SEO links ────────────────────────────────────────────────────
+// Every route is served the same index.html, so anything URL-specific has to be
+// injected here. A hardcoded canonical is worse than none: it told crawlers all
+// 72 urls were duplicates of the homepage, which would drop the product pages
+// from the index entirely. SEOHead maintains these client-side once the app
+// boots; this covers the crawler's first, JS-free fetch.
+const ORIGIN = process.env["PUBLIC_ORIGIN"] ?? "https://alaa-argo.com";
+const SEO_LOCALES = ["en", "ru", "ar"] as const;
+const DEFAULT_SEO_LOCALE = "en";
+const OG_LOCALE: Record<string, string> = {
+  en: "en_US",
+  ru: "ru_RU",
+  ar: "ar_AE",
+};
+
+function seoLinksFor(urlPath: string): string {
+  const clean = urlPath.split("?")[0]!.replace(/\/+$/, "") || "/";
+  const match = clean.match(/^\/(en|ru|ar)(\/.*)?$/);
+  const locale = match?.[1] ?? DEFAULT_SEO_LOCALE;
+  const rest = match?.[2] ?? "";
+  const canonical = `${ORIGIN}/${locale}${rest}`;
+
+  const alternates = SEO_LOCALES.map(
+    (l) =>
+      `<link rel="alternate" hreflang="${l}" href="${ORIGIN}/${l}${rest}" />`,
+  ).join("\n    ");
+
+  return [
+    `<link rel="canonical" href="${canonical}" />`,
+    alternates,
+    `<link rel="alternate" hreflang="x-default" href="${ORIGIN}/${DEFAULT_SEO_LOCALE}${rest}" />`,
+    `<meta property="og:url" content="${canonical}" />`,
+    `<meta property="og:locale" content="${OG_LOCALE[locale] ?? "en_US"}" />`,
+    ...SEO_LOCALES.filter((l) => l !== locale).map(
+      (l) => `<meta property="og:locale:alternate" content="${OG_LOCALE[l]}" />`,
+    ),
+  ].join("\n    ");
+}
+
 if (fs.existsSync(staticDir)) {
   const indexHtml = path.join(staticDir, "index.html");
+  // Read once; the file only changes on deploy.
+  const shell = fs.readFileSync(indexHtml, "utf8");
+  const hasPlaceholder = shell.includes("<!--SEO_LINKS-->");
+  if (!hasPlaceholder) {
+    logger.warn(
+      "index.html has no <!--SEO_LINKS--> placeholder — canonical and hreflang will not be per-URL",
+    );
+  }
 
   // Vite fingerprints filenames under /assets, so those can be cached hard.
   app.use(
@@ -84,7 +131,11 @@ if (fs.existsSync(staticDir)) {
       next();
       return;
     }
-    res.sendFile(indexHtml);
+    if (!hasPlaceholder) {
+      res.sendFile(indexHtml);
+      return;
+    }
+    res.type("html").send(shell.replace("<!--SEO_LINKS-->", seoLinksFor(req.path)));
   });
 
   logger.info({ staticDir }, "Serving static site from this process");

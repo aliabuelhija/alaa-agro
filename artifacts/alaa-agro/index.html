@@ -26,11 +26,18 @@
          the verifier does not run JS, so SEOHead cannot supply it. -->
     <meta name="yandex-verification" content="344bd44a2530f24a" />
 
-    <link rel="canonical" href="https://alaa-argo.com/en" />
+    <!--
+      SEO_LINKS is replaced per request by the server with the canonical, og:url
+      and hreflang set for THIS url. It must not be hardcoded here: every route
+      is served this same file, so a fixed canonical told crawlers that all 72
+      urls were duplicates of the homepage. SEOHead keeps them correct during
+      client-side navigation; this covers the crawler's first, JS-free fetch.
+      In dev the placeholder simply stays a comment.
+    -->
+    <!--SEO_LINKS-->
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="ALAA AGRO TRADE LLC" />
-    <meta property="og:url" content="https://alaa-argo.com/en" />
     <meta
       property="og:title"
       content="ALAA AGRO TRADE LLC | Russian Agricultural Products for Global Trade"
@@ -55,9 +62,6 @@
       property="og:image:alt"
       content="ALAA AGRO TRADE LLC — Russian agricultural products for global trade"
     />
-    <meta property="og:locale" content="en_US" />
-    <meta property="og:locale:alternate" content="ru_RU" />
-    <meta property="og:locale:alternate" content="ar_AE" />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta
@@ -74,10 +78,6 @@
       content="ALAA AGRO TRADE LLC — Russian agricultural products for global trade"
     />
 
-    <link rel="alternate" hreflang="en" href="https://alaa-argo.com/en" />
-    <link rel="alternate" hreflang="ru" href="https://alaa-argo.com/ru" />
-    <link rel="alternate" hreflang="ar" href="https://alaa-argo.com/ar" />
-    <link rel="alternate" hreflang="x-default" href="https://alaa-argo.com/en" />
 
     <link rel="icon" type="image/png" href="/alaa-agro-logo.png" />
     <link
